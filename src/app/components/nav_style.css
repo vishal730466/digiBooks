@@ -1,0 +1,150 @@
+.m_nav{
+    height: 80px;
+    width: 80px;
+    
+    border-radius: 50%;
+    position: absolute;
+    left: 0%;
+    top: 45vh;
+
+    background-color: rgba(178, 216, 235, 0.363);
+    box-shadow: 5px 5px 5px rgba(97, 99, 105, 0.418)
+   
+    ;
+  /*   inset -5px -5px 5px rgba(245, 245, 245, 0.9);  */
+   z-index: 10;
+    color: black;
+}
+
+.ml1{
+   display: none;
+
+   position: relative;
+   bottom: 100px;
+   left: 100px;
+}
+.ml2{
+    /*border: 2px solid; */
+    position: relative;
+    bottom: 50px;
+    left: 100px;
+ }
+ .ml3{
+     /* border: 2px solid; */
+    position: relative;
+    bottom: 0px;
+    left: 100px;
+ }
+ .ml4{
+   /*border: 2px solid; */
+  position: relative;
+  bottom: -50px;
+  left: 100px;
+}
+
+ .ml1 , .ml2 ,.ml3 , .ml4{
+   position: absolute;
+  /* display: none; */
+ 
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   height: 40px;
+   width: 100px;
+   background-color: rgba(219, 214, 214, 0.635);
+   box-shadow:inset 5px 5px 5px -5px rgb(122, 134, 182),
+    -5px -5px 5px -5px rgba(124, 173, 169, 0.9);
+   color: black;
+ }
+
+ .navstyle{
+  height: 160px;
+  width: 10px;
+  background-color: brown;
+  position: relative;
+  bottom: 50px;
+  left: 85px;  
+
+  background-color: rgb(230, 224, 224);
+/*  box-shadow:inset 5px 5px 5px  rgb(34, 35, 36);  */
+
+  color: black;
+ }
+
+ @keyframes a1{
+  0%{
+    left:0px;
+
+  }
+  100%{
+ 
+  }
+ }
+
+ @keyframes a2{
+  0%{
+    left:0px;
+ bottom: 0px;
+  }
+  100%{
+ 
+  }
+ }
+ @keyframes a3{
+  0%{
+   height: 0px;
+   left: 0;
+   bottom: 0;
+  }
+  90%{
+   
+     height: 160px;
+  }
+ }
+
+ /* ----------------------- */
+ 
+.nav {
+    height: 80px;
+    width: 100vw;
+    display: flex;
+    list-style: none;
+    justify-content: space-around;  
+    align-items: center;
+  
+  }
+  
+  .myul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 150px;
+    border: none;
+  
+    text-decoration: none;
+    background-color: rgba(207, 203, 203, 0.61);
+    box-shadow: inset 3px 3px 3px rgba(38, 39, 43, 0.473),
+      inset -3px -3px 3px white;
+  
+    color: rgb(40, 46, 49);
+  
+  }
+  
+  a {
+    text-decoration: none;
+    font-weight: 700;
+  }
+  
+  #con {
+    height: 500px;
+    width: 500px;
+    border: 2px solid;
+  }
+
+  #mynav{
+    background-color: rgba(230, 221, 221, 0.947);
+    /* background-color: rgba(182, 177, 177, 0.374); */
+  
+  
+  }
