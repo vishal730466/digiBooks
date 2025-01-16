@@ -15,7 +15,7 @@ const SignUp = () => {
 
   const printdata =async()=>{
     // console.log(name,password,c_password)
-    let result= await fetch("http://localhost:3000/api/hello",{
+    let result= await fetch("http://https://digi-books-seven.vercel.app/api/hello:app/app/hello",{
       method:"POST",
       body:JSON.stringify({name,password,signup:true})
     })
