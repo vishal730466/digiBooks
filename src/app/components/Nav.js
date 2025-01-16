@@ -2,17 +2,41 @@
 import React from 'react'
 import Link from 'next/link'
 import './nav_style.css'
-
+import Login from './login'
+// import { createContext, useContext } from 'react'
+ import Logcontext from './mycontext'
 import { useRef, useEffect, useState } from 'react';
+import SignUp from './signUp'
+import LogOut from './logOut'
+
 
 export const Nav = () => {
   const divRef = useRef(null);
   const [width, setWidth] = useState(0);
+  const [login, setlogin] = useState(false);
+  const [signup, setsignup] = useState(false);
+  const [loggedin, setloggedin] = useState(false);
+  const [turn , setTurn] = useState("login")
 
+  const logref = useRef("")
 
+  const display_form = ()=>{
+    if (turn == "login") {
+      setlogin(true)
+    } else if(turn== "loggedin"){
+      setloggedin(true)
+      
+    }else{
+
+    }
+  }
  
 
   useEffect(() => {
+    // if(loggedin && logref.current){
+    //   logref.current.style.display="none"
+    //   console.log("hide logref")
+    // }
     const divElement = divRef.current;
 
     if (divElement) {
@@ -81,7 +105,8 @@ export const Nav = () => {
     for (var i = 0; i < divs.length; i++) {
       if (divs[i].style.display === "none" ) {
         divs[i].style.display = "block";
-      }/*
+      }
+      /*
       else if( divs[i].style.display === ""){
         divs[i].style.display = "none";
       } */
@@ -101,16 +126,23 @@ export const Nav = () => {
     return (
 
       <div id='mynav'>
+            <Logcontext.Provider value={{setloggedin,setTurn,setlogin,setsignup}}> 
 
         <ul className='nav' > 
           <Link href="/"><li className="myul"> Home</li></Link>
           <Link href="/about"> <li className="myul">About</li></Link>
-          <Link href="/cart"> <li className="myul">Contact</li></Link>
           <Link href="/Move"> <li className="myul">Setting</li></Link> 
+          <Link href="/" onClick={display_form}> <li className="myul">Login</li></Link>
         </ul>
         <div ref={divRef} style={{ width: "100%", color: "red" ,display:"none"}}>
 
         </div>
+        
+        {login ? <Login/> : null}
+        {signup ? <SignUp/>: null}
+          {loggedin? <LogOut/>:null}
+
+        </Logcontext.Provider>
       </div>
 
     )
