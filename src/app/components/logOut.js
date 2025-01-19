@@ -7,7 +7,7 @@ const LogOut = () => {
   return (
     <div className='div_center'> <div className='cancel_btn' onClick={()=>mycontext.setloggedin(false)}>X</div>
     <h1> LogOut </h1>
-      <button className='submit_btn' onClick={()=>{mycontext.setloggedin(false) , mycontext.setlogin(true)}}>Logout</button>
+      <button className='submit_btn' onClick={()=>{mycontext.setloggedin(false) , mycontext.setlogin(true),mycontext.setTurn("login")}}>Logout</button>
       <div className='background '>cover</div>
     </div>
   )

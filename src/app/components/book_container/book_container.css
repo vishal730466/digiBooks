@@ -1,0 +1,19 @@
+.main_book{
+    position: absolute;
+    left: 15vw;
+    top: 5vh;
+    height: 70vh;
+    width: 70vw;
+    border: 2px solid blue;
+    z-index: 13;
+}
+.background2{
+    position: absolute;
+    left: -15vw;
+    top: -5vh;
+    height: 80vh;
+    width: 99vw;
+    background-color: aqua;
+    
+    z-index: -1;
+  }

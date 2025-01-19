@@ -1,8 +1,10 @@
 .container{
+  position: absolute;
   background-color: rgba(230, 221, 221, 0.947);
-  height: 90vh;
+  top: 15vh;
+  height: calc(85vh - 4px);
   width: 100vw;
-
+  /* border: 2px solid; */
 };
 
 html,
@@ -23,3 +25,29 @@ a {
 }
 
 
+
+.books_container{
+  position: absolute;
+  top: 0vh;
+  height: 80vh;
+  width: 100vw;
+  border: 2px solid red;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  /* align-items: center; */
+  z-index: 5;
+}
+.box{
+  
+  height: 15vw;
+  width: 15vw;
+  margin: 5vh;
+}
+/* .background1{
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  background-color: aqua;
+  top: 0;
+} */
