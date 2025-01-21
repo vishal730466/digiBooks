@@ -12,7 +12,7 @@ export default function Home() {
    <>
    <Nav/>
    <div className="container">
-   Main page
+   
    <Book_container/>
   
 

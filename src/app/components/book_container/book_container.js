@@ -3,58 +3,61 @@ import React, { useRef , useState, createContext } from 'react';
 import Python from '../books/python';
 import "./book_container.css"
 import { PageContext } from '../mycontext';
+
 const BookContainer = () => {
-    // const pageContext=createContext()
-    const books = [<Python/>,<Python/>];
-    const refs = useRef([]);
-    const [activeIndex, setActiveIndex] = useState(null);
+    const books = [<Python/>,<Python/>,<Python/>,<Python/>,<Python/>,<Python/>];
     const [pageNo , setpageNo] = useState(0)
-
-    const displayBook = (index) => {
-        refs.current.forEach((box, idx) => {
-            if (box) {
-                if (idx === index) {
-                    // Maximize the clicked box
-                    // box.style.height = "500px";
-                    // box.style.width = "500px";
-                    // box.style.border = "2px solid blue";
-                    setActiveIndex(index)
-                    console.log(index)
-
-                } else {
-                    // Minimize all other boxes
-                    box.style.height = "100px";
-                    box.style.width = "100px";
-                    box.style.border = "1px solid black";
-                }
-            }
-        });
+    const [isAnimating, setIsAnimating] = useState(false);
+    const [activeIndex, setActiveIndex] = useState(null);
+    const refs = useRef([]);
+    
+    const handleNext = () => {
+        setpageNo(pageNo+1)
+        if (!isAnimating) {
+            console.log("animation ",pageNo);
+            setIsAnimating(true); 
+            setTimeout(() => setIsAnimating(false), 2000); // Reset after animation duration
+            // setTimeout(()=>{setpageNo(pageNo+1)},500)
+        }
     };
 
-    return (
 
-        <div className="books_container"> <PageContext.Provider value={{pageNo,setpageNo}}>
+    return (
+        
+        <div className="books_container"> <PageContext.Provider value={{pageNo,setpageNo,setActiveIndex}}>
             {books.map((book, index) => (
                 <div
                     key={index}
                     className="box"
                     ref={(el) => {(refs.current[index] = el)}}
-                    onClick={() => displayBook(index)}
+                    // onClick={() => displayBook(index)}
+                    onClick={()=>setActiveIndex(index)}
                 >
-                    {books[index]}
-                    {/* <Python /> */}
+                
+                   {!activeIndex && book}
+           
                 </div>
             ))}
             {activeIndex !== null &&
-             <div className='main_book'>
-            {books[activeIndex]} <button onClick={()=>{setpageNo(pageNo+1)}}>next</button>
-            <div className='background2' onClick={()=>{setActiveIndex(null)}}>this is background</div>
-            {console.log("page no is ", pageNo)}
+             <div id='main_book'  
+            //  className={ `background2 ${isAnimating ? "animate" : ""}`}
+             >
+            {books[activeIndex]} 
+            <div className='background2' onClick={()=>{setActiveIndex(null),setpageNo(0)}}>this is background</div>
+            
+            <div className='btn_container'>
+            <button className='next_btn'>book_mark</button>
+            <button className='next_btn' onClick={handleNext}>next</button>
+            <button className='next_btn'>back</button>
+            <button className='next_btn'>download</button>
+            </div>
+
             </div>
              }
-            {/* <Python/> */}
+
             </PageContext.Provider>
         </div>
+        
     );
 };
 

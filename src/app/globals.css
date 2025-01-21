@@ -26,24 +26,8 @@ a {
 
 
 
-.books_container{
-  position: absolute;
-  top: 0vh;
-  height: 80vh;
-  width: 100vw;
-  border: 2px solid red;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  /* align-items: center; */
-  z-index: 5;
-}
-.box{
-  
-  height: 15vw;
-  width: 15vw;
-  margin: 5vh;
-}
+
+
 /* .background1{
   position: absolute;
   height: 100vh;
