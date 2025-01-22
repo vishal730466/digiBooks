@@ -11,6 +11,7 @@ const BookContainer = () => {
     const [activeIndex, setActiveIndex] = useState(null);
     const refs = useRef([]);
     
+    
     const handleNext = () => {
         setpageNo(pageNo+1)
         if (!isAnimating) {

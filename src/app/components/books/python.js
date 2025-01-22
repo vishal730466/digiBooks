@@ -30,7 +30,7 @@ const Python = () => {
            Here’s a list  of some notable companies leveraging Next.js for their applications:
         </p>
         <p>Vercel Netflix Twitch Uber GitHub Starbucks TikTok Target Nike </p>
-        <p> sources Chat Gpt</p>
+
       </div>
     ]
   }
@@ -44,20 +44,58 @@ const Python = () => {
 
       <div className=''><Image src="/html_css_js.jpg" alt='html css and js' width={180} height={100}/></div>
       </div>,
+
       <div className='book pybook' key="2">
-         <p><iframe width="200" height="115" src="https://www.youtube.com/embed/lArm8yQlskc?si=2H0ISI-tCa6_AVMc" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe></p>
-      </div>
+
+        <p><b>Recommended YouTube Videos</b> </p>
+
+        <p>this is video</p>
+       <div className='py_page2_con'>
+
+       <iframe width="180" height="90" src="https://www.youtube.com/embed/9cmy6AK3IBA?si=uVOo7NkoG6_Qvggz" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
+
+       <iframe width="180" height="90" src="https://www.youtube.com/embed/9cmy6AK3IBA?si=uVOo7NkoG6_Qvggz" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
+       </div>
+
+      <p>this is video</p>
+       <div className='py_page2_con'>
+
+       <iframe width="180" height="90" src="https://www.youtube.com/embed/NhgcuSmw1u8?si=oHZRH-GI99ntA9MW" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
+
+       <iframe width="180" height="90" src="https://www.youtube.com/embed/NhgcuSmw1u8?si=oHZRH-GI99ntA9MW" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
+       </div>
+
+       <p>this is video</p>
+       <div className='py_page2_con'>
+
+       <iframe width="180" height="90" src="https://www.youtube.com/embed/NhgcuSmw1u8?si=oHZRH-GI99ntA9MW" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
+
+       <iframe width="180" height="90" src="https://www.youtube.com/embed/NhgcuSmw1u8?si=oHZRH-GI99ntA9MW" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
+       </div>
+
+         </div>
     ]
   }
   else {
     return [
-      <div className='book' key="1">   <h1><p>How do I get started with Next.js?</p></h1>
+      <div className='book pybook' key="1">   <h1><p>How do I get started with Next.js?</p></h1>
       <p> visit<a href='https://nextjs.org/docs/app/api-reference/cli/create-next-app'> Next js official website</a></p>
    
-   
+      <iframe width="280" height="150" src="https://www.youtube.com/embed/tSLCnixOU7w?si=ewTWgITQ-MIhCUAI" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
+
+          
+      <iframe width="280" height="150" src="https://www.youtube.com/embed/tSLCnixOU7w?si=ewTWgITQ-MIhCUAI" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
       </div>,
       <div className='book' key="2">
+        <p>Road map for learning next js</p>
+        <p>"The world of web development is vast. Keep exploring, experimenting, and building amazing applications!"</p>
+        <p>Thank you for reading! I hope this ebook has helped you in your journey to learn Next.js</p>
+        <p>Your feedback is valuable! Feel free to share your thoughts or reach out at [your email or website].</p>
+
+        <p>Sources: ChatGPT and other AI tools.</p>
         <button onClick={() => { page.setpageNo(0), page.setActiveIndex(null) }}>close</button>
+
+        
       </div>
     ]
   }
