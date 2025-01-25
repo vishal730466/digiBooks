@@ -12,6 +12,12 @@ const Setting = () => {
     const [log_background_color , setlog_background_color]=useState(localStorage.getItem("log_background_color")||"")
     const [inp_background_color,setinp_background_color] = useState(localStorage.getItem("inp_background_color")||"")
     const [inp_text_color , setinp_text_color]=useState(localStorage.getItem("inp_text_color")||"")
+  }else{
+       
+    const [log_color , setlog_color]=useState("")
+    const [log_background_color , setlog_background_color]=useState("")
+    const [inp_background_color,setinp_background_color] = useState("")
+    const [inp_text_color , setinp_text_color]=useState("")
   }
 
 
