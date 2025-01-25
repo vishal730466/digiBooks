@@ -11,12 +11,18 @@ const Login = () => {
   const [name,setname]=useState("")
   const [password,setpassword]=useState("")
 
+  const [text_color,set_text_color]=useState("")
+  const [background_color,set_background_color]=useState("")
+  const [inp_background_color,set_inp_background_color]=useState("")
+  const [inp_text_color,set_inp_text_color]=useState("")
+
+
   useEffect(()=>{
     if (typeof window !== "undefined") {
-      const text_color=localStorage.getItem("log_color")
-  const background_color=localStorage.getItem("log_background_color")
-  const inp_background_color=localStorage.getItem("inp_background_color")
-  const inp_text_color =localStorage.getItem("inp_text_color")
+      set_text_color(localStorage.getItem("log_color"))
+      set_background_color(localStorage.getItem("log_background_color"))
+      set_inp_background_color(localStorage.getItem("inp_background_color"))
+      set_inp_text_color(localStorage.getItem("inp_text_color"))
 
     }
   },[])
