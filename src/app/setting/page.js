@@ -39,19 +39,19 @@ const Setting = () => {
     <div className='setting_con'>
 
         <p> login page text color</p>
-      <input type='color' value={log_color} onChange={(e)=>{setlog_color(e.target.value)}}/>
+      <input type='color' value={log_color} onChange={(e)=>{setLogColor(e.target.value)}}/>
       <br/><br/>
       <p> login page background_color color</p>
-      <input type='color' value={log_background_color} onChange={(e)=>{setlog_background_color(e.target.value)}}/>
+      <input type='color' value={log_background_color} onChange={(e)=>{setLogBackgroundColor(e.target.value)}}/>
       <br/><br/>
       <p> color input</p>
       <input type="reset"  onChange={update}/>
       <br/><br/>
       <p> input background_color </p>
-      <input type='color' value={inp_background_color} onChange={(e)=>{setinp_background_color(e.target.value)}}/>
+      <input type='color' value={inp_background_color} onChange={(e)=>{setInpBackgroundColor(e.target.value)}}/>
       <br/><br/>
       <p> input text color </p>
-      <input type='color' value={inp_text_color} onChange={(e)=>{setinp_text_color(e.target.value)}}/>
+      <input type='color' value={inp_text_color} onChange={(e)=>{setInpTextColor(e.target.value)}}/>
       <br/><br/>
       <button onClick={update}>  update </button>
         Setting
