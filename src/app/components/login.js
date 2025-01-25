@@ -18,7 +18,7 @@ const Login = () => {
 
 
   const printdata =async()=>{
-    let result= await fetch("/api/hello",{
+    let result= await fetch("https://digi-books-seven.vercel.app/api/hello",{
       method:"POST",
       body:JSON.stringify({name,password,login:true})
     })
