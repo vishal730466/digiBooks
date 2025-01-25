@@ -54,7 +54,7 @@ const Setting = () => {
       <input type='color' value={inp_text_color} onChange={(e)=>{setInpTextColor(e.target.value)}}/>
       <br/><br/>
       <button onClick={update}>  update </button>
-        Setting
+        
     </div></>
   )
 }

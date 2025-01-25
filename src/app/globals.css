@@ -39,6 +39,7 @@ a {
 .setting_con{
   margin-top: 15vh;
   border: 2px solid;
+  margin-left: 1vw;
 }
 .setting_top{width: 100vw;
   height: 10vh;
