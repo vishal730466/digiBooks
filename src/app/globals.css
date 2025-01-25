@@ -35,3 +35,12 @@ a {
   background-color: blueviolet;
   z-index: 20;
 }
+
+.setting_con{
+  margin-top: 10vh;
+  border: 2px solid;
+}
+.setting_top{
+  position: absolute;
+  top: 0;
+}

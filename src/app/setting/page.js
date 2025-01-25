@@ -1,5 +1,6 @@
 "use client"
 import React, { useState } from 'react'
+import Nav from '../components/Nav'
 // import { StyleContext } from '../components/mycontext'
 // import Login from '../components/login'
 
@@ -19,7 +20,12 @@ const Setting = () => {
 
     }
   return (
-    <div>
+    <>
+      <div className='setting_top'>
+      {/* <Nav /> */}
+      </div>
+    <div className='setting_con'>
+
         <p> login page text color</p>
       <input type='color' value={log_color} onChange={(e)=>{setlog_color(e.target.value)}}/>
       <br/><br/>
@@ -37,7 +43,7 @@ const Setting = () => {
       <br/><br/>
       <button onClick={update}>  update </button>
         Setting
-    </div>
+    </div></>
   )
 }
 
