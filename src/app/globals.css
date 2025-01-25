@@ -37,10 +37,11 @@ a {
 }
 
 .setting_con{
-  margin-top: 10vh;
+  margin-top: 15vh;
   border: 2px solid;
 }
-.setting_top{
+.setting_top{width: 100vw;
+  height: 10vh;
   position: absolute;
   top: 0;
 }

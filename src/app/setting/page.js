@@ -34,7 +34,7 @@ const Setting = () => {
   return (
     <>
       <div className='setting_top'>
-      {/* <Nav /> */}
+      <Nav />
       </div>
     <div className='setting_con'>
 
