@@ -38,7 +38,7 @@ const Setting = () => {
       </div>
     <div className='setting_con'>
 
-        <p> login page text color</p>
+        <p> login page text color: </p> {log_color}
       <input type='color' value={log_color} onChange={(e)=>{setLogColor(e.target.value)}}/>
       <br/><br/>
       <p> login page background_color color</p>
