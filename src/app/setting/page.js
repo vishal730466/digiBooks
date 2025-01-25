@@ -38,19 +38,19 @@ const Setting = () => {
       </div>
     <div className='setting_con'>
 
-        <p> login page text color: </p> {log_color}
+        <p> login page text color : {log_color}</p> 
       <input type='color' value={log_color} onChange={(e)=>{setLogColor(e.target.value)}}/>
       <br/><br/>
-      <p> login page background_color color</p>
+      <p> login page background_color color : {log_background_color}</p>
       <input type='color' value={log_background_color} onChange={(e)=>{setLogBackgroundColor(e.target.value)}}/>
       <br/><br/>
       <p> color input</p>
       <input type="reset"  onChange={update}/>
       <br/><br/>
-      <p> input background_color </p>
+      <p> input background_color :  {inp_background_color}</p>
       <input type='color' value={inp_background_color} onChange={(e)=>{setInpBackgroundColor(e.target.value)}}/>
       <br/><br/>
-      <p> input text color </p>
+      <p> input text color : {inp_text_color}</p>
       <input type='color' value={inp_text_color} onChange={(e)=>{setInpTextColor(e.target.value)}}/>
       <br/><br/>
       <button onClick={update}>  update </button>
