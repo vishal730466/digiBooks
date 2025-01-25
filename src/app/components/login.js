@@ -1,5 +1,5 @@
 "use client"
-import React, { useState, useContext, useRef } from 'react'
+import React, { useState, useContext, useRef, useEffect } from 'react'
 import "./nav_style.css"
 import Logcontext from './mycontext'
 
@@ -11,12 +11,16 @@ const Login = () => {
   const [name,setname]=useState("")
   const [password,setpassword]=useState("")
 
-  const text_color=localStorage.getItem("log_color")
+  useEffect(()=>{
+    if (typeof window !== "undefined") {
+      const text_color=localStorage.getItem("log_color")
   const background_color=localStorage.getItem("log_background_color")
   const inp_background_color=localStorage.getItem("inp_background_color")
   const inp_text_color =localStorage.getItem("inp_text_color")
 
-
+    }
+  },[])
+  
   const printdata =async()=>{
     let result= await fetch("https://digi-books-seven.vercel.app/api/hello",{
       method:"POST",

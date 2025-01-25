@@ -6,17 +6,23 @@ import Nav from '../components/Nav'
 
 
 const Setting = () => {
+  if (typeof window !== "undefined") {
+    
     const [log_color , setlog_color]=useState(localStorage.getItem("log_color")||"")
     const [log_background_color , setlog_background_color]=useState(localStorage.getItem("log_background_color")||"")
     const [inp_background_color,setinp_background_color] = useState(localStorage.getItem("inp_background_color")||"")
     const [inp_text_color , setinp_text_color]=useState(localStorage.getItem("inp_text_color")||"")
+  }
+
 
     const update=()=>{
-      localStorage.setItem("log_color",log_color)
+      if (typeof window !== "undefined") {
+        localStorage.setItem("log_color",log_color)
       localStorage.setItem("log_background_color",log_background_color)
       localStorage.setItem("inp_background_color",inp_background_color)
       localStorage.setItem("inp_text_color",inp_text_color)
-
+      }
+      
 
     }
   return (
