@@ -1,5 +1,5 @@
 "use client"
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Nav from '../components/Nav'
 // import { StyleContext } from '../components/mycontext'
 // import Login from '../components/login'
@@ -10,7 +10,8 @@ const Setting = () => {
   const [log_background_color, setLogBackgroundColor] = useState("");
   const [inp_background_color, setInpBackgroundColor] = useState("");
   const [inp_text_color, setInpTextColor] = useState("");
-
+ 
+  
   useEffect(() => {
     if (typeof window !== "undefined") {
       setLogColor(localStorage.getItem("log_color") || "");
