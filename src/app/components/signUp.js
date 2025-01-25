@@ -15,15 +15,21 @@ const SignUp = () => {
 
   const printdata =async()=>{
     // console.log(name,password,c_password)
-    let result= await fetch("https://digi-books-seven.vercel.app/api/hello",{
-      method:"POST",
-      body:JSON.stringify({name,password,signup:true})
-    })
-    let fresult = await result.json();
-    // console.log(fresult)
-    if(fresult.success){
-      alert("signup")
+    if (password === c_password) {
+      let result= await fetch("/api/hello",{
+        method:"POST",
+        body:JSON.stringify({name,password,signup:true})
+      })
+      let fresult = await result.json();
+      // console.log(fresult)
+      if(fresult.success){
+        alert("signup")
+        myval.setsignup(false)
+      }
+    } else {
+      alert("password and confirm password not match")
     }
+    
   }
 
   return (

@@ -12,13 +12,14 @@ import LogOut from './logOut'
 
 export const Nav = () => {
   const divRef = useRef(null);
+  const mob_navRef = useRef("")
   const [width, setWidth] = useState(0);
   const [login, setlogin] = useState(false);
   const [signup, setsignup] = useState(false);
   const [loggedin, setloggedin] = useState(false);
   const [turn , setTurn] = useState("login")
+  const [mob_nav_back, setmob_nav_back]=useState(false)
 
-  const logref = useRef("")
 
   const display_form = ()=>{
     if (turn == "login") {
@@ -33,10 +34,7 @@ export const Nav = () => {
  
 
   useEffect(() => {
-    // if(loggedin && logref.current){
-    //   logref.current.style.display="none"
-    //   console.log("hide logref")
-    // }
+
     const divElement = divRef.current;
 
     if (divElement) {
@@ -51,32 +49,12 @@ export const Nav = () => {
       const touch = event.touches[0];
 
       navelement.style.position = 'absolute';
-      navelement.style.left = touch.clientX - 50 + 'px';
-      navelement.style.top = touch.clientY - 50 + 'px';
+      const X = Math.max(0,Math.min(touch.clientX - 50,150) );
+      const Y = Math.max(70,Math.min(touch.clientY - 50,500))
 
-    //set top and bottom
-      let topval = navelement.style.top ;
-      let top_intval= parseInt(topval)
-      if (top_intval < 100 ) {
-        navelement.style.top = '100px'
-      }
-      else if(top_intval > 500){
-        navelement.style.top = '500px'
-      }
+      navelement.style.left= `${X}px`;
+      navelement.style.top=  `${Y}px`
       
-   //   console.log(top_intval)
-      
-      //set left and right
-      let leftval = navelement.style.left ;
-      let left_intval= parseInt(leftval)
-      if (left_intval < 0 ) {
-        navelement.style.left = '0px'
-      }
-      else if(left_intval > 150){
-        navelement.style.left = '150px'
-      }
-      
-     // console.log(left_intval)
     };
     
 
@@ -86,6 +64,7 @@ export const Nav = () => {
       newDiv.style.position = 'absolute';
       navelement.appendChild(newDiv);
     };
+
 
     navelement.addEventListener('touchmove', touchMoveHandler);
 
@@ -101,19 +80,16 @@ export const Nav = () => {
   }, []);
 
   function Toggle() {
+    setmob_nav_back(!mob_nav_back)
     var divs = document.getElementsByClassName("toggle");
-    for (var i = 0; i < divs.length; i++) {
-      if (divs[i].style.display === "none" ) {
-        divs[i].style.display = "block";
-      }
-      /*
-      else if( divs[i].style.display === ""){
-        divs[i].style.display = "none";
-      } */
-      else {
-        divs[i].style.display = "none";
-      }
-    }
+    // for (var i = 0; i < divs.length; i++) {
+    //   if (divs[i].style.display === "none" ) {
+    //     divs[i].style.display = "block";
+    //   }
+    //   else {
+    //     divs[i].style.display = "none";
+    //   }
+    // }
     
   }
   //move
@@ -131,7 +107,7 @@ export const Nav = () => {
         <ul className='nav' > 
           <Link href="/"><li className="myul"> Home</li></Link>
           <Link href="/about"> <li className="myul">About</li></Link>
-          <Link href="/Move"> <li className="myul">Setting</li></Link> 
+          <Link href="/setting"> <li className="myul">Setting</li></Link>
           <Link href="/" onClick={display_form}> <li className="myul">Login</li></Link>
         </ul>
         <div ref={divRef} style={{ width: "100%", color: "red" ,display:"none"}}>
@@ -151,15 +127,22 @@ export const Nav = () => {
   else {
     return (
       <div ref={divRef} style={{ width: "100%" }}>
-        <div onClick={Toggle} > 
-        <ul id="myDiv" className='m_nav' onClick={handleClick} > <div className='toggle' >
+        {mob_nav_back && <div id='mob_nav_background' ref={mob_navRef}></div>} 
+        <div onClick={Toggle} >
+        
+        <ul id="myDiv" className='m_nav' onClick={handleClick} > 
+        
+        this is nav
+       
+        {/* <div className='toggle' >
 
           <Link href="/"><li className="ml1" style={{animation:"a2 1s 1 "}} > Home</li></Link>
           <Link href="/about"> <li className="ml2" style={{animation:"a2 1s 1 "}} >About</li></Link>
           <Link href="/"> <li className="ml3" style={{animation:"a1 1s 1 "}}>Contact</li></Link>
           <Link href="/"> <li className="ml4" style={{animation:"a1 1s 1"}}>Setting</li></Link> 
           <div className='navstyle' style={{animation:"a3 1s 1 "}}></div>
-          </div>
+          </div> */}
+
         </ul>
         </div>
       </div>

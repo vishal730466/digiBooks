@@ -6,7 +6,7 @@ import { NextResponse } from "next/server";
 export async function GET(){
     await mongoose.connect(connectionStr)
     const data = await mySchema.find()
-    console.log(data)
+    // console.log(data)
     return NextResponse.json({result:data})
 }
 
@@ -16,7 +16,12 @@ export async function POST(req){
     let result
     if (payload.login) {
         result = await mySchema.findOne({name:payload.name,password:payload.password})
-        return NextResponse.json({result,success:true})
+        if (result!=null) {
+            
+            return NextResponse.json({result,success:true})
+        } else {
+            return NextResponse.json({result,success:false})
+        }
     } 
     else if(payload.signup){
         const {name , password } = payload;
