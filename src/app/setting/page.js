@@ -6,20 +6,19 @@ import Nav from '../components/Nav'
 
 
 const Setting = () => {
-  if (typeof window !== "undefined") {
-    
-    const [log_color , setlog_color]=useState(localStorage.getItem("log_color")||"")
-    const [log_background_color , setlog_background_color]=useState(localStorage.getItem("log_background_color")||"")
-    const [inp_background_color,setinp_background_color] = useState(localStorage.getItem("inp_background_color")||"")
-    const [inp_text_color , setinp_text_color]=useState(localStorage.getItem("inp_text_color")||"")
-  }else{
-       
-    const [log_color , setlog_color]=useState("")
-    const [log_background_color , setlog_background_color]=useState("")
-    const [inp_background_color,setinp_background_color] = useState("")
-    const [inp_text_color , setinp_text_color]=useState("")
-  }
+  const [log_color, setLogColor] = useState("");
+  const [log_background_color, setLogBackgroundColor] = useState("");
+  const [inp_background_color, setInpBackgroundColor] = useState("");
+  const [inp_text_color, setInpTextColor] = useState("");
 
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setLogColor(localStorage.getItem("log_color") || "");
+      setLogBackgroundColor(localStorage.getItem("log_background_color") || "");
+      setInpBackgroundColor(localStorage.getItem("inp_background_color") || "");
+      setInpTextColor(localStorage.getItem("inp_text_color") || "");
+    }
+  }, []);
 
     const update=()=>{
       if (typeof window !== "undefined") {
