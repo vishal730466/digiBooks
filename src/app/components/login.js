@@ -16,7 +16,7 @@ const Login = () => {
   const [inp_background_color,set_inp_background_color]=useState("")
   const [inp_text_color,set_inp_text_color]=useState("")
 
-
+  
   useEffect(()=>{
     if (typeof window !== "undefined") {
       set_text_color(localStorage.getItem("log_color"))
@@ -28,13 +28,15 @@ const Login = () => {
   },[])
   
   const printdata =async()=>{
-    let result= await fetch("https://digi-books-seven.vercel.app/api/hello",{
+    let result= await fetch("/api/hello",{
+    
+    // let result= await fetch("https://digi-books-seven.vercel.app/api/hello",{
       method:"POST",
       body:JSON.stringify({name,password,login:true})
     })
     // console.log("yourresult",result);
     let fresult = await result.json();
-    // console.log("fresult" , fresult);
+    console.log("fresult" , fresult);
     if(fresult.success){
       mycontext.setTurn("loggedin")
       mycontext.setloggedin(false)
@@ -49,7 +51,8 @@ const Login = () => {
   }
   return (
     <>
-    <div className='div_center' style={{backgroundColor:background_color,color:text_color}} > <div className='cancel_btn' onClick={()=>mycontext.setlogin(false)}>X</div> <h2 className='signup_heading'>Login</h2>  <div className='background '>cover</div>
+    <div className='div_center' style={{backgroundColor:background_color,color:text_color}} > <div className='cancel_btn' onClick={()=>mycontext.setlogin(false)}>X</div> <h2 className='signup_heading'>Login</h2> 
+     <div className='background '>cover</div>
         <div>
             <input className='form_input' style={{color:inp_text_color, backgroundColor:inp_background_color}} type='text' placeholder='Enter name' value={name} onChange={(e)=>{setname(e.target.value)}} />
             
@@ -57,7 +60,7 @@ const Login = () => {
         
             <button className='submit_btn' onClick={printdata}>submit</button>
 
-            don't you have acoount <span className='toggle_text' onClick={()=>{   mycontext.setlogin(false) , mycontext.setsignup(true)}}> SignUp </span>
+            don't you have acoount <span className='toggle_text' onClick={()=>{   mycontext.setlogin(false) , mycontext.setsignup(true)}}> SignUp </span> 
         </div>
     </div>
     </>

@@ -49,7 +49,7 @@ export const Nav = () => {
       const touch = event.touches[0];
 
       navelement.style.position = 'absolute';
-      const X = Math.max(0,Math.min(touch.clientX - 50,150) );
+      const X = Math.max(0,Math.min(touch.clientX -50,150) );
       const Y = Math.max(70,Math.min(touch.clientY - 50,500))
 
       navelement.style.left= `${X}px`;
@@ -58,39 +58,37 @@ export const Nav = () => {
     };
     
 
-    const createNewElement = () => {
-      const newDiv = document.createElement('div');
-      newDiv.textContent = '';
-      newDiv.style.position = 'absolute';
-      navelement.appendChild(newDiv);
-    };
+    // const createNewElement = () => {
+    //   const newDiv = document.createElement('div');
+    //   newDiv.textContent = '';
+    //   newDiv.style.position = 'absolute';
+    //   navelement.appendChild(newDiv);
+    // };
 
 
     navelement.addEventListener('touchmove', touchMoveHandler);
 
     // Create a new element every second
-    const interval = setInterval(createNewElement, 1000);
+    // const interval = setInterval(createNewElement, 1000);
 
     return () => {
       navelement.removeEventListener('touchmove', touchMoveHandler);
-      clearInterval(interval);
+      // clearInterval(interval);
     };
 
 
   }, []);
 
   function Toggle() {
-    setmob_nav_back(!mob_nav_back)
-    var divs = document.getElementsByClassName("toggle");
-    // for (var i = 0; i < divs.length; i++) {
-    //   if (divs[i].style.display === "none" ) {
-    //     divs[i].style.display = "block";
-    //   }
-    //   else {
-    //     divs[i].style.display = "none";
-    //   }
-    // }
-    
+    // const navelement = document.getElementsByClassName("ml1");
+    if(mob_navRef.current.style.display=="none"){
+      setmob_nav_back(true);
+      mob_navRef.current.style.display="block"
+    }
+    else{
+      setmob_nav_back(false)
+      mob_navRef.current.style.display="none"
+    }
   }
   //move
   const handleClick = () => {
@@ -104,11 +102,13 @@ export const Nav = () => {
       <div id='mynav'>
             <Logcontext.Provider value={{setloggedin,setTurn,setlogin,setsignup}}> 
 
-        <ul className='nav' > 
+        <ul className='nav' >
           <Link href="/"><li className="myul"> Home</li></Link>
           <Link href="/about"> <li className="myul">About</li></Link>
           <Link href="/setting"> <li className="myul">Setting</li></Link>
-          <Link href="/" onClick={display_form}> <li className="myul">Login</li></Link>
+          {/* <Link href="/" onClick={display_form}> <li className="myul">Login</li></Link> */}
+          <div onClick={display_form}> <li className="myul"><b>Login</b></li></div>
+       
         </ul>
         <div ref={divRef} style={{ width: "100%", color: "red" ,display:"none"}}>
 
@@ -127,23 +127,26 @@ export const Nav = () => {
   else {
     return (
       <div ref={divRef} style={{ width: "100%" }}>
-        {mob_nav_back && <div id='mob_nav_background' ref={mob_navRef}></div>} 
-        <div onClick={Toggle} >
+        {mob_nav_back && <div id='mob_nav_background' ></div>} 
+        <div  >
         
-        <ul id="myDiv" className='m_nav' onClick={handleClick} > 
+        <ul id="myDiv"  onClick={handleClick} >
         
-        this is nav
-       
-        {/* <div className='toggle' >
+   
+        <div  className='m_nav' onClick={Toggle}>
+            a
+        </div>
+        
+        <div ref={mob_navRef}>
 
-          <Link href="/"><li className="ml1" style={{animation:"a2 1s 1 "}} > Home</li></Link>
-          <Link href="/about"> <li className="ml2" style={{animation:"a2 1s 1 "}} >About</li></Link>
-          <Link href="/"> <li className="ml3" style={{animation:"a1 1s 1 "}}>Contact</li></Link>
-          <Link href="/"> <li className="ml4" style={{animation:"a1 1s 1"}}>Setting</li></Link> 
-          <div className='navstyle' style={{animation:"a3 1s 1 "}}></div>
-          </div> */}
-
+        <div className='ml1'><Link href="/">H</Link></div>
+        <div className='ml2'><Link href="/about">A</Link></div>
+        <div className='ml3'><Link href="setting">S</Link></div>
+        <div className='ml4'>L</div>
+        </div>
+      
         </ul>
+
         </div>
       </div>
     )
