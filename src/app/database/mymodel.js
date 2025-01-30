@@ -5,4 +5,4 @@ const mymodel= new mongoose.Schema({
     password:String
 })
 
-export const mySchema= mongoose.models.CollectionOne || mongoose.model("CollectionOne",mymodel)
+export const mySchema= mongoose.models.collection1 || mongoose.model("collection1",mymodel)

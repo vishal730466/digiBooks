@@ -1,10 +1,32 @@
-import React, { useState, useContext } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 import { PageContext } from '../mycontext'
 import Image from 'next/image'
 
 
 const Python = () => {
   const page = useContext(PageContext)
+  const [key, setKey] = useState("");
+  const [data, setData] = useState(".");
+  
+  const fun = async()=>{
+ 
+    const response = await fetch(`/api/data?key=next_js${page.pageNo}`);
+    const result = await response.json();
+    console.log("res is ",result.page1);
+    setData(result.page1);
+  }
+
+  const myslug=async()=>{
+    const response = await fetch(`/api/hello/nextjs-tutorial`);
+const data = await response.json();
+console.log("slug is ",data); // { message: "You requested slug: nextjs-tutorial" }
+
+  }
+
+  useEffect(()=>{
+   
+    fun()
+  },[page.pageNo])
 
   console.log("this is from page context ", page.pageNo)
   if (page.pageNo === 0) {
@@ -76,7 +98,7 @@ const Python = () => {
          </div>
     ]
   }
-  else {
+  else if (page.pageNo == 3){
     return [
       <div className='book pybook' key="1">   <h1><p>How do I get started with Next.js?</p></h1>
       <p> visit<a href='https://nextjs.org/docs/app/api-reference/cli/create-next-app'> Next js official website</a></p>
@@ -96,8 +118,24 @@ const Python = () => {
         <button onClick={() => { page.setpageNo(0), page.setActiveIndex(null) }}>close</button>
 
         
+          {/* <pre dangerouslySetInnerHTML={{ __html: data }} /> */}
       </div>
     ]
+  } else{
+    return[
+        <div key='1' className='book pybook'>
+            this is page 1
+          <pre dangerouslySetInnerHTML={{__html: data}}/>
+   
+         
+          {/* <button onClick={fun}>fetch</button> */}
+        </div>,
+        <div key='2' className='book pybook'>
+          <button onClick={myslug}>slug</button>
+          this is page 2
+        </div>
+    ]
+    
   }
 
 }

@@ -1,16 +1,22 @@
 .book{
     height:100%;
-    width: 100%;
+    width: 35vw;
     border: 2px solid black;
     background-color: rgb(250, 253, 253);
+    /* overflow: hidden; */
 }
-.img_center{
+/* .img_center{
     margin-left: 40%;
     margin-top: 2%;
     margin-bottom: 3%;
-}
+} */
 .book p{
-    margin: 2vh;
+    margin: 0vh;
+    background-color: brown;
+    height: auto;
+    width: 35vw;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .pybook h2{
@@ -40,3 +46,9 @@
     flex-direction: row;
     justify-content: space-around;
 }
+
+pre {
+    white-space: pre-wrap; /* Ensures text wraps */
+    word-wrap: break-word; /* Allows long words to wrap */
+  }
+  

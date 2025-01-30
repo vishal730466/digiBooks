@@ -3,9 +3,10 @@ import React, { useRef , useState, createContext } from 'react';
 import Python from '../books/python';
 import "./book_container.css"
 import { PageContext } from '../mycontext';
+import Next_js from '../books/next_Js';
 
 const BookContainer = () => {
-    const books = [<Python/>,<Python/>,<Python/>,<Python/>,<Python/>,<Python/>];
+    const books = [<Python/>,<Python/>,<Python/>,<Python/>,<Python/>,<Python/>,<Next_js/>];
     const [pageNo , setpageNo] = useState(0)
     const [isAnimating, setIsAnimating] = useState(false);
     const [activeIndex, setActiveIndex] = useState(null);
@@ -13,7 +14,11 @@ const BookContainer = () => {
     
     
     const handleNext = () => {
-        setpageNo(pageNo+1)
+        if (pageNo == 0) {
+            setpageNo(1)
+        } else {
+            setpageNo(pageNo+2)
+        }
         if (!isAnimating) {
             console.log("animation ",pageNo);
             setIsAnimating(true); 
@@ -35,7 +40,7 @@ const BookContainer = () => {
                     onClick={()=>setActiveIndex(index)}
                 >
                 
-                   {!activeIndex && book}
+                   {activeIndex == null && book}
            
                 </div>
             ))}
