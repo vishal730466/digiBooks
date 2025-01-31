@@ -1,5 +1,5 @@
 "use client"
-import React, { useRef , useState, createContext } from 'react';
+import React, { useRef , useState, createContext, useEffect } from 'react';
 import Python from '../books/python';
 import "./book_container.css"
 import { PageContext } from '../mycontext';
@@ -11,8 +11,18 @@ const BookContainer = () => {
     const [isAnimating, setIsAnimating] = useState(false);
     const [activeIndex, setActiveIndex] = useState(null);
     const refs = useRef([]);
+    // const checkRef = useRef(null)
+    // const [offwidht , setoffwidht] = useState(null)
+
     
-    
+    // useEffect(() => {
+    //     if (checkRef.current) {
+    //         setoffwidht(checkRef.current.offsetWidth)
+    //       console.log("Offset width:", checkRef.current.offsetWidth);
+    //     //   alert(offwidht)
+    //     }
+    //   }, [activeIndex,pageNo]);
+
     const handleNext = () => {
         if (pageNo == 0) {
             setpageNo(1)
@@ -55,12 +65,14 @@ const BookContainer = () => {
             <button className='next_btn'>book_mark</button>
             <button className='next_btn' onClick={handleNext}>next</button>
             <button className='next_btn'>back</button>
-            <button className='next_btn'>download</button>
+            <button className='next_btn'>download</button> 
+            </div>
+           
+         
             </div>
 
-            </div>
              }
-
+               
             </PageContext.Provider>
         </div>
         

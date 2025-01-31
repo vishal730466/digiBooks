@@ -16,6 +16,7 @@
   height: 13vw;
   width: 15vw;
   margin: 5vh;
+  overflow: hidden;
 }
 
 #main_book{

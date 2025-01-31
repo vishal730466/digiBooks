@@ -1,0 +1,26 @@
+.output_div{
+    height: 70vh;
+    width: 35vw;
+    border: 2px solid;
+    margin-top: 5vh;
+}
+
+.admin_page{
+    height: 100vh;
+    width: 100vw;
+    border: 2px solid;
+    display: flex;
+    /* justify-content: space-around; */
+}
+
+
+pre {
+    white-space: pre-wrap; /* Ensures text wraps */
+    word-wrap: break-word; /* Allows long words to wrap */
+  }
+
+.copy_btn{
+    height: 5vh;
+    margin: 10vh;
+}
+

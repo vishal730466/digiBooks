@@ -28,7 +28,7 @@ console.log("slug is ",data); // { message: "You requested slug: nextjs-tutorial
     fun()
   },[page.pageNo])
 
-  console.log("this is from page context ", page.pageNo)
+  // console.log("this is from page context ", page.pageNo)
   if (page.pageNo === 0) {
 
     return [
