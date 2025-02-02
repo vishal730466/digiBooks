@@ -5,11 +5,12 @@
     margin-top: 5vh;
 }
 
-.admin_page{
-    height: 100vh;
-    width: 100vw;
-    border: 2px solid;
+.box{
+    height: 80vh;
+    width:98vw;
+    border: 2px solid blue;
     display: flex;
+    /* margin-left: 3vw; */
     /* justify-content: space-around; */
 }
 
@@ -19,8 +20,23 @@ pre {
     word-wrap: break-word; /* Allows long words to wrap */
   }
 
+input{
+    width: 30vw;
+    height: 10vh;
+    /* margin: 1vw; */
+    margin: 0vw 3vh;
+}
+
 .copy_btn{
     height: 5vh;
     margin: 10vh;
 }
+.fetch_btn{
+    width: 6vw;
+    height: 7vh;
+}
 
+.getbook{
+    display: flex;
+    border: 2px solid;
+}

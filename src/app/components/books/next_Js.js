@@ -8,11 +8,18 @@ import { PageContext } from "../mycontext"
 
     console.log("page ",page.pageNo)
     const getdata=async()=>{
-        const response = await fetch(`/api/hello/next_js/next_js${page.pageNo}`);
+        // const response = await fetch(`/api/hello/next_js/next_js${page.pageNo}`);
+        const value1 = "nextJs";
+        const value2 = "secondValue";
+        
+        const response = await fetch(`/api/data?book_name=${encodeURIComponent(value1)}&pageNo=${encodeURIComponent(page.pageNo)}`);
+
         const res = await response.json();
-        if(res.data){
-            console.log("slug is ",res.data);
-            setdata(res.data.page1)
+        if(res){
+            // console.log("slug is ",res.data);
+            console.log("res data is ",res)
+            setdata(res.book_data)
+            // setdata(res.data.page1)
         }
     }
 
@@ -23,6 +30,23 @@ import { PageContext } from "../mycontext"
             console.log("slug is ",res.data);
             setright_page(res.data.page1)
         }
+    }
+
+    const updata=async()=>{
+        let id="67976604614a89b358845996"
+        let data={
+            name :"put method update  3",
+            password:"new put password"
+        }
+        const res= await fetch("/api/hello",{
+            method:"PUT",
+            // headers: {
+            //     'Content-Type': 'application/json',
+            //   },
+            body:JSON.stringify({id,data})
+        })
+       let frs = await res.json()
+       console.log("frs put ",frs)
     }
 
     useEffect(()=>{
@@ -46,7 +70,7 @@ import { PageContext } from "../mycontext"
         <div className="book" key="2">
             
             <pre dangerouslySetInnerHTML={{__html: right_page}}/>
-            <button onClick={getdata}>getdata</button>
+            <button onClick={updata}>getdata</button>
         </div>
         ]
     }

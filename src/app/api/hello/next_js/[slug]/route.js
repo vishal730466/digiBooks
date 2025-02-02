@@ -4,7 +4,7 @@ import mongoose from "mongoose";
 import { NextResponse } from "next/server";
 
 export async function GET(req, { params }) {
-    const { slug } = params; 
+    const { slug } =await params; 
     await mongoose.connect(connectionStr)
 
     const data = await mySchema.findOne({name:slug})

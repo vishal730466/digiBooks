@@ -15,14 +15,7 @@ const BookContainer = () => {
     // const [offwidht , setoffwidht] = useState(null)
 
     
-    // useEffect(() => {
-    //     if (checkRef.current) {
-    //         setoffwidht(checkRef.current.offsetWidth)
-    //       console.log("Offset width:", checkRef.current.offsetWidth);
-    //     //   alert(offwidht)
-    //     }
-    //   }, [activeIndex,pageNo]);
-
+  
     const handleNext = () => {
         if (pageNo == 0) {
             setpageNo(1)
