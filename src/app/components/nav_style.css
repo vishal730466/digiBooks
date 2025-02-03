@@ -3,10 +3,17 @@
   width: 40vw;
   z-index: 22;
   border: 2px solid green;
+  /* margin-top: 30vh;      there is bug */
   /* margin: 40vh 10px; generate error*/ 
   display: flex;
   align-items: center;
   flex-direction: row;
+}
+
+.mob_con{
+  border: 2px solid slateblue;
+  margin-top: 8vh;
+  width: 40vw;
 }
 
 .m_nav{

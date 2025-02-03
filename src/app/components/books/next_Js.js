@@ -5,6 +5,9 @@ import { PageContext } from "../mycontext"
     const page = useContext(PageContext)
     const [mydata, setdata] = useState([])
     const [right_page , setright_page]=useState("")
+    
+    const [myclass, setmyclass]=useState("book")
+  
 
     console.log("page ",page.pageNo)
     const getdata=async()=>{
@@ -50,27 +53,31 @@ import { PageContext } from "../mycontext"
     }
 
     useEffect(()=>{
+        if(page.device){
+            setmyclass("mob_book")
+          }
         getdata()
         getdata2()
+        
     },[page.pageNo])
 
     
 
     if(page.pageNo == 0){
-        return[<div className="book" key="1">
+        return[<div className={myclass} key="1">
            
         </div>
         ]
     }
      else {
-        return[<div className="book" key="1">
-
+        return[<div className={myclass} key="1">
+                
             <pre dangerouslySetInnerHTML={{__html: mydata}}/>
         </div>,
-        <div className="book" key="2">
+        <div className={myclass} key="2">
             
             <pre dangerouslySetInnerHTML={{__html: right_page}}/>
-            <button onClick={updata}>getdata</button>
+            {/* <button onClick={updata}>getdata</button> */}
         </div>
         ]
     }

@@ -6,6 +6,12 @@
     background-color: rgb(250, 253, 253);
     /* overflow: hidden; */
 }
+.mob_book{
+    height: 100%;
+    width: 100%;
+    border: 2px solid;
+    /* max-width: 70vw; */
+}
 /* .img_center{
     margin-left: 40%;
     margin-top: 2%;

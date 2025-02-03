@@ -126,11 +126,11 @@ export const Nav = () => {
 
   else {
     return (
-      <div ref={divRef} style={{ width: "100%" }}>
+      <div ref={divRef}  style={{ width: "100%" }}>
         {mob_nav_back && <div id='mob_nav_background' ></div>} 
-        <div  >
+        <div  className='mob_con'>
         
-        <ul id="myDiv"  onClick={handleClick} >
+        <div id="myDiv"  onClick={handleClick} >
         
    
         <div  className='m_nav' onClick={Toggle}>
@@ -145,7 +145,7 @@ export const Nav = () => {
         <div className='ml4'>L</div>
         </div>
       
-        </ul>
+        </div>
 
         </div>
       </div>

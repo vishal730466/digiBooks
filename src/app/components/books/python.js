@@ -3,10 +3,11 @@ import { PageContext } from '../mycontext'
 import Image from 'next/image'
 
 
-const Python = () => {
+const Python = ({device}) => {
   const page = useContext(PageContext)
   const [key, setKey] = useState("");
   const [data, setData] = useState(".");
+  const [myclass, setmyclass]=useState("book")
   
   const fun = async()=>{
  
@@ -20,21 +21,22 @@ const Python = () => {
     const response = await fetch(`/api/hello/nextjs-tutorial`);
 const data = await response.json();
 console.log("slug is ",data); // { message: "You requested slug: nextjs-tutorial" }
-
   }
 
   useEffect(()=>{
+    if(page.device){
+      setmyclass("mob_book")
+    }
    
     fun()
   },[page.pageNo])
 
-  // console.log("this is from page context ", page.pageNo)
   if (page.pageNo === 0) {
 
     return [
-      <div className='book ' key="1">
-        <img src='nextjs.jpg' width="100%" height="90%" />
-        <b>Next js</b>
+      <div className={myclass}  key="1">
+        <img src='nextjs.jpg' width="100%" height="100%" />
+        {/* <b>Next js</b> {device} */}
       </div>,
       
     ]
@@ -42,11 +44,13 @@ console.log("slug is ",data); // { message: "You requested slug: nextjs-tutorial
   else if (page.pageNo === 1) {
 
     return [
-      <div className='book pybook' key="1"> <div className='img_center'> <img src='nextjs.jpg' height="15%" width="35%"></img></div><h2>What is Next.js?</h2> <p>Next.js is a React framework that helps build web applications. It's a full-stack open-source framework that provides tools for both the front-end and back-end of a website.</p> <p>Next.js was created by the team at <b>Vercel</b>. Specifically, Guillermo Rauch, who is the CEO and co-founder of Vercel, is often credited with leading the development of Next.js.</p>
+      <div className={myclass} key="1"> <div className='img_center'> 
+      {/*   <img src='nextjs.jpg' height="15%" width="35%"></img> */}
+      </div><h2>What is Next.js?</h2> <p>Next.js is a React framework that helps build web applications. It's a full-stack open-source framework that provides tools for both the front-end and back-end of a website.</p> <p>Next.js was created by the team at <b>Vercel</b>. Specifically, Guillermo Rauch, who is the CEO and co-founder of Vercel, is often credited with leading the development of Next.js.</p>
         <p>Next.js is one of the most popular web development frameworks today, especially for building React-based applications. It has gained widespread adoption because of its powerful features and developer-friendly ecosystem.</p>
         <div id='myfooter'>Next js = react + backend</div>
       </div>,
-      <div className='book pybook' key="2"> <h2>Features:</h2><li>File-Based Routing</li><li>Image Optimization</li>
+      <div className={myclass} key="2"> <h2>Features:</h2><li>File-Based Routing</li><li>Image Optimization</li>
         <li>Deployment with Vercel</li><li>SEO-Friendly</li>
         <p>Next.js is widely used by many prominent companies for its performance, flexibility, and scalability.
            Here’s a list  of some notable companies leveraging Next.js for their applications:
