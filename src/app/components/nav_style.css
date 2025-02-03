@@ -1,4 +1,4 @@
-#myDiv{
+#nav_Div{
   height: 20vh;
   width: 40vw;
   z-index: 22;
@@ -94,36 +94,9 @@
   color: black;
  }
 
- @keyframes a1{
-  0%{
-    left:0px;
 
-  }
-  100%{
- 
-  }
- }
 
- @keyframes a2{
-  0%{
-    left:0px;
- bottom: 0px;
-  }
-  100%{
- 
-  }
- }
- @keyframes a3{
-  0%{
-   height: 0px;
-   left: 0;
-   bottom: 0;
-  }
-  90%{
-   
-     height: 160px;
-  }
- }
+
 
  /* ----------------------- */
  
@@ -180,7 +153,7 @@
   .div_center{
     position: relative;
     /* top: 20vh; */
-    height:60vh;
+    height:62vh;
     width: 60vh;
     /* border: 2px solid black; */
     background-color:  #503a3a;
@@ -199,14 +172,14 @@
     height: 10%;
     text-align: center;
     text-justify: distribute;
-    margin-top: 4vh;
+    margin-top: 0vh;
     /* border: 2px solid black; */
   }
 .form_input{
   height: 15%;
   width: 70%;
   margin-left: 15%;
-  margin-top: 5vh;
+  margin-top: 4vh;
   background-color: #080707;
   color:  #fdfcfc;
   /* border: 2px solid; */

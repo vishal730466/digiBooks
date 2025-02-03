@@ -25,25 +25,34 @@ export const Nav = () => {
     if (turn == "login") {
       setlogin(true)
     } else if(turn== "loggedin"){
-      setloggedin(true)
-      
-    }else{
-
+      setloggedin(true)  
     }
   }
- 
 
+  const navelement = document.getElementById('nav_Div');
+
+  const touchMoveHandler = (event) => {
+    const touch = event.touches[0];
+
+    navelement.style.position = 'absolute';
+    const X = Math.max(0,Math.min(touch.clientX -50,150) );
+    const Y = Math.max(70,Math.min(touch.clientY - 50,500))
+
+    navelement.style.left= `${X}px`;
+    navelement.style.top=  `${Y}px`
+    
+  };
+ 
   useEffect(() => {
 
-    const divElement = divRef.current;
+    // const divElement = divRef.current;
 
-    if (divElement) {
-      const elementWidth = divElement.offsetWidth;
-      setWidth(elementWidth);
+    if (divRef.current) {
+      setWidth(divRef.current.offsetWidth);
     }
 
     //move
-    const navelement = document.getElementById('myDiv');
+    const navelement = document.getElementById('nav_Div');
 
     const touchMoveHandler = (event) => {
       const touch = event.touches[0];
@@ -53,28 +62,18 @@ export const Nav = () => {
       const Y = Math.max(70,Math.min(touch.clientY - 50,500))
 
       navelement.style.left= `${X}px`;
-      navelement.style.top=  `${Y}px`
-      
+      navelement.style.top=  `${Y}px`;
     };
     
-
-    // const createNewElement = () => {
-    //   const newDiv = document.createElement('div');
-    //   newDiv.textContent = '';
-    //   newDiv.style.position = 'absolute';
-    //   navelement.appendChild(newDiv);
-    // };
-
-
-    navelement.addEventListener('touchmove', touchMoveHandler);
+    // navelement.addEventListener('touchmove', touchMoveHandler);
 
     // Create a new element every second
     // const interval = setInterval(createNewElement, 1000);
 
-    return () => {
-      navelement.removeEventListener('touchmove', touchMoveHandler);
-      // clearInterval(interval);
-    };
+    // return () => {
+    //   navelement.removeEventListener('touchmove', touchMoveHandler);
+    //   clearInterval(interval);
+    // };
 
 
   }, []);
@@ -90,16 +89,11 @@ export const Nav = () => {
       mob_navRef.current.style.display="none"
     }
   }
-  //move
-  const handleClick = () => {
-    console.log('hello');
-  };
 
   if (width > 500) {
-
     return (
 
-      <div id='mynav'>
+      <div id='mynav' >
             <Logcontext.Provider value={{setloggedin,setTurn,setlogin,setsignup}}> 
 
         <ul className='nav' >
@@ -108,11 +102,9 @@ export const Nav = () => {
           <Link href="/setting"> <li className="myul">Setting</li></Link>
           {/* <Link href="/" onClick={display_form}> <li className="myul">Login</li></Link> */}
           <div onClick={display_form}> <li className="myul"><b>Login</b></li></div>
-       
         </ul>
-        <div ref={divRef} style={{ width: "100%", color: "red" ,display:"none"}}>
-
-        </div>
+       
+        <div ref={divRef} style={{ width: "100%", color: "red" ,display:"none"}}></div>
         
         {login ? <Login/> : null}
         {signup ? <SignUp/>: null}
@@ -120,7 +112,6 @@ export const Nav = () => {
 
         </Logcontext.Provider>
       </div>
-
     )
   }
 
@@ -130,24 +121,20 @@ export const Nav = () => {
         {mob_nav_back && <div id='mob_nav_background' ></div>} 
         <div  className='mob_con'>
         
-        <div id="myDiv"  onClick={handleClick} >
+        <div id="nav_Div" onTouchMove={touchMoveHandler}>
         
-   
-        <div  className='m_nav' onClick={Toggle}>
-            a
-        </div>
+        <div  className='m_nav' onClick={Toggle}>a</div>
         
         <div ref={mob_navRef}>
-
         <div className='ml1'><Link href="/">H</Link></div>
         <div className='ml2'><Link href="/about">A</Link></div>
         <div className='ml3'><Link href="setting">S</Link></div>
-        <div className='ml4'>L</div>
+        <div className='ml4'>L</div >
         </div>
       
         </div>
-
         </div>
+
       </div>
     )
   }

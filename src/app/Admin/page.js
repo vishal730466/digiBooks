@@ -7,7 +7,7 @@ const Admin = () => {
     const [text , settext]=useState("")
     const[book,setbook]=useState("nextJs")
     const[page_No,setpage_No]=useState("3")
-    const[id, setid]=useState("")
+    const[id, setid]=useState("67a086bd657d4d882dd1db45")
 
     // const [width ,setwidth]=useState("")
     
@@ -63,7 +63,7 @@ const Admin = () => {
         <div className='output_div' ref={widthref}>
 
                 {/* width is {width} */}
-        <pre dangerouslySetInnerHTML={{__html: text}}/> id is {id}
+        <pre dangerouslySetInnerHTML={{__html: text}}/> 
         </div>
         <button className='copy_btn' onClick={copyToClipboard}> COPY</button>
         <button className='copy_btn' onClick={updateData}>Update</button>
