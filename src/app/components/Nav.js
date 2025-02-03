@@ -12,6 +12,7 @@ import LogOut from './logOut'
 
 export const Nav = () => {
   const divRef = useRef(null);
+  const navRef = useRef("")
   const mob_navRef = useRef("")
   const [width, setWidth] = useState(0);
   const [login, setlogin] = useState(false);
@@ -52,7 +53,8 @@ export const Nav = () => {
     }
 
     //move
-    const navelement = document.getElementById('nav_Div');
+    // const navelement = document.getElementById('nav_Div');
+    const navelement = navRef.current;
 
     const touchMoveHandler = (event) => {
       const touch = event.touches[0];
@@ -121,7 +123,7 @@ export const Nav = () => {
         {mob_nav_back && <div id='mob_nav_background' ></div>} 
         <div  className='mob_con'>
         
-        <div id="nav_Div" onTouchMove={touchMoveHandler}>
+        <div id="nav_Div" ref={navRef} onTouchMove={touchMoveHandler}>
         
         <div  className='m_nav' onClick={Toggle}>a</div>
         
