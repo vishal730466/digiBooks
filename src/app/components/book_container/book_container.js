@@ -53,13 +53,13 @@ const BookContainer = () => {
         }else if (window.innerWidth < 700){
             setfont_size("1.7vw")
         }else if (window.innerWidth < 820){
-            setfont_size("1.75vw")
+            setfont_size("1.7vw")
         }else if (window.innerWidth < 850){
-            setfont_size("1.75vw")
+            setfont_size("1.7vw")
         }else if (window.innerWidth < 965){
             setfont_size("1.7vw")
         }else if (window.innerWidth < 1050){
-            setfont_size("1.65vw")
+            setfont_size("1.7vw")
         }else {
             setfont_size("1.7vw")
         }

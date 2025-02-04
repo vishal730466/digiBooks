@@ -1,9 +1,9 @@
 .output_div{
-    height: 35vh;
-    width: 35vw;
+    height: 35vw;
+    width: 40vw;
     border: 2px solid;
-    margin-top: 5vh;
-    font-size: larger;
+    margin-top: 2vh;
+    font-size: 1.7vw;
 }
 
 .box{
