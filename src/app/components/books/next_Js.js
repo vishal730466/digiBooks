@@ -3,7 +3,7 @@ import { PageContext } from "../mycontext"
 
  const Next_js =()=>{
     const page = useContext(PageContext)
-    const [mydata, setdata] = useState([])
+    const [left_page, setleft_page] = useState([])
     const [right_page , setright_page]=useState("")
     
     const [myclass, setmyclass]=useState("book")
@@ -15,14 +15,14 @@ import { PageContext } from "../mycontext"
         const value1 = "nextJs";
         const value2 = "secondValue";
         
-        const response = await fetch(`/api/data?book_name=${encodeURIComponent(value1)}&pageNo=${encodeURIComponent(page.pageNo)}`);
+const response = await fetch(`/api/data?book_name=${encodeURIComponent(value1)}&pageNo=${encodeURIComponent(page.pageNo)}`);
 
         const res = await response.json();
         if(res){
             // console.log("slug is ",res.data);
             console.log("res data is ",res)
-            setdata(res.book_data)
-            // setdata(res.data.page1)
+            setleft_page(res.book_data)
+            // setleft_page(res.data.page1)
         }
     }
 
@@ -43,9 +43,9 @@ import { PageContext } from "../mycontext"
         }
         const res= await fetch("/api/hello",{
             method:"PUT",
-            // headers: {
-            //     'Content-Type': 'application/json',
-            //   },
+            headers: {
+                'Content-Type': 'application/json',
+              },
             body:JSON.stringify({id,data})
         })
        let frs = await res.json()
@@ -71,7 +71,7 @@ import { PageContext } from "../mycontext"
     }
      else {
         return[<div className="book" key="1">
-            <pre dangerouslySetInnerHTML={{__html: mydata}}/>
+            <pre dangerouslySetInnerHTML={{__html: left_page}}/>
         </div>,
         <div className={myclass} key="2">
             
