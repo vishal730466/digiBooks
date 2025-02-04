@@ -91,7 +91,7 @@ export const Nav = () => {
     }
   }
 
-  if (width > 500) {
+  if (width > 400) {
     return (
 
       <div id='mynav' >

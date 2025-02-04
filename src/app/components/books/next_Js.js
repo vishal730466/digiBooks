@@ -70,13 +70,12 @@ import { PageContext } from "../mycontext"
         ]
     }
      else {
-        return[<div className={myclass} key="1">
-                
+        return[<div className="book" key="1">
             <pre dangerouslySetInnerHTML={{__html: mydata}}/>
         </div>,
         <div className={myclass} key="2">
             
-            <pre dangerouslySetInnerHTML={{__html: right_page}}/>
+            {/* <pre dangerouslySetInnerHTML={{__html: right_page}}/> */}
             {/* <button onClick={updata}>getdata</button> */}
         </div>
         ]

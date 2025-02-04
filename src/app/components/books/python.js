@@ -3,7 +3,7 @@ import { PageContext } from '../mycontext'
 import Image from 'next/image'
 
 
-const Python = ({device}) => {
+const Python = () => {
   const page = useContext(PageContext)
   const [key, setKey] = useState("");
   const [data, setData] = useState(".");

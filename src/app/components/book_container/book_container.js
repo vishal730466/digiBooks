@@ -8,12 +8,14 @@ import Next_js from '../books/next_Js';
 const BookContainer = () => {
     const [device , setdevice]=useState("")
     const books = [<Python/>,<Python/>,<Python/>,<Python/>,<Python/>,<Python/>,<Next_js/>];
-    const [pageNo , setpageNo] = useState(0)
+    const [pageNo , setpageNo] = useState(1)
     // const [isAnimating, setIsAnimating] = useState(false);
     const [device_width, setdevicewidth]=useState("1000")
-    const [activeIndex, setActiveIndex] = useState(null);
+    const [activeIndex, setActiveIndex] = useState(6);
+    const [font_size , setfont_size]=useState("1")
     const refs = useRef([]);
     const deviceRef = useRef("")
+    const main_bookRef = useRef("")
   
     const handleNext = () => {
         if (pageNo == 0) {
@@ -42,7 +44,27 @@ const BookContainer = () => {
 
     
     useEffect(()=>{
-        if (device_width > 560) {
+        
+    if (typeof window !== "undefined") {
+        if(window.innerWidth < 400){
+            setfont_size("1.6vw")
+        }else if (window.innerWidth < 600){
+            setfont_size("1.7vw")
+        }else if (window.innerWidth < 700){
+            setfont_size("1.7vw")
+        }else if (window.innerWidth < 820){
+            setfont_size("1.75vw")
+        }else if (window.innerWidth < 850){
+            setfont_size("1.75vw")
+        }else if (window.innerWidth < 965){
+            setfont_size("1.7vw")
+        }else if (window.innerWidth < 1050){
+            setfont_size("1.65vw")
+        }else {
+            setfont_size("1.7vw")
+        }
+    }
+        if (device_width > 400) {
             setdevice("computer")
         } else {
             setdevice("mob")
@@ -50,9 +72,10 @@ const BookContainer = () => {
         if(deviceRef.current){
             setdevicewidth(deviceRef.current.offsetWidth)
         }
+       
     },[])
 
-            if (device_width > 560) {
+            if (device_width > 400) {
                 return (
         
         <div className="books_container" ref={deviceRef}> <PageContext.Provider value={{pageNo,setpageNo,setActiveIndex}}>
@@ -69,11 +92,11 @@ const BookContainer = () => {
                 </div>
             ))}
             {activeIndex !== null &&
-             <div id='main_book'  
+             <div id='main_book'  ref={main_bookRef} style={{fontSize:font_size}}
             //  className={ `background2 ${isAnimating ? "animate" : ""}`}
              >
             {books[activeIndex]} 
-            <div className='background2' onClick={()=>{setActiveIndex(null),setpageNo(0)}}>this is background</div>
+            {/* <div className='background2' onClick={()=>{setActiveIndex(null),setpageNo(0)}}>this is background</div> */}
             
             <div className='btn_container'>
             <button className='next_btn'>book_mark</button>
@@ -81,13 +104,13 @@ const BookContainer = () => {
             <button className='next_btn' >back</button>
             <button className='next_btn'>download</button> 
             </div>
-           
+            {/* width{device_width} {font_size} */}
             </div>
 
 }
                
             </PageContext.Provider>
-width{device_width}
+
         </div>
         
     );
