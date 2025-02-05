@@ -31,7 +31,11 @@ console.log("slug is ",data); // { message: "You requested slug: nextjs-tutorial
     fun()
   },[page.pageNo])
 
-  if (page.pageNo === 0) {
+   if(page.pageNo == "cover_page"){
+      return <div className="book_cover"> <Image src="/python.png" alt="this is" fill style={{ objectFit: "cover" }}/> 
+        </div>
+    }
+    else if(page.pageNo === 0) {
 
     return [
       <div className={myclass}  key="1">

@@ -1,38 +1,41 @@
 import { useContext, useEffect, useState } from "react"
 import { PageContext } from "../mycontext"
+import Image from "next/image"
 
  const Next_js =()=>{
+    
     const page = useContext(PageContext)
     const [left_page, setleft_page] = useState([])
     const [right_page , setright_page]=useState("")
-    
+    const [book_name , setbook_name]=useState("nextJs")
     const [myclass, setmyclass]=useState("book")
   
 
     console.log("page ",page.pageNo)
     const getdata=async()=>{
         // const response = await fetch(`/api/hello/next_js/next_js${page.pageNo}`);
-        const value1 = "nextJs";
-        const value2 = "secondValue";
         
-const response = await fetch(`/api/data?book_name=${encodeURIComponent(value1)}&pageNo=${encodeURIComponent(page.pageNo)}`);
+const response = await fetch(`/api/data?book_name=${encodeURIComponent(book_name)}&pageNo=${encodeURIComponent(page.pageNo)}`);
 
         const res = await response.json();
-        if(res){
-            // console.log("slug is ",res.data);
-            console.log("res data is ",res)
+        if(res.book_data){
             setleft_page(res.book_data)
-            // setleft_page(res.data.page1)
+        }else{
+            setleft_page("no data found")
         }
     }
 
     const getdata2=async()=>{
-        const response = await fetch(`/api/hello/next_js/next_js${page.pageNo+1}`);
+        const response = await fetch(`/api/data?book_name=${encodeURIComponent(book_name)}&pageNo=${encodeURIComponent(page.pageNo+1)}`);
         const res = await response.json();
-        if(res.data){
-            console.log("slug is ",res.data);
-            setright_page(res.data.page1)
+        console.log("data res is ",res);
+        if(res.book_name){
+            // console.log("slug is ",res.data);
+            setright_page(res.book_data)
+        }else{
+            setright_page("no data found")
         }
+
     }
 
     const updata=async()=>{
@@ -56,14 +59,18 @@ const response = await fetch(`/api/data?book_name=${encodeURIComponent(value1)}&
         if(page.device){
             setmyclass("mob_book")
           }
+          console.log("getdata")
         getdata()
         getdata2()
         
     },[page.pageNo])
 
     
-
-    if(page.pageNo == 0){
+    if(page.pageNo == "cover_page"){
+        return <div className="book_cover"> <Image src="/nextjs.jpg" alt="this is" fill style={{ objectFit: "cover" }}/> 
+        </div>
+    }
+     else if(page.pageNo == 0){
         return[<div className={myclass} key="1">
            
         </div>
@@ -75,8 +82,7 @@ const response = await fetch(`/api/data?book_name=${encodeURIComponent(value1)}&
         </div>,
         <div className={myclass} key="2">
             
-            {/* <pre dangerouslySetInnerHTML={{__html: right_page}}/> */}
-            {/* <button onClick={updata}>getdata</button> */}
+            <pre dangerouslySetInnerHTML={{__html: right_page}}/>
         </div>
         ]
     }

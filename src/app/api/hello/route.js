@@ -41,8 +41,7 @@ export async function PUT(req , con){
     // console.log("put paylod is ",payload)
     const {id, data}=payload
     console.log("put data  ",data)
-    // let filter={_id:"67976604614a89b358845996"}
-    // let data={name:"python3 put api"}
+   
     let result =await mySchema.findByIdAndUpdate(id,data)
     console.log("put result is ",result)
     return NextResponse.json({success:payload})

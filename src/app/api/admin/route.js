@@ -10,9 +10,9 @@ export async function PUT(req){
     const payload= await req.json()
     const {id ,update_data} = payload
 
-    let result= await mySchema.findByIdAndUpdate(id,   { $set: update_data } ,{new:true})
+    let result= await mySchema.findByIdAndUpdate(id,{ $set: update_data } ,{new:true})
     console.log("abc",id,update_data);
-    return NextResponse.json({sucess:result})    
+    return NextResponse.json({sucess:result})
     } catch (error) {
         console.error("Error during fetch operation:", error);
       }
@@ -25,7 +25,7 @@ export async function GET(req){
     const url=new URL(req.url)
     const book=url.searchParams.get("Book_name")
     const page= url.searchParams.get("PageNo")
-    console.log("admin url ",url,book, page)
+    console.log("admin url ",book, page)
     // let result = "data not found"           not work
     let result = await mySchema.findOne({book_name:book,pageNo:page})
 

@@ -13,9 +13,9 @@
 
 .box {
 
-  height: 13vw;
-  width: 15vw;
-  margin: 5vh;
+  /* height: 13vw; */
+  /* width: 15vw; */
+  margin: 3vh;
   /* overflow: hidden; */
 }
 
@@ -104,10 +104,10 @@
 } */
 .background2 {
   position: absolute;
-  left: -15vw;
-  top: -5vh;
-  height: 80vh;
-  width: 99vw;
+  left: -6vw;
+  top: -2vh;
+  height: 84vh;
+  width: 100vw;
   background-color: rgb(199, 237, 241);
   backdrop-filter: blur(5px);
   z-index: -1;

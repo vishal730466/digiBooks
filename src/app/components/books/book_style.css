@@ -60,4 +60,10 @@ pre {
     white-space: pre-wrap; /* Ensures text wraps */
     word-wrap: break-word; /* Allows long words to wrap */
   }
-  
+
+  .book_cover{
+    position: relative;
+    /* max-height: 13vw; */
+  height: 10vw;
+  width: 10vw;
+  }
