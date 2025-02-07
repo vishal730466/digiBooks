@@ -1,5 +1,5 @@
 import { connectionStr } from "@/app/database/db";
-import { mySchema } from "@/app/database/mymodel";
+import { mySchema , user_schema } from "@/app/database/mymodel";
 import mongoose from "mongoose";
 import { NextResponse } from "next/server";
 
@@ -15,7 +15,7 @@ export async function POST(req){
     await mongoose.connect(connectionStr)
     let result
     if (payload.login) {
-        result = await mySchema.findOne({name:payload.name,password:payload.password})
+        result = await user_schema.findOne({name:payload.name,password:payload.password})
         if (result!=null) {
             
             return NextResponse.json({result,success:true})
@@ -25,7 +25,7 @@ export async function POST(req){
     } 
     else if(payload.signup){
         const {name , password } = payload;
-         result = new mySchema({name,password})
+         result = new user_schema({name,password})
          const result1 = result.save()
          return NextResponse.json({result1,success:true})
         

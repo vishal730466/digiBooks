@@ -36,9 +36,9 @@ const Login = () => {
     })
     // console.log("yourresult",result);
     let fresult = await result.json();
-    console.log("fresult" , fresult);
+    console.log("f login page " , fresult);
     if(fresult.success){
-      mycontext.setTurn("loggedin")
+      mycontext.setTurn(false)
       mycontext.setloggedin(false)
       mycontext.setlogin(false)
       mycontext.setsignup(false)
@@ -54,15 +54,15 @@ const Login = () => {
     <>
     <div className='div_center' style={{backgroundColor:background_color,color:text_color}} > <div className='cancel_btn' onClick={()=>mycontext.setlogin(false)}>X</div> <h2 className='signup_heading'>Login</h2> 
      <div className='background '>cover</div>
-        <div>
+        {/* <div> */}
             <input className='form_input' style={{color:inp_text_color, backgroundColor:inp_background_color}} type='text' placeholder='Enter name' value={name} onChange={(e)=>{setname(e.target.value)}} />
             
             <input className='form_input' style={{color:inp_text_color, backgroundColor:inp_background_color}}  type='text' placeholder='password' value={password} onChange={(e)=>{setpassword(e.target.value)}} />
         
             <button className='submit_btn' onClick={printdata}>submit</button>
 
-            don't you have acoount <span className='toggle_text' onClick={()=>{   mycontext.setlogin(false) , mycontext.setsignup(true)}}> SignUp </span> 
-        </div>
+          <p>  don't you have acoount  ? <span className='toggle_text' onClick={()=>{   mycontext.setlogin(false) , mycontext.setsignup(true)}}> SignUp </span> </p>
+        {/* </div> */}
     </div>
     </>
   )

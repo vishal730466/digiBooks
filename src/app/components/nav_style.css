@@ -100,31 +100,22 @@
 
  /* ----------------------- */
  
-.nav {
-    height: 80px;
-    width: 100vw;
-    display: flex;
-    list-style: none;
-    justify-content: space-around;  
-    align-items: center;
+
   
-  }
-  
-  .myul {
+  #mynav li {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 7vh;
-    width: 150px;
+    width: 12vw;
     border: none;
-  
+    font-size: 1.7vw;
     text-decoration: none;
     background-color: rgba(207, 203, 203, 0.61);
     box-shadow: inset 3px 3px 3px rgba(38, 39, 43, 0.473),
       inset -3px -3px 3px white;
   
     color: rgb(40, 46, 49);
-  
   }
   
   a {
@@ -132,39 +123,44 @@
     font-weight: 700;
   }
   
-  #con {
+  /* #con {
     height: 500px;
     width: 500px;
-    border: 2px solid;
-  }
+    border: 2px solid greenyellow;
+  } */
 
   #mynav{
     position: absolute;
     z-index: 10;
     background-color: rgba(230, 221, 221, 0.947);
-    height: 15vh;
-    width: 100v;
+    height: 12vh;
+    width: 100vw;
+    border: 1px solid;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
     /* background-color: rgba(182, 177, 177, 0.374); */
-  
-  
   }
 
 /* ----------signUP-------------- */
   .div_center{
-    position: relative;
+    position: absolute;
     /* top: 20vh; */
-    height:62vh;
+    height:30vw;
     width: 60vh;
     /* border: 2px solid black; */
     background-color:  #503a3a;
     color: #f1f443;
-    margin-left: calc(50vw - 200px);
-    margin-top: 3vh;
+    /* margin-left: calc(50vw - 200px); */
+    margin-top: 55vh;
     display: flex;
     flex-direction: column;
     /* justify-content: space-around; */
     z-index: 20;
     /* align-items: center;  */
+  }
+  .div_center p{
+    margin-left: 5vh;
   }
   .signup_heading{
     font-size: x-large;
@@ -176,10 +172,10 @@
     /* border: 2px solid black; */
   }
 .form_input{
-  height: 15%;
+  height: 10%;
   width: 70%;
   margin-left: 15%;
-  margin-top: 4vh;
+  margin-top: 5%;
   background-color: #080707;
   color:  #fdfcfc;
   /* border: 2px solid; */
@@ -187,9 +183,9 @@
 .submit_btn{
   height: 15%;
   width: 30%;
-  margin-top: 10%;
+  margin-top: 5%;
   margin-left: 35%;
-  margin-bottom: 10%;
+  margin-bottom: 5%;
   margin-right: 35%;
   /* border: 2px solid; */
 }

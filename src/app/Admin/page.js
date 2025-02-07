@@ -6,8 +6,8 @@ const Admin = () => {
   const widthref=useRef(null)
     const [text , settext]=useState("")
     const[book,setbook]=useState("nextJs")
-    const[page_No,setpage_No]=useState("3")
-    const[id, setid]=useState("67a086bd657d4d882dd1db45")
+    const[page_No,setpage_No]=useState("")
+    const[id, setid]=useState("")
 
     // const [width ,setwidth]=useState("")
     

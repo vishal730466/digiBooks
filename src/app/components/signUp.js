@@ -29,25 +29,21 @@ const SignUp = () => {
     } else {
       alert("password and confirm password not match")
     }
-    
+  
   }
 
   return (
     <div className='div_center'> <button className='cancel_btn' onClick={()=>myval.setsignup(false)}>X</button>  <h1 className='signup_heading'> SignUp </h1> 
-        <div>
-          <div>
+
             <input className='form_input'  type='text' placeholder='Enter name' value={name} onChange={(e)=>{setname(e.target.value)}} />
-          </div>
-          <div >
+
             <input className='form_input' type='text' placeholder='password' value={password} onChange={(e)=>{setpassword(e.target.value)}} />
-          </div>
-          <div >
+
             <input className='form_input' type='text' placeholder='confirm password' value={c_password} onChange={(e)=>{setc_password(e.target.value)}} />
-          </div>
-            <button className='submit_btn' onClick={printdata}>Submit</button> {myval.loggedin}
-            do you have account <span className='toggle_text' onClick={()=>{myval.setlogin(true),myval.setsignup(false)}}> Login</span> 
+    
+            <button className='submit_btn' onClick={printdata}>Submit</button> {myval.loggedin} <p>do you have account <span className='toggle_text' onClick={()=>{myval.setlogin(true),myval.setsignup(false)}}> Login</span> </p> 
             <div className='background '>cover</div>
-        </div>
+    
     </div>
   )
 }

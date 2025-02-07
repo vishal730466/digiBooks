@@ -14,18 +14,18 @@ export const Nav = () => {
   const divRef = useRef(null);
   const navRef = useRef("")
   const mob_navRef = useRef("")
-  const [width, setWidth] = useState(0);
+  const [width, setWidth] = useState(1000);
   const [login, setlogin] = useState(false);
   const [signup, setsignup] = useState(false);
   const [loggedin, setloggedin] = useState(false);
-  const [turn , setTurn] = useState("login")
+  const [turn , setTurn] = useState(true)
   const [mob_nav_back, setmob_nav_back]=useState(false)
 
 
   const display_form = ()=>{
-    if (turn == "login") {
+    if (turn) {
       setlogin(true)
-    } else if(turn== "loggedin"){
+    } else{
       setloggedin(true)  
     }
   }
@@ -45,39 +45,11 @@ export const Nav = () => {
  
   useEffect(() => {
 
-    // const divElement = divRef.current;
-
-    if (divRef.current) {
-      setWidth(divRef.current.offsetWidth);
+    if(window){
+        setWidth(window.innerWidth)
     }
 
-    //move
-    // const navelement = document.getElementById('nav_Div');
-    //const navelement = navRef.current;
-
-    // const touchMoveHandler = (event) => {
-    //   const touch = event.touches[0];
-
-    //   navelement.style.position = 'absolute';
-    //   const X = Math.max(0,Math.min(touch.clientX -50,150) );
-    //   const Y = Math.max(70,Math.min(touch.clientY - 50,500))
-
-    //   navelement.style.left= `${X}px`;
-    //   navelement.style.top=  `${Y}px`;
-    // };
-    
-    // navelement.addEventListener('touchmove', touchMoveHandler);
-
-    // Create a new element every second
-    // const interval = setInterval(createNewElement, 1000);
-
-    // return () => {
-    //   navelement.removeEventListener('touchmove', touchMoveHandler);
-    //   clearInterval(interval);
-    // };
-
-
-  }, []);
+  }, [width]);
 
   function Toggle() {
     // const navelement = document.getElementsByClassName("ml1");
@@ -95,17 +67,14 @@ export const Nav = () => {
     return (
 
       <div id='mynav' >
-            <Logcontext.Provider value={{setloggedin,setTurn,setlogin,setsignup}}> 
+          <Logcontext.Provider value={{setloggedin,setTurn,setlogin,setsignup}}> 
 
-        <ul className='nav' >
-          <Link href="/"><li className="myul"> Home</li></Link>
-          <Link href="/about"> <li className="myul">About</li></Link>
-          <Link href="/setting"> <li className="myul">Setting</li></Link>
-          {/* <Link href="/" onClick={display_form}> <li className="myul">Login</li></Link> */}
-          <div onClick={display_form}> <li className="myul"><b>Login</b></li></div>
-        </ul>
+          <Link href="/"><li > Home</li></Link>
+          <Link href="/about"> <li >About</li></Link>
+          <Link href="/setting"> <li >Setting</li></Link>
+          <div onClick={display_form}> <li><b>Login</b></li></div>
        
-        <div ref={divRef} style={{ width: "100%", color: "red" ,display:"none"}}></div>
+        {/* <div ref={divRef} style={{ width: "100%", color: "red" ,display:"none"}}></div> */}
         
         {login ? <Login/> : null}
         {signup ? <SignUp/>: null}
