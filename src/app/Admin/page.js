@@ -21,6 +21,7 @@ const Admin = () => {
       }
       else{
         settext("no book found")
+        setid(0)
       }
       console.log(final_response)
   }
@@ -39,8 +40,15 @@ const Admin = () => {
         },
         body:JSON.stringify({id,update_data})
       })
-      res =await res.json()
-      alert("page updated")
+       res =await res.json()
+       if (res.success) {
+        alert("page updated")
+
+        setid("0")
+       } else {
+        alert("page NOT updated")
+       }
+      
       console.log("put res is " ,res);
     }
 
@@ -62,7 +70,7 @@ const Admin = () => {
           <textarea className='output_div' value={text} onChange={(e)=>settext(e.target.value)} rows="4" cols="50" placeholder="Enter text here..." ></textarea>
         <div className='output_div' ref={widthref}>
 
-                {/* width is {width} */}
+                id is {id}
         <pre dangerouslySetInnerHTML={{__html: text}}/> 
         </div>
         <button className='copy_btn' onClick={copyToClipboard}> COPY</button>
