@@ -61,9 +61,10 @@ const BookContainer = () => {
         } else {
             setdevice("mob")
         }
-        if(deviceRef.current){
-            setdevicewidth(deviceRef.current.offsetWidth)
-        }
+       if(window){
+        setdevicewidth(window.innerWidth)
+       }
+           
        
     },[])
 
@@ -105,7 +106,7 @@ const BookContainer = () => {
 
         </div>
         
-    );
+    )
             
         } else {
                 return  <div className='mob_books_con' ref={deviceRef} > 
@@ -117,7 +118,7 @@ const BookContainer = () => {
                     key={index}
                     className="mob_box"
                     ref={(el) => {(refs.current[index] = el)}}
-                    onClick={()=>setActiveIndex(index)}
+                    onClick={()=>{setActiveIndex(index),setpageNo(0)}}
                     >
                    {activeIndex == null && book}
                 </div>
@@ -131,7 +132,7 @@ const BookContainer = () => {
                         <button onClick={handleNext}>next</button>
                         <button onClick={previous_page}>back</button>
                         <button>download </button>
-                        <button>mark</button> {pageNo}
+                        <button>mark</button> 
                         <button onClick={()=>{setActiveIndex(null),setpageNo(0)}}>close</button>
                     </div>
                     </div>

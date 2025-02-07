@@ -1,6 +1,6 @@
 #nav_Div{
   height: 20vh;
-  width: 40vw;
+  width: 30vw;
   z-index: 22;
   border: 2px solid green;
   /* margin-top: 30vh;      there is bug */
@@ -11,9 +11,9 @@
 }
 
 .mob_con{
-  border: 2px solid slateblue;
+  /* border: 2px solid slateblue; */
   margin-top: 8vh;
-  width: 40vw;
+  /* width: 40vw; */
 }
 
 .m_nav{

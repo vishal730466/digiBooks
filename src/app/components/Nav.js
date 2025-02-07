@@ -20,6 +20,7 @@ export const Nav = () => {
   const [loggedin, setloggedin] = useState(false);
   const [turn , setTurn] = useState(true)
   const [mob_nav_back, setmob_nav_back]=useState(false)
+  const [navelement , set_navelement] = useState(navRef.current)
 
 
   const display_form = ()=>{
@@ -29,18 +30,18 @@ export const Nav = () => {
       setloggedin(true)  
     }
   }
-  const navelement = navRef.current;
+  // const navelement = navRef.current;
 
   const touchMoveHandler = (event) => {
     const touch = event.touches[0];
-
+    // if(navelement){
     navelement.style.position = 'absolute';
     const X = Math.max(0,Math.min(touch.clientX -50,150) );
     const Y = Math.max(70,Math.min(touch.clientY - 50,500))
 
     navelement.style.left= `${X}px`;
     navelement.style.top=  `${Y}px`
-    
+    // }
   };
  
   useEffect(() => {
@@ -48,11 +49,11 @@ export const Nav = () => {
     if(window){
         setWidth(window.innerWidth)
     }
+    set_navelement(navRef.current)
 
-  }, [width]);
+  }, [width,navelement]);
 
   function Toggle() {
-    // const navelement = document.getElementsByClassName("ml1");
     if(mob_navRef.current.style.display=="none"){
       setmob_nav_back(true);
       mob_navRef.current.style.display="block"
