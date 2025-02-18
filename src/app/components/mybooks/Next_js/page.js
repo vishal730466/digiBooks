@@ -11,8 +11,8 @@ const Next_js = () => {
     const [right_page ,setright_page]=useState("")
     const [pageNo , setpageNO ]=useState(1)
     const [animate , setanimate]=useState(false)
-    const pageRef = useRef("") 
-
+    const [key , setkey]=useState(0)
+    const [loading ,setloading]=useState(true)
     const getdata=async()=>{
         // const response = await fetch(`/api/hello/next_js/next_js${page.pageNo}`);   
 const response = await fetch(`/api/data?book_name=${encodeURIComponent("nextJs")}&pageNo=${encodeURIComponent(pageNo)}`);
@@ -40,21 +40,19 @@ const response = await fetch(`/api/data?book_name=${encodeURIComponent("nextJs")
 
     const next_page=()=>{
         setTimeout(()=>{setpageNO(pageNo+2)},1500)
-        // setpageNO(pageNo+2)
         animate_handle()
-        // if (pageRef.current) {
-        //     pageRef.current.style.transform = "rotateY(-360deg)";
-        //     pageRef.current.style.transform = "rotateY(360deg)";
-        // }
-        // ani_end()
-        
     }
 
     const ani_end=()=>{setanimate(false)}
-  
+
+    useEffect(()=>{
+        setloading(false)
+    },[])
+    
     useEffect(()=>{
         getdata()
         getdata2()
+        if(pageNo==0){setkey(1)}
         console.log("page",pageNo);
     },[pageNo , animate])
 
@@ -65,7 +63,7 @@ const response = await fetch(`/api/data?book_name=${encodeURIComponent("nextJs")
   return (
     <div className='con'>
     
-        <div className='book'>
+        <div key={key} className='book'>
         <div className='page1'> 
             <pre dangerouslySetInnerHTML={{__html: left_page}}/> 
         </div>

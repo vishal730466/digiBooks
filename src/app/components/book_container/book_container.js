@@ -9,13 +9,13 @@ import { useRouter } from "next/navigation";
 const BookContainer = () => {
     const router = useRouter();
     const [device , setdevice]=useState("")
-    const books = [<Python/>,<Python/>,<Python/>,<Next_js/>,"Next_js"];
+    const books = ["Next_js"];
     const [pageNo , setpageNo] = useState("cover_page")
     const [background, setbackground] = useState(false)
     const [device_width, setdevicewidth]=useState("1000")
     const [activeIndex, setActiveIndex] = useState(null)
     const [font_size , setfont_size]=useState("1")
-    const [key,setkey] = useState(1)
+    // const [key,setkey] = useState(1)
     const refs = useRef([])
 
     const deviceRef = useRef("")
@@ -86,7 +86,7 @@ const BookContainer = () => {
 
                         {activeIndex !== null && <div id='main_book'> {books[activeIndex] }
                         
-                         </div>}<button onClick={redirect}>next</button>
+                         </div>}
                         </PageContext.Provider>
                 </div>)
             } else {
