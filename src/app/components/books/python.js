@@ -48,13 +48,13 @@ console.log("slug is ",data); // { message: "You requested slug: nextjs-tutorial
   else if (page.pageNo === 1) {
 
     return [
-      <div className={myclass} key="1"> <div className='img_center'> 
+      <div className={myclass} key="1" style={{left:"0"}}> <div className='img_center'> 
       {/*   <img src='nextjs.jpg' height="15%" width="35%"></img> */}
       </div><h2>What is Next.js?</h2> <p>Next.js is a React framework that helps build web applications. It's a full-stack open-source framework that provides tools for both the front-end and back-end of a website.</p> <p>Next.js was created by the team at <b>Vercel</b>. Specifically, Guillermo Rauch, who is the CEO and co-founder of Vercel, is often credited with leading the development of Next.js.</p>
         <p>Next.js is one of the most popular web development frameworks today, especially for building React-based applications. It has gained widespread adoption because of its powerful features and developer-friendly ecosystem.</p>
         <div id='myfooter'>Next js = react + backend</div>
       </div>,
-      <div className={myclass} key="2"> <h2>Features:</h2><li>File-Based Routing</li><li>Image Optimization</li>
+      <div className={myclass} key="2" style={{right:"0"}}> <h2>Features:</h2><li>File-Based Routing</li><li>Image Optimization</li>
         <li>Deployment with Vercel</li><li>SEO-Friendly</li>
         <p>Next.js is widely used by many prominent companies for its performance, flexibility, and scalability.
            Here’s a list  of some notable companies leveraging Next.js for their applications:
@@ -62,6 +62,7 @@ console.log("slug is ",data); // { message: "You requested slug: nextjs-tutorial
         <p>Vercel Netflix Twitch Uber GitHub Starbucks TikTok Target Nike </p>
 
       </div>
+      // , <div key="3" style={{right:"0"}} className='book target'>third div</div>
     ]
   }
   else if (page.pageNo == 2) {

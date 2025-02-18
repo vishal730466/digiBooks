@@ -21,10 +21,13 @@ const SignUp = () => {
         body:JSON.stringify({name,password,signup:true})
       })
       let fresult = await result.json();
-      // console.log(fresult)
-      if(fresult.success){
+      console.log(fresult.success)
+      if(fresult.success==true){
         alert("signup")
         myval.setsignup(false)
+      }
+      else if(fresult.success=="exist"){
+        alert("User name already exist")
       }
     } else {
       alert("password and confirm password not match")
@@ -41,7 +44,7 @@ const SignUp = () => {
 
             <input className='form_input' type='text' placeholder='confirm password' value={c_password} onChange={(e)=>{setc_password(e.target.value)}} />
     
-            <button className='submit_btn' onClick={printdata}>Submit</button> {myval.loggedin} <p>do you have account <span className='toggle_text' onClick={()=>{myval.setlogin(true),myval.setsignup(false)}}> Login</span> </p> 
+            <button className='submit_btn' onClick={printdata}>Submit</button> {myval.loggedin} <p>do you have account ?<span className='toggle_text' onClick={()=>{myval.setlogin(true),myval.setsignup(false)}}> Login</span> </p> 
             <div className='background '>cover</div>
     
     </div>

@@ -17,17 +17,23 @@ export async function POST(req){
     if (payload.login) {
         result = await user_schema.findOne({name:payload.name,password:payload.password})
         if (result!=null) {
-            
             return NextResponse.json({result,success:true})
         } else {
             return NextResponse.json({result,success:false})
         }
-    } 
+    }
     else if(payload.signup){
         const {name , password } = payload;
-         result = new user_schema({name,password})
-         const result1 = result.save()
-         return NextResponse.json({result1,success:true})
+        const find =await user_schema.findOne({name:payload.name})
+        if (find) {
+            console.log("find is ",find);
+           return  NextResponse.json({success:"exist"})
+        } else {
+            result = new user_schema({name,password})
+            const result1 = result.save()
+            return NextResponse.json({result1,success:true})
+        }
+        
         
     }
     else{

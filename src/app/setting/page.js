@@ -13,7 +13,7 @@ const Setting = () => {
  
   
   useEffect(() => {
-    if (typeof window !== "undefined") {
+    if (window ) {
       setLogColor(localStorage.getItem("log_color") || "");
       setLogBackgroundColor(localStorage.getItem("log_background_color") || "");
       setInpBackgroundColor(localStorage.getItem("inp_background_color") || "");
@@ -22,7 +22,7 @@ const Setting = () => {
   }, []);
 
     const update=()=>{
-      if (typeof window !== "undefined") {
+      if (window ) {
         localStorage.setItem("log_color",log_color)
       localStorage.setItem("log_background_color",log_background_color)
       localStorage.setItem("inp_background_color",inp_background_color)

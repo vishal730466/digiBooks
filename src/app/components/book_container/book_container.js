@@ -4,16 +4,20 @@ import Python from '../books/python';
 import "./book_container.css"
 import { PageContext } from '../mycontext';
 import Next_js from '../books/next_Js';
+import { useRouter } from "next/navigation";
 
 const BookContainer = () => {
+    const router = useRouter();
     const [device , setdevice]=useState("")
-    const books = [<Python/>,<Python/>,<Python/>,<Next_js/>,<Python/>];
+    const books = [<Python/>,<Python/>,<Python/>,<Next_js/>,"Next_js"];
     const [pageNo , setpageNo] = useState("cover_page")
-    // const [isAnimating, setIsAnimating] = useState(false)
+    const [background, setbackground] = useState(false)
     const [device_width, setdevicewidth]=useState("1000")
     const [activeIndex, setActiveIndex] = useState(null)
     const [font_size , setfont_size]=useState("1")
+    const [key,setkey] = useState(1)
     const refs = useRef([])
+
     const deviceRef = useRef("")
     const main_bookRef = useRef("")
   
@@ -46,7 +50,9 @@ const BookContainer = () => {
         }
     }
 
-    
+    const redirect=(index)=>{
+        router.push(`/components/mybooks/${index}`)
+    }
     useEffect(()=>{
         
     if (typeof window !== "undefined") {
@@ -69,46 +75,21 @@ const BookContainer = () => {
     },[])
 
             if (device_width > 400) {
-                return (
-        
-        <div className="books_container" ref={deviceRef}> <PageContext.Provider value={{pageNo,setpageNo,setActiveIndex}}>
-            {books.map((book, index) => (
-                <div
-                    key={index}
-                    className="box"
-                    ref={(el) => {(refs.current[index] = el)}}
-                    onClick={()=>{setActiveIndex(index),setpageNo(0)}}
-                >
-                
-                   {activeIndex == null && book}
-           
-                </div>
-            ))}
-            {activeIndex !== null &&
-             <div id='main_book'  ref={main_bookRef} style={{fontSize:font_size}}
-            //  className={ `background2 ${isAnimating ? "animate" : ""}`}
-             >
-            {books[activeIndex]}
-            <div className='background2' onClick={()=>{setActiveIndex(null),setpageNo("cover_page")}}></div>
-            
-            <div className='btn_container'>
-            <button className='next_btn'>book_mark</button>
-            <button className='next_btn' onClick={handleNext}>next</button>
-            <button className='next_btn' onClick={previous_page} >back</button>
-            <button className='next_btn'>download</button> 
-            </div>
-            {/* width{device_width} {font_size} */}
-            </div>
+                return (<div className='books_container'> <PageContext.Provider value={{pageNo,setpageNo,setActiveIndex,device}}>
+                        {books.map((book,index)=>(
+                            <div key={index} className='box' 
+                            onClick={()=>redirect(books[index])}
+                            > 
+                            {/* {background && <div className='background2'></div>} */}
+                              {activeIndex ==null && book}     </div>
+                        ))}
 
-}
-               
-            </PageContext.Provider>
-
-        </div>
-        
-    )
-            
-        } else {
+                        {activeIndex !== null && <div id='main_book'> {books[activeIndex] }
+                        
+                         </div>}<button onClick={redirect}>next</button>
+                        </PageContext.Provider>
+                </div>)
+            } else {
                 return  <div className='mob_books_con' ref={deviceRef} > 
                 <PageContext.Provider value={{pageNo,setpageNo,setActiveIndex,device}}>
 
@@ -133,7 +114,7 @@ const BookContainer = () => {
                         <button onClick={previous_page}>back</button>
                         <button>download </button>
                         <button>mark</button> 
-                        <button onClick={()=>{setActiveIndex(null),setpageNo(0)}}>close</button>
+                        <button onClick={()=>{setActiveIndex(null),setpageNo("cover_page")}}>close</button>
                     </div>
                     </div>
                }

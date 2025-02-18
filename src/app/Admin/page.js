@@ -48,7 +48,7 @@ const Admin = () => {
        } else {
         alert("page NOT updated")
        }
-      
+    
       console.log("put res is " ,res);
     }
 

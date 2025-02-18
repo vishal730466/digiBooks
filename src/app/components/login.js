@@ -2,6 +2,7 @@
 import React, { useState, useContext, useRef, useEffect } from 'react'
 import "./nav_style.css"
 import Logcontext from './mycontext'
+import Home from './login_page'
 
 const Login = () => {
   // const formref=useRef()
@@ -23,20 +24,18 @@ const Login = () => {
       set_background_color(localStorage.getItem("log_background_color"))
       set_inp_background_color(localStorage.getItem("inp_background_color"))
       set_inp_text_color(localStorage.getItem("inp_text_color"))
-
     }
   },[])
   
   const printdata =async()=>{
     let result= await fetch("/api/hello",{
-    
     // let result= await fetch("https://digi-books-seven.vercel.app/api/hello",{
       method:"POST",
       body:JSON.stringify({name,password,login:true})
     })
-    // console.log("yourresult",result);
+    // console.log("result",result);
     let fresult = await result.json();
-    console.log("f login page " , fresult);
+    // console.log("f login page " , fresult);
     if(fresult.success){
       mycontext.setTurn(false)
       mycontext.setloggedin(false)
@@ -44,7 +43,6 @@ const Login = () => {
       mycontext.setsignup(false)
       
       alert("login")
-      
     }
     else{
       alert("login fail")
@@ -62,6 +60,7 @@ const Login = () => {
             <button className='submit_btn' onClick={printdata}>submit</button>
 
           <p>  don't you have acoount  ? <span className='toggle_text' onClick={()=>{   mycontext.setlogin(false) , mycontext.setsignup(true)}}> SignUp </span> </p>
+          <Home/>
         {/* </div> */}
     </div>
     </>
