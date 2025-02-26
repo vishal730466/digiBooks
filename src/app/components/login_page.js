@@ -14,7 +14,7 @@ export default function Home() {
           <button onClick={() => signOut()}>Sign Out</button>
         </div>
       ) : (
-        <button onClick={() => signIn("github")}>Sign In with GitHub</button>
+        <button style={{marginTop:"5%"}} onClick={() => signIn("github")}>Sign In with GitHub</button>
       )}
     </div>
   );

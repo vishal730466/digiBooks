@@ -133,7 +133,7 @@
     position: absolute;
     z-index: 10;
     background-color: rgba(230, 221, 221, 0.947);
-    height: 12vh;
+    height: 10vh;
     width: 100vw;
     border: 1px solid;
     display: flex;
@@ -181,7 +181,7 @@
   /* border: 2px solid; */
 }
 .submit_btn{
-  height: 15%;
+  height: 10%;
   width: 30%;
   margin-top: 5%;
   margin-left: 35%;
@@ -212,6 +212,7 @@
   .cancel_btn{
     height: 10%;
     width: 10%;
+    margin-top: 4%;
     margin-left: 90%;
     /* cursor: pointer; */
     cursor: default;

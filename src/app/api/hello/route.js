@@ -1,11 +1,12 @@
 import { connectionStr } from "@/app/database/db";
-import { mySchema , user_schema } from "@/app/database/mymodel";
+import { book_Schema, mySchema , user_schema } from "@/app/database/mymodel";
 import mongoose from "mongoose";
 import { NextResponse } from "next/server";
 
 export async function GET(){
     await mongoose.connect(connectionStr)
-    const data = await mySchema.find()
+    // const data = await mySchema.find()
+    const data = await book_Schema.find()
     // console.log(data)
     return NextResponse.json({result:data})
 }

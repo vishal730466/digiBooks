@@ -12,10 +12,11 @@ export async function GET(req) {
     const key = url.searchParams.get("book_name");
     const gpageNo = url.searchParams.get("pageNo");
 
-   // console.log("query is:", key , gpageNo);
+   console.log("query is:", key , gpageNo);
 
     const data = await mySchema.findOne({ book_name: key , pageNo : gpageNo  });
 
+    // console.log("data is ",data);
     return NextResponse.json(data || { message: "No data found" });
   } catch (error) {
     console.error("Error fetching data:", error);
