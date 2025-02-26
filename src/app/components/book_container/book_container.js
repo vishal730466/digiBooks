@@ -63,7 +63,8 @@ const BookContainer = () => {
     // }
 
     const redirect = (a, b) => {
-        router.push(`/components/view_book?val1=${a}&val2=${b}`)
+        // router.push(`/components/view_book?val1=${a}&val2=${b}`)
+        router.push(`/components/view_book/${a}/${b}`)
     }
     useEffect(() => {
         get()
