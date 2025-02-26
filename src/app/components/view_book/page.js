@@ -79,8 +79,8 @@ const Next_js = () => {
         setanimate(true)
     }
     if (width > 490) {
-
-        return (<Suspense>
+            
+        return (
             <div className='con'>
                 
                     {/* {width} */}
@@ -104,9 +104,9 @@ const Next_js = () => {
                     <MdNavigateNext onClick={next_page} style={{ fontSize: "50px" }} />
                 </div>
             </div>
-            </Suspense>)
+        )
     } else {
-        return(<Suspense>
+        return(
               <div className='view_mob_con'>
                 {/* {width} */}
               
@@ -132,8 +132,13 @@ const Next_js = () => {
                       <MdNavigateNext onClick={next_page}  style={{fontSize:"40px" }}/>
                       </div>
               </div>
-              </Suspense>)
+            )
     }
 }
-
-export default Next_js
+export default function Next_js() {
+    return (
+      <Suspense fallback={<div>Loading...</div>}>
+        <BookViewer />
+      </Suspense>
+    );
+  }
