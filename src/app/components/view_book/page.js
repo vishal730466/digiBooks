@@ -135,7 +135,7 @@ const Next_js = () => {
             )
     }
 }
-export default function Next_js() {
+export  function Next_js() {
     return (
       <Suspense fallback={<div>Loading...</div>}>
         <BookViewer />
