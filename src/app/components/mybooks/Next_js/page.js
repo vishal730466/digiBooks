@@ -1,7 +1,6 @@
 "use client"
 
 import React, { useEffect, useRef, useState } from 'react'
-import "./style.css"
 
 import { MdNavigateNext } from "react-icons/md";
 import { MdArrowBackIos } from "react-icons/md";
