@@ -1,144 +1,98 @@
-"use client"
+"use client";
 
-import React, { useEffect, useRef, useState,Suspense } from 'react'
-import "./style.css"
-
-
+import React, { useEffect, useState, Suspense } from "react";
+import "./style.css";
 import { useSearchParams } from "next/navigation";
+import { MdNavigateNext, MdArrowBackIos } from "react-icons/md";
 
-import { MdNavigateNext } from "react-icons/md";
-import { MdArrowBackIos } from "react-icons/md";
+const NextJsBookViewer = () => {
+  const [leftPage, setLeftPage] = useState("");
+  const [rightPage, setRightPage] = useState("");
+  const [pageNo, setPageNo] = useState(1);
+  const [animate, setAnimate] = useState(false);
+  const [backAnimate, setBackAnimate] = useState(false);
+  const [width, setWidth] = useState(1000);
 
-const Next_js = () => {
-    const [left_page, setleft_page] = useState("")
-    const [right_page, setright_page] = useState("")
-    const [pageNo, setpageNO] = useState(1)
-    const [animate, setanimate] = useState(false)
-    const [back_animate, setback_animate] = useState(false)
-    const [width, setwidth] = useState(1000)
-    const [loading, setloading] = useState(true)
+  const searchParams = useSearchParams();
+  const param1 = searchParams.get("val1");
+  const param2 = searchParams.get("val2");
 
-
-    const searchParams = useSearchParams();
-    const param1 = searchParams.get("val1");
-    const param2 = searchParams.get("val2");
-
-
-    const getdata = async () => {
-        // const response = await fetch(`/api/hello/next_js/next_js${page.pageNo}`);   
-        const response = await fetch(`/api/data?book_name=${encodeURIComponent(param1)}&pageNo=${encodeURIComponent(pageNo)}`);
-
-        const res = await response.json();
-        // console.log(res);
-        if (res.book_data) {
-            setleft_page(res.book_data)
-        } else {
-            setleft_page("no ")
-        }
+  const fetchData = async (param, page, setPage) => {
+    try {
+      const response = await fetch(`/api/data?book_name=${encodeURIComponent(param)}&pageNo=${encodeURIComponent(page)}`);
+      const res = await response.json();
+      setPage(res.book_data || "No Data");
+    } catch (error) {
+      console.error("Error fetching data:", error);
+      setPage("Error loading page");
     }
+  };
 
-    const getdata2 = async () => {
-        const response = await fetch(`/api/data?book_name=${encodeURIComponent(param2)}&pageNo=${encodeURIComponent(pageNo + 1)}`);
+  useEffect(() => {
+    setWidth(window.innerWidth);
+  }, []);
 
-        const res = await response.json();
-        // console.log(res);
-        if (res.book_data) {
-            setright_page(res.book_data)
-        } else {
-            setright_page("no ")
-        }
-    }
+  useEffect(() => {
+    fetchData(param1, pageNo, setLeftPage);
+    fetchData(param2, pageNo + 1, setRightPage);
+  }, [pageNo, animate]);
 
-    const next_page = () => {
-        setTimeout(() => { setpageNO(pageNo + 2) }, 1500)
-        animate_handle()
-    }
-    const previous_page = () => {
-        setTimeout(() => { setpageNO(pageNo - 2) }, 1500)
-        setback_animate(true)
-    }
-    const ani_end = () => { setanimate(false), setback_animate(false) }
+  const nextPage = () => {
+    setTimeout(() => setPageNo(pageNo + 2), 1500);
+    setAnimate(true);
+  };
 
-    // useEffect(() => {
-    //     setloading(false)
-    // }, [])
+  const previousPage = () => {
+    setTimeout(() => setPageNo(pageNo - 2), 1500);
+    setBackAnimate(true);
+  };
 
-    useEffect(()=>{
-        if (window) {
-            setwidth(window.innerWidth)
-        }
-        console.log("width",width);
-    },[])
-    useEffect(() => {
+  const animationEnd = () => {
+    setAnimate(false);
+    setBackAnimate(false);
+  };
 
-        getdata()
-        getdata2()
-    }, [pageNo, animate])
-
-    const animate_handle = () => {
-        setanimate(true)
-    }
-    if (width > 490) {
-            
-        return (
-            <div className='con'>
-                
-                    {/* {width} */}
-                <div className='mybook'>
-                    <div className='page1'>
-                        {param1}
-                        <pre dangerouslySetInnerHTML={{ __html: left_page }} />
-                    </div>
-
-                    <div onAnimationEnd={ani_end} className={`page2 ${animate ? "animate" : ""} ${back_animate ? "priveous_page" : ""}`}>
-                        {param2}
-                        <pre dangerouslySetInnerHTML={{ __html: right_page }} />
-                    </div>
-                    <div className='page3'>
-
-                    </div>
-                </div>
-                <div className='buttons'>
-                    <MdArrowBackIos onClick={previous_page} style={{ fontSize: "30px" }} />
-                    <div>{pageNo}</div> <div>mark</div> <div>{pageNo + 1}</div>
-                    <MdNavigateNext onClick={next_page} style={{ fontSize: "50px" }} />
-                </div>
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      {width > 490 ? (
+        <div className="con">
+          <div className="mybook">
+            <div className="page1">
+              {param1}
+              <pre dangerouslySetInnerHTML={{ __html: leftPage }} />
             </div>
-        )
-    } else {
-        return(
-              <div className='view_mob_con'>
-                {/* {width} */}
-              
-                  <div  className='mob_mybook'>
-                  <div className='mob_page1'> 
-                  {param1}
-                      <pre dangerouslySetInnerHTML={{__html: left_page}}/> 
-                  </div>
-          
-                  <div onAnimationEnd={ani_end} className={`mob_page2 ${animate ? "animate":""} ${back_animate?"priveous_page":""}`}>
-                      {param2}
-                      <pre dangerouslySetInnerHTML={{__html: right_page}}/>
-                  </div>
+            <div onAnimationEnd={animationEnd} className={`page2 ${animate ? "animate" : ""} ${backAnimate ? "previous_page" : ""}`}>
+              {param2}
+              <pre dangerouslySetInnerHTML={{ __html: rightPage }} />
+            </div>
+          </div>
+          <div className="buttons">
+            <MdArrowBackIos onClick={previousPage} style={{ fontSize: "30px" }} />
+            <div>{pageNo}</div> <div>mark</div> <div>{pageNo + 1}</div>
+            <MdNavigateNext onClick={nextPage} style={{ fontSize: "50px" }} />
+          </div>
+        </div>
+      ) : (
+        <div className="view_mob_con">
+          <div className="mob_mybook">
+            <div className="mob_page1">
+              {param1}
+              <pre dangerouslySetInnerHTML={{ __html: leftPage }} />
+            </div>
+            <div onAnimationEnd={animationEnd} className={`mob_page2 ${animate ? "animate" : ""} ${backAnimate ? "previous_page" : ""}`}>
+              {param2}
+              <pre dangerouslySetInnerHTML={{ __html: rightPage }} />
+            </div>
+          </div>
+          <div className="mob_buttons">
+            <MdArrowBackIos onClick={previousPage} style={{ fontSize: "20px" }} />
+            <div>{pageNo}</div> <div>mark</div> <div>{pageNo + 1}</div>
+            <MdNavigateNext onClick={nextPage} style={{ fontSize: "40px" }} />
+          </div>
+        </div>
+      )}
+    </Suspense>
+  );
+};
 
-                  <div className='mob_page3'>
-          
-                  </div>
-
-                  </div>
-                      <div className='mob_buttons'>
-                      <MdArrowBackIos onClick={previous_page} style={{fontSize:"20px"}} />
-                      <div>{pageNo}</div> <div>mark</div> <div>{pageNo+1}</div> 
-                      <MdNavigateNext onClick={next_page}  style={{fontSize:"40px" }}/>
-                      </div>
-              </div>
-            )
-    }
-}
-export  function Next_js() {
-    return (
-      <Suspense fallback={<div>Loading...</div>}>
-        <BookViewer />
-      </Suspense>
-    );
-  }
+export default NextJsBookViewer;
