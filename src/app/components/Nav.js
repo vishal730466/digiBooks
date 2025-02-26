@@ -67,7 +67,7 @@ export const Nav = () => {
   if (width > 400) {
     return (
 
-      <div id='mynav' >
+      <div id='mynavbar' >
           <Logcontext.Provider value={{setloggedin,setTurn,setlogin,setsignup}}> 
 
           <Link href="/"><li > Home</li></Link>

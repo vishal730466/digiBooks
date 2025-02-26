@@ -93,7 +93,7 @@ const BookContainer = () => {
 
     if (device_width > 400) {
         return (<div className='books_container'>
-                {device_width}
+                
             {mydata.map((item, index) => (
                 <div key={index} className='box' onClick={() => redirect(item.book_name, item.Total_pages)}>
                     {item.book_name}{item.pageNo}

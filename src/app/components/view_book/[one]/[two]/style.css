@@ -4,10 +4,11 @@ body{
     perspective: 90vw;
     display: flex;
     justify-content: center;
-    align-items: center;
-    background-color: rgb(81, 80, 80);
+    /* align-items: center; */
+    background-color: rgba(106, 106, 104, 0.365);
 }
-.con{
+
+.con1{
     transform: rotateX(25deg);
     height: 90vh;
     width: 85vw;
@@ -42,11 +43,10 @@ body{
     color: rgb(34, 32, 165);
     transform-origin: left;
     
-    /* animation: a1 2s ease-in-out 1; */
     transform-style: preserve-3d;
     overflow: auto;
-    /* backface-visibility: hidden;  */
 }
+
 .page3{
     background-color: rgba(249, 250, 248, 0.929);
     position: absolute;
@@ -55,12 +55,14 @@ body{
     right: 0;
     z-index: -1;
 }
+
 .animate{
     animation: a1 2s ease-in  1;
 }
 .priveous_page{
     animation: previous 2s ease-out 1;
 }
+
 .buttons{
     height: 8%;
     width: 100%;
@@ -69,6 +71,7 @@ body{
     display: flex;
     justify-content: space-between;
 }
+
 @keyframes a1{
     0%{
         transform: rotateY(0deg);

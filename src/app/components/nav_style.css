@@ -102,7 +102,7 @@
  
 
   
-  #mynav li {
+  #mynavbar li {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -129,13 +129,14 @@
     border: 2px solid greenyellow;
   } */
 
-  #mynav{
+  #mynavbar{
+    margin: 0px;
     position: absolute;
     z-index: 10;
     background-color: rgba(230, 221, 221, 0.947);
     height: 10vh;
     width: 100vw;
-    border: 1px solid;
+    /* border: 1px solid; */
     display: flex;
     justify-content: space-around;
     align-items: center;

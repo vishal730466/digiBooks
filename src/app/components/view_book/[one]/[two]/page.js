@@ -83,7 +83,7 @@ import { MdArrowBackIos } from "react-icons/md";
     if (width > 490) {
             
         return (
-            <div className='con'>
+            <div className='con1'>
                 
                     {/* {width} */}
                 <div className='mybook'>
