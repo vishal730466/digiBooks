@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef, useState,Suspense } from 'react'
 import "./style.css"
 
 
@@ -80,7 +80,7 @@ const Next_js = () => {
     }
     if (width > 490) {
 
-        return (
+        return (<Suspense>
             <div className='con'>
                 
                     {/* {width} */}
@@ -104,9 +104,9 @@ const Next_js = () => {
                     <MdNavigateNext onClick={next_page} style={{ fontSize: "50px" }} />
                 </div>
             </div>
-        )
+            </Suspense>)
     } else {
-        return(
+        return(<Suspense>
               <div className='view_mob_con'>
                 {/* {width} */}
               
@@ -132,7 +132,7 @@ const Next_js = () => {
                       <MdNavigateNext onClick={next_page}  style={{fontSize:"40px" }}/>
                       </div>
               </div>
-            )
+              </Suspense>)
     }
 }
 
