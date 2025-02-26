@@ -11,12 +11,12 @@ export default function Home() {
   return (
    <>
    <Nav/>
-   <div className="container">
+   {/* <div className="container"> */}
    
    <Book_container/>
   
 
-   </div>
+   {/* </div> */}
    </>
   );
 }

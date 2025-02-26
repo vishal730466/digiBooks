@@ -1,9 +1,6 @@
 "use client"
 import React, { useRef, useState, createContext, useEffect } from 'react';
-// import Python from '../books/python';
 import "./book_container.css"
-import { PageContext } from '../mycontext';
-// import Next_js from '../books/next_Js';
 import { useRouter } from "next/navigation";
 import Skeleton from '../skeleton/page';
 
@@ -30,37 +27,6 @@ const BookContainer = () => {
         setmydata(data.result)
         console.log("final", data);
     }
-
-    // const handleNext = () => {
-    //     if (pageNo == "cover_page") {
-    //         setpageNo(0)
-    //     }
-    //     else if (pageNo == 0) {
-    //         setpageNo(1)
-    //     } else {
-    //         setpageNo(pageNo + 2)
-    //     }
-
-    //     if (!isAnimating) {
-    //     console.log("animation ",pageNo);
-    //     setIsAnimating(true); 
-    //     setTimeout(() => setIsAnimating(false), 2000); 
-    //     setTimeout(()=>{setpageNo(pageNo+1)},500)
-    //     }
-    // };
-
-
-
-    // const previous_page = () => {
-
-    //     if (pageNo == 0) {
-    //         setActiveIndex(null)
-    //     } else if (pageNo == 1) {
-    //         setpageNo(0)
-    //     } else {
-    //         setpageNo(pageNo - 2)
-    //     }
-    // }
 
     const redirect = (a, b) => {
         // router.push(`/components/view_book?val1=${a}&val2=${b}`)
@@ -103,9 +69,9 @@ const BookContainer = () => {
         </div>)
     } else {
         return <div className='mob_books_con' ref={deviceRef} >
-            {device_width}
+            {/* {device_width} */}
             {mydata.map((item, index) => (
-                <div key={index} className='box' onClick={() => redirect(item.book_name, item.Total_pages)}>
+                <div key={index} className='mob_box' onClick={() => redirect(item.book_name, item.Total_pages)}>
                     {item.book_name}{item.pageNo}
                 </div>
             ))}

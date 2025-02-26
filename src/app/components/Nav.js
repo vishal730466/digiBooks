@@ -9,6 +9,8 @@ import { useRef, useEffect, useState } from 'react';
 import SignUp from './signUp'
 import LogOut from './logOut'
 
+import { IoMdHome } from "react-icons/io";
+import { ImCross } from "react-icons/im";
 
 export const Nav = () => {
   const divRef = useRef(null);
@@ -89,12 +91,13 @@ export const Nav = () => {
   else {
     return (
       <div ref={divRef}  style={{ width: "100%" }}>
-        {mob_nav_back && <div id='mob_nav_background' ></div>} 
         <div  className='mob_con'>
         
         <div id="nav_Div" ref={navRef} onTouchMove={touchMoveHandler}>
         
-        <div  className='m_nav' onClick={Toggle}>a</div>
+        <div  className='m_nav' onClick={Toggle}>
+          {mob_nav_back?<ImCross style={{fontSize:"25px"}}/>: <IoMdHome  style={{fontSize:"40px"}}/>  }
+          </div>
         
         <div ref={mob_navRef}>
         <div className='ml1'><Link href="/">H</Link></div>

@@ -17,19 +17,16 @@
 }
 
 .m_nav{
-  margin: 0;
+    margin: 0;
     height: 80px;
     width: 80px;
-    
     border-radius: 50%;
-    /* position: absolute;
-    left: 0%;
-    top: 45vh; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     background-color: rgba(178, 216, 235, 0.363);
-    box-shadow: 5px 5px 5px rgba(97, 99, 105, 0.418)
-   
-    ;
+    box-shadow: 5px 5px 5px rgba(97, 99, 105, 0.418);
   /*   inset -5px -5px 5px rgba(245, 245, 245, 0.9);  */
    z-index: 21;
     color: black;
@@ -123,11 +120,6 @@
     font-weight: 700;
   }
   
-  /* #con {
-    height: 500px;
-    width: 500px;
-    border: 2px solid greenyellow;
-  } */
 
   #mynavbar{
     margin: 0px;

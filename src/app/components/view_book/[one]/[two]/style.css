@@ -13,7 +13,7 @@ body{
     height: 90vh;
     width: 85vw;
      /* border: 2px solid black;  */
-    margin-right: 6vw;
+    /* margin-right: 6vw; */
 }
 .mybook{
     height: 90%;
@@ -95,7 +95,7 @@ body{
 /* ------------------------ */
 
 .view_mob_con {
-    margin-top: 7%;
+    margin-top: 55%;
     /* transform: rotateY(40deg); */
     position: absolute;
     transform: rotateY(15deg) rotate(90deg);

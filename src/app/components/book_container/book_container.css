@@ -1,17 +1,15 @@
 .books_container {
-  /* perspective: 55vh; */
-  /* margin: 5px; */
   position: absolute;
-  top: 0vh;
+  top: 10vh;
   height: 80vh;
   width: 100vw;
-  /* border: 2px solid black; */
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-around;
   align-items: center;
   z-index: 5;
+  border: 2px solid black;
 }
 
 .box {
@@ -27,10 +25,11 @@
   height: 20vw;
   width: 20vw;
   margin: 3vh;
+  border: 2px solid;
 }
 
 #main_book {
- 
+
   /* transform: rotateX(10deg); */
   display: flex;
   flex-direction: row;
@@ -96,17 +95,6 @@
   }
 }
 
-
-.animate div:nth-child(2) {
-  /* background-color: black; */
-  /* transform: rotateY(0deg); */
-  /* animation: rotateBook 2s linear infinite; */
-  transition: transform 2s;
-}
-
-/* .animate {
-    transform: rotateY(360deg);
-} */
 .background2 {
   position: absolute;
   left: -12vw;
@@ -126,15 +114,16 @@
   top: 0;
   right: 0;
 }
-.btn_container button{
+
+.btn_container button {
   font-size: 1.7vw;
 }
 
 .mob_books_con {
-  height: 75vh;
+  height: 90vh;
   width: 100vw;
-  /* position: absolute;
-    top: 0; */
+  position: absolute;
+  top: 0;
   background-color: aqua;
   z-index: 20;
   display: flex;
