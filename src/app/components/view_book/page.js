@@ -68,7 +68,7 @@ const Next_js = () => {
             setwidth(window.innerWidth)
         }
         console.log("width",width);
-    },[width])
+    },[])
     useEffect(() => {
 
         getdata()
@@ -83,7 +83,7 @@ const Next_js = () => {
         return (
             <div className='con'>
                 
-                    {width}
+                    {/* {width} */}
                 <div className='mybook'>
                     <div className='page1'>
                         {param1}

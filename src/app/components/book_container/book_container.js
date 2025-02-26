@@ -23,12 +23,12 @@ const BookContainer = () => {
     const main_bookRef = useRef("")
 
     const get = async () => {
-        console.log("get data");
+        // console.log("get data");
         let data = await fetch("/api/hello")
         console.log(data)
         data = await data.json()
         setmydata(data.result)
-        console.log("fial", data);
+        console.log("final", data);
     }
 
     // const handleNext = () => {
