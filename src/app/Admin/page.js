@@ -70,7 +70,7 @@ const Admin = () => {
           <textarea className='output_div' value={text} onChange={(e)=>settext(e.target.value)} rows="4" cols="50" placeholder="Enter text here..." ></textarea>
         <div className='output_div' ref={widthref}>
 
-                id is {id}
+                {/* id is {id} */}
         <pre dangerouslySetInnerHTML={{__html: text}}/> 
         </div>
         <button className='copy_btn' onClick={copyToClipboard}> COPY</button>
