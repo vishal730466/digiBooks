@@ -1,0 +1,92 @@
+/* body{
+    margin-top: 10vh;
+    height: 100vh;
+    width: 100vw;
+    background-color: #f4f4f4;
+    color: #333;
+    border: 2px solid;
+} */
+
+.about{
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+    display: flex;
+    height: 100vh;
+    /* border: 2px solid red; */
+}
+.about_con{
+    margin-top: 11vh;
+    height: 88%;
+    width: 100%;
+    /* border: 2px solid blue; */
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: white;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    overflow: hidden;
+}
+.about_right_side{
+    width: 45vw;
+    height: 90%;
+    padding:1% 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    border: 2px solid black;
+    /* background-color: aqua; */
+}
+.about_left_side{
+    height: 90%;
+    width: 45%;
+    border: 2px solid black;
+    /* background-color: pink; */
+}
+input { 
+    color: black;
+    width: 100%;
+    height: 10%;
+    margin: 4% 0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border: solid black;
+    border-radius: 5px;
+    font-size: 16px;
+}
+#message{
+    color: black;
+    width: 100%;
+    height: 25%;
+    margin: 5% 0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border: solid black;
+    border-radius: 5px;
+    font-size: 16px;
+
+}
+
+
+h1 {
+    margin: 4%;
+    color: #007bff;
+    /* border: 2px solid red; */
+}
+
+.about button {
+    background-color: #007bff;
+    color: white;
+    margin-left: 10%;
+    width: 80%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}

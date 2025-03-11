@@ -7,6 +7,7 @@ export async function GET(){
     await mongoose.connect(connectionStr)
     // const data = await mySchema.find()
     const data = await book_Schema.find()
+    // const a = await showdbs()
     // console.log(data)
     return NextResponse.json({result:data})
 }
@@ -27,7 +28,7 @@ export async function POST(req){
         const {name , password } = payload;
         const find =await user_schema.findOne({name:payload.name})
         if (find) {
-            console.log("find is ",find);
+            console.log("user found ",find);
            return  NextResponse.json({success:"exist"})
         } else {
             result = new user_schema({name,password})

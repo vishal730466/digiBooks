@@ -11,6 +11,7 @@ import LogOut from './logOut'
 
 import { IoMdHome } from "react-icons/io";
 import { ImCross } from "react-icons/im";
+import Skeleton from './skeleton/page'
 
 export const Nav = () => {
   const divRef = useRef(null);
@@ -66,6 +67,9 @@ export const Nav = () => {
     }
   }
 
+  if(width==1000){
+    return(<div></div>)
+  }
   if (width > 400) {
     return (
 

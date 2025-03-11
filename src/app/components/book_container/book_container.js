@@ -6,25 +6,27 @@ import Skeleton from '../skeleton/page';
 
 const BookContainer = () => {
     const router = useRouter();
-    const [device, setdevice] = useState("")
-    const books = ["nextJs", "python"];
-    const [pageNo, setpageNo] = useState("cover_page")
-    const [background, setbackground] = useState(false)
+    // const [device, setdevice] = useState("")
+    // const books = ["nextJs", "python"];
+    // const [pageNo, setpageNo] = useState("cover_page")
+    // const [background, setbackground] = useState(false)
     const [device_width, setdevicewidth] = useState("1000")
-    const [activeIndex, setActiveIndex] = useState(null)
+    const [loading, setLoding] = useState(true)
     const [font_size, setfont_size] = useState("1")
     const [mydata, setmydata] = useState([])
-    const refs = useRef([])
+    // const refs = useRef([])
 
     const deviceRef = useRef("")
-    const main_bookRef = useRef("")
+    // const main_bookRef = useRef("")
 
     const get = async () => {
         // console.log("get data");
+        setLoding(true)
         let data = await fetch("/api/hello")
         console.log(data)
         data = await data.json()
         setmydata(data.result)
+        setLoding(false)
         console.log("final", data);
     }
 
@@ -41,11 +43,7 @@ const BookContainer = () => {
                 setfont_size("1.7vw")
             }
         }
-        if (device_width > 400) {
-            setdevice("computer")
-        } else {
-            setdevice("mob")
-        }
+
         if (window) {
             setdevicewidth(window.innerWidth)
         }
@@ -56,8 +54,11 @@ const BookContainer = () => {
     if (device_width == 1000) {
         return (<Skeleton />)
     }
+    else if(loading){
+        return(<Skeleton/>)
+    }
 
-    if (device_width > 400) {
+    else if(device_width > 400) {
         return (<div className='books_container'>
                 
             {mydata.map((item, index) => (

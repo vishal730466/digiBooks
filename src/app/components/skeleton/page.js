@@ -6,15 +6,15 @@ const Skeleton = () => {
     
   return (
     <div>
-    {/* <header>
+    <header>
       <br/>
       <div className="navbar">
-        <button></button>
-        <button></button>
-        <button></button>
-        <button></button>
+        <div className='h'></div>
+        <div className='h'></div>
+        <div className='h'></div>
+        <div className='h'></div>
       </div>
-    </header> */}
+    </header>
     <main className="skeleton-grid">
       <div className="skeleton-box"></div>
       <div className="skeleton-box"></div>
@@ -24,10 +24,10 @@ const Skeleton = () => {
       <div className="skeleton-box"> </div>
       <div className="skeleton-box"></div>
       <div className="skeleton-box"> </div>
+      {/* <div className="skeleton-box"> </div>
       <div className="skeleton-box"> </div>
       <div className="skeleton-box"> </div>
-      <div className="skeleton-box"> </div>
-      <div className="skeleton-box"> </div>
+      <div className="skeleton-box"> </div> */}
   
     </main>
     {/* {mydata.map((item, index) => (

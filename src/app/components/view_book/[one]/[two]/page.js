@@ -1,13 +1,14 @@
 "use client"
-
 import React, { useEffect, useRef, useState, Suspense } from 'react'
 import "./style.css"
 
 
 import { useParams, useSearchParams } from "next/navigation";
 
-import { MdNavigateNext } from "react-icons/md";
+import { MdNavigateNext , MdKeyboardBackspace } from "react-icons/md";
 import { MdArrowBackIos } from "react-icons/md";
+// import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 const Next_js = () => {
     const [left_page, setleft_page] = useState("")
@@ -16,20 +17,22 @@ const Next_js = () => {
     const [animate, setanimate] = useState(false)
     const [back_animate, setback_animate] = useState(false)
     const [width, setwidth] = useState(1000)
-    const [loading, setloading] = useState(true)
+    const [Total_pages, set_Totalpages] = useState(10)
 
+    // const router = useRouter()
 
-    const searchParams = useSearchParams();
-    const param1 = searchParams.get("val1");
-    const param2 = searchParams.get("val2");
+    // const searchParams = useSearchParams();
+    // const param1 = searchParams.get("val1");
+    // const param2 = searchParams.get("val2");
 
     const { one, two } = useParams();
 
+    // if(param2){
+    //     set_Totalpages(param2)
+    // }
 
     const getdata = async () => {
-        // const response = await fetch(`/api/hello/next_js/next_js${page.pageNo}`);   
-        const response = await fetch(`/api/data?book_name=${encodeURIComponent(param1)}&pageNo=${encodeURIComponent(pageNo)}`);
-
+        const response = await fetch(`/api/data?book_name=${encodeURIComponent(one)}&pageNo=${encodeURIComponent(pageNo)}`);
         const res = await response.json();
         // console.log(res);
         if (res.book_data) {
@@ -40,8 +43,7 @@ const Next_js = () => {
     }
 
     const getdata2 = async () => {
-        const response = await fetch(`/api/data?book_name=${encodeURIComponent(param2)}&pageNo=${encodeURIComponent(pageNo + 1)}`);
-
+        const response = await fetch(`/api/data?book_name=${encodeURIComponent(one)}&pageNo=${encodeURIComponent(pageNo + 1)}`);
         const res = await response.json();
         // console.log(res);
         if (res.book_data) {
@@ -52,13 +54,19 @@ const Next_js = () => {
     }
 
     const next_page = () => {
-        setTimeout(() => { setpageNO(pageNo + 2) }, 1500)
-        animate_handle()
+        if(pageNo<(Total_pages-1)){
+            setTimeout(() => { setpageNO(pageNo + 2) }, 1500)
+            animate_handle()
+        }
     }
+
     const previous_page = () => {
-        setTimeout(() => { setpageNO(pageNo - 2) }, 1500)
-        setback_animate(true)
+        if(pageNo>1){
+            setTimeout(() => { setpageNO(pageNo - 2) }, 1500)
+            setback_animate(true)
+        }
     }
+
     const ani_end = () => { setanimate(false), setback_animate(false) }
 
     // useEffect(() => {
@@ -70,9 +78,12 @@ const Next_js = () => {
             setwidth(window.innerWidth)
         }
         console.log("width", width);
+        set_Totalpages(two)
     }, [])
     useEffect(() => {
 
+        // console.log("Query Params:", param1, param2);
+        console.log("Route Params12:", one, two);
         getdata()
         getdata2()
     }, [pageNo, animate])
@@ -80,20 +91,26 @@ const Next_js = () => {
     const animate_handle = () => {
         setanimate(true)
     }
+
+    if(width==1000){
+        return(<h1>loading</h1>)
+    }
     if (width > 490) {
 
         return (
             <div className='con1'>
-
+                <Link href="/" className='back_btn' ><MdKeyboardBackspace style={{fontSize:"60" }} /></Link>
+                
                 {/* {width} */}
                 <div className='mybook'>
                     <div className='page1'>
-                        {one}
+                        {one} 
+                        {/* <iframe src='https://3d-web-gilt.vercel.app/'></iframe> */}
                         <pre dangerouslySetInnerHTML={{ __html: left_page }} />
                     </div>
 
                     <div onAnimationEnd={ani_end} className={`page2 ${animate ? "animate" : ""} ${back_animate ? "priveous_page" : ""}`}>
-                        {two}
+                        {two} 
                         <pre dangerouslySetInnerHTML={{ __html: right_page }} />
                     </div>
                     <div className='page3'>
@@ -101,9 +118,10 @@ const Next_js = () => {
                     </div>
                 </div>
                 <div className='buttons'>
-                    <MdArrowBackIos onClick={previous_page} style={{ fontSize: "30px" }} />
+                    <MdArrowBackIos onClick={previous_page} style={{ fontSize: "30px", color:pageNo>1?"black":"white" }} />
                     <div>{pageNo}</div> <div>mark</div> <div>{pageNo + 1}</div>
-                    <MdNavigateNext onClick={next_page} style={{ fontSize: "50px" }} />
+        
+                    <MdNavigateNext onClick={next_page} style={{ fontSize: "50px", color:pageNo<(Total_pages-1)?"black":"white" }} />
                 </div>
             </div>
         )

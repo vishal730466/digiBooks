@@ -36,32 +36,28 @@
 }
 
 .ml1{
-
-   position: relative;
+  border: solid;
    /* bottom: 100px; */
    /* left: 100px; */
 }
 .ml2{
-    /*border: 2px solid; */
-    position: relative;
+    border: 2px solid;
     /* bottom: 40px; */
     /* left: 100px; */
  }
  .ml3{
-     /* border: 2px solid; */
-    position: relative;
+     border: 2px solid;
     /* bottom: -20px; */
     /* left: 100px; */
  }
  .ml4{
-   /*border: 2px solid; */
-  position: relative;
+   border: 2px solid;
   /* bottom: -80px; */
   /* left: 100px; */
 }
 
  .ml1 , .ml2 ,.ml3 , .ml4{
-   /* position: absolute; */
+   position: relative;
   /* display: none; */
   border-radius: 50%;
    display: flex;
@@ -138,14 +134,14 @@
 /* ----------signUP-------------- */
   .div_center{
     position: absolute;
-    /* top: 20vh; */
-    height:33vw;
-    width: 60vh;
+    top: 8vh;
+    height:70vh;
+    width: 30vw;
     /* border: 2px solid black; */
     background-color:  #503a3a;
     color: #f1f443;
     /* margin-left: calc(50vw - 200px); */
-    margin-top: 55vh;
+    /* margin-top: 65vh; */
     display: flex;
     flex-direction: column;
     /* justify-content: space-around; */

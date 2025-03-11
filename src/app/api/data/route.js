@@ -12,7 +12,7 @@ export async function GET(req) {
     const key = url.searchParams.get("book_name");
     const gpageNo = url.searchParams.get("pageNo");
 
-   console.log("query is:", key , gpageNo);
+   console.log("query is:",url, key , gpageNo);
 
     const data = await mySchema.findOne({ book_name: key , pageNo : gpageNo  });
 
