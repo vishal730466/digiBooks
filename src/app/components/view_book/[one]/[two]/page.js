@@ -32,9 +32,10 @@ const Next_js = () => {
     // }
 
     const getdata = async () => {
+        console.log("data for fun ",one , pageNo)
         const response = await fetch(`/api/data?book_name=${encodeURIComponent(one)}&pageNo=${encodeURIComponent(pageNo)}`);
         const res = await response.json();
-        // console.log(res);
+        console.log(res);
         if (res.book_data) {
             setleft_page(res.book_data)
         } else {
@@ -104,13 +105,13 @@ const Next_js = () => {
                 {/* {width} */}
                 <div className='mybook'>
                     <div className='page1'>
-                        {one} 
+                        {/* {one}  */}
                         {/* <iframe src='https://3d-web-gilt.vercel.app/'></iframe> */}
                         <pre dangerouslySetInnerHTML={{ __html: left_page }} />
                     </div>
 
                     <div onAnimationEnd={ani_end} className={`page2 ${animate ? "animate" : ""} ${back_animate ? "priveous_page" : ""}`}>
-                        {two} 
+                        {/* {two}  */}
                         <pre dangerouslySetInnerHTML={{ __html: right_page }} />
                     </div>
                     <div className='page3'>

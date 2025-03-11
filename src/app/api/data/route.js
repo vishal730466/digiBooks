@@ -15,8 +15,10 @@ export async function GET(req) {
    console.log("query is:",url, key , gpageNo);
 
     const data = await mySchema.findOne({ book_name: key , pageNo : gpageNo  });
+    
+    // const data = await userschema.findOne({ book_name: key , pageNo : gpageNo  });
 
-    // console.log("data is ",data);
+    console.log("api data is ",data);
     return NextResponse.json(data || { message: "No data found" });
   } catch (error) {
     console.error("Error fetching data:", error);
