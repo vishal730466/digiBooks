@@ -45,7 +45,7 @@ const About = () => {
             <input type="text" id="name" name="name" placeholder="Your Name" required/>
             <input type="email" id="email" name="email" placeholder="Your Email" required/>
                 <textarea id="message" name="message" rows="4" placeholder="Your Message" required></textarea>
-                <button type="submit">Send Message</button>
+                <button className='about_btn' type="submit">Send Message</button>
            
               
               </div>    

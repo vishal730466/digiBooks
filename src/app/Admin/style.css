@@ -1,13 +1,13 @@
 .output_div{
-    height: 35vw;
-    width: 40vw;
+    height: 85.5vh;
+    width: 42.5vw;
     border: 2px solid;
     margin-top: 2vh;
     font-size: 1.7vw;
 }
 
 .box{
-    height: 80vh;
+    height: 90vh;
     width:98vw;
     border: 2px solid blue;
     display: flex;
@@ -21,9 +21,9 @@ pre {
     word-wrap: break-word; /* Allows long words to wrap */
   }
 
-input{
+.getbook input{
     width: 30vw;
-    height: 10vh;
+    height: 5vh;
     /* margin: 1vw; */
     margin: 0vw 3vh;
 }

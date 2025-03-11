@@ -133,12 +133,12 @@ const Next_js = () => {
 
                 <div className='mob_mybook'>
                     <div className='mob_page1'>
-                        {param1}
+                        {/* {param1} */}
                         <pre dangerouslySetInnerHTML={{ __html: left_page }} />
                     </div>
 
                     <div onAnimationEnd={ani_end} className={`mob_page2 ${animate ? "animate" : ""} ${back_animate ? "priveous_page" : ""}`}>
-                        {param2}
+                        {/* {param2} */}
                         <pre dangerouslySetInnerHTML={{ __html: right_page }} />
                     </div>
 
