@@ -42,8 +42,8 @@ const About = () => {
       <p>If you have any questions, please fill out the form below to get in touch with us. We'll get back to you as soon as possible.</p>
 
             <div>
-            <input type="text" id="name" name="name" placeholder="Your Name" required/>
-            <input type="email" id="email" name="email" placeholder="Your Email" required/>
+            <input className='about_input' type="text" id="name" name="name" placeholder="Your Name" required/>
+            <input className='about_input' type="email" id="email" name="email" placeholder="Your Email" required/>
                 <textarea id="message" name="message" rows="4" placeholder="Your Message" required></textarea>
                 <button className='about_btn' type="submit">Send Message</button>
            

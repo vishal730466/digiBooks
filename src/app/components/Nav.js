@@ -73,8 +73,12 @@ export const Nav = () => {
   if (width > 400) {
     return (
 
-      <div id='mynavbar' >
+      <nav id='mynavbar' >
           <Logcontext.Provider value={{setloggedin,setTurn,setlogin,setsignup}}> 
+            
+        <div className="navbar_logo">
+            <img src="logo.jpg"  alt="Logo"/> 
+        </div>
 
           <Link href="/"><li > Home</li></Link>
           <Link href="/about"> <li >About</li></Link>
@@ -88,7 +92,7 @@ export const Nav = () => {
           {loggedin? <LogOut/>:null}
 
         </Logcontext.Provider>
-      </div>
+      </nav>
     )
   }
 
