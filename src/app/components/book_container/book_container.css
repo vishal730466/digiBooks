@@ -148,6 +148,17 @@
   border-top-left-radius: 25px;
   border-bottom-left-radius: 25px;
 }
+.mob_con_inp{
+  height: 100%;
+  width: 80%;
+  background-color: #00EBFF;
+  color: #1e272e;
+}
+.mob_search_con{
+  width: 100vw;
+  height: 10vh;
+  border: 2px solid;
+}
 .search_icon{
   position: absolute;
   margin-left: -3vw;

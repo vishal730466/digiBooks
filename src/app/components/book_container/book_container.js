@@ -113,6 +113,10 @@ useEffect(() => {
     } else {
         return <div className='mob_books_con' ref={deviceRef} >
             {/* {device_width} */}
+            <div className='mob_search_con'>
+                    <input className='mob_con_inp' type='text' value={search} onChange={(e)=>search_fun(e.target.value)}/>
+                    <IoSearchSharp className='mob_search_icon'/>
+                </div>
             {mydata.map((item, index) => (
                 <div key={index} className='mob_box' onClick={() => redirect(item.book_name, item.Total_pages)}>
                     {item.book_name}{item.pageNo}
