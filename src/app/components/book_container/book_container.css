@@ -120,3 +120,37 @@
   /* align-items: center; */
   flex-wrap: wrap;
 }
+
+.search_con{
+  height: 7vh;
+  width: 80vw;
+  margin-left: 10vw;
+  top: 14vh;
+  position: fixed;
+  /* border: 2px solid; */
+}
+
+.con_inp{
+  height: 100%;
+  width: 15vw;
+
+  
+  background-color:#00EBFF;
+  /* border: 0; */
+  /* font-size:16px; */
+  color: #1e272e;
+  padding: 15px;
+  /* height: 40px; */
+  /* width: 40px; */
+  transition: width 0.8s ease;
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+}
+.search_icon{
+  position: absolute;
+  margin-left: -3vw;
+  font-size:    5vh;
+  margin-top: 1vh;
+}

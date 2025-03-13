@@ -3,19 +3,26 @@ import React, { useRef, useState, createContext, useEffect } from 'react';
 import "./book_container.css"
 import { useRouter } from "next/navigation";
 import Skeleton from '../skeleton/page';
+import { IoSearchSharp } from "react-icons/io5";
 
 const BookContainer = () => {
     const router = useRouter();
-    // const [device, setdevice] = useState("")
-    // const books = ["nextJs", "python"];
-    // const [pageNo, setpageNo] = useState("cover_page")
-    // const [background, setbackground] = useState(false)
     const [device_width, setdevicewidth] = useState("1000")
     const [loading, setLoding] = useState(true)
     const [font_size, setfont_size] = useState("1")
     const [mydata, setmydata] = useState([])
-    // const refs = useRef([])
-
+    const [search , set_search] = useState("")
+    const [filteredItems ,set_filteredItems] = useState(false)
+    // var filteredItems="n";
+    const search_fun=async(e)=>{
+        set_search(e)
+        // if(search){
+        //      filteredItems = mydata.filter((i)=>i.book_name.toLowerCase().includes(search.toLowerCase()))
+        //      setmydata(filteredItems)
+        // }
+        // console.log("filterd ",filteredItems);
+    }
+    
     const deviceRef = useRef("")
     // const main_bookRef = useRef("")
 
@@ -34,6 +41,24 @@ const BookContainer = () => {
         // router.push(`/components/view_book?val1=${a}&val2=${b}`)
         router.push(`/components/view_book/${a}/${b}`)
     }
+
+
+useEffect(() => {
+    if (search) {
+        const filtered = mydata.filter((i) =>
+            i.book_name.toLowerCase().includes(search.toLowerCase())
+        );
+        set_filteredItems(filtered)
+        console.log("Filtered:", filtered);
+    }
+    else{
+        set_filteredItems(mydata)
+    }
+    console.log("fil ",filteredItems);
+    console.log("search",search);
+}, [search]); // Runs after `search` updates
+
+
     useEffect(() => {
         get()
         if (typeof window !== "undefined") {
@@ -47,8 +72,6 @@ const BookContainer = () => {
         if (window) {
             setdevicewidth(window.innerWidth)
         }
-
-
     }, [])
 
     if (device_width == 1000) {
@@ -57,15 +80,34 @@ const BookContainer = () => {
     else if(loading){
         return(<Skeleton/>)
     }
-
     else if(device_width > 400) {
         return (<div className='books_container'>
-                
-            {mydata.map((item, index) => (
-                <div key={index} className='box' onClick={() => redirect(item.book_name, item.Total_pages)}>
-                    {item.book_name}{item.pageNo}
+                <div className='search_con'>
+                    <input className='con_inp' type='text' value={search} onChange={(e)=>search_fun(e.target.value)}/>
+                    <IoSearchSharp className='search_icon'/>
                 </div>
-            ))}
+
+               
+                
+            {(() => {
+                if (filteredItems.length > 0) {
+                    return filteredItems.map((item, index) => (
+                        <div key={index} className='box' onClick={() => redirect(item.book_name, item.Total_pages)}>
+                            {item.book_name} {item.pageNo}
+                        </div>
+                    ));
+                }
+                else if(search){
+
+                }
+                 else {
+                    return mydata.map((item, index) => (
+                        <div key={index} className='box' onClick={() => redirect(item.book_name, item.Total_pages)}>
+                            {item.book_name} {item.pageNo}
+                        </div>
+                    ));
+                }
+            })()}
 
         </div>)
     } else {
