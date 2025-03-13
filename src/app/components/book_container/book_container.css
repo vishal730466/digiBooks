@@ -143,10 +143,7 @@
   /* height: 40px; */
   /* width: 40px; */
   transition: width 0.8s ease;
-  border-top-right-radius: 25px;
-  border-bottom-right-radius: 25px;
-  border-top-left-radius: 25px;
-  border-bottom-left-radius: 25px;
+  border-radius: 15px;
 }
 .mob_con_inp{
   height: 100%;
@@ -157,12 +154,20 @@
 }
 .mob_search_con{
   width: 100vw;
-  height: 7vh;
-  border: 2px solid;
+  height: 5vh;
+  margin-top: 3vh;
+  margin-left: 10vw;
+  /* border: 2px solid; */
 }
 .search_icon{
   position: absolute;
   margin-left: -3vw;
-  font-size:    5vh;
+  font-size: 5vh;
   margin-top: 1vh;
+}
+.mob_search_icon{
+  position: absolute;
+  margin-left: -7vw;
+  margin-top: 1vh;
+  font-size: 3vh;
 }
