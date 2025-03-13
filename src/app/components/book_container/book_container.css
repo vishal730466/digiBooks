@@ -152,11 +152,12 @@
   height: 100%;
   width: 80%;
   background-color: #00EBFF;
+  border-radius: 10px;
   color: #1e272e;
 }
 .mob_search_con{
   width: 100vw;
-  height: 10vh;
+  height: 7vh;
   border: 2px solid;
 }
 .search_icon{
