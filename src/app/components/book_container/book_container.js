@@ -127,7 +127,6 @@ useEffect(() => {
                     ));
                 }
                 else if(search){
-
                 }
                  else {
                     return mydata.map((item, index) => (
