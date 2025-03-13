@@ -4,12 +4,16 @@ import Nav from "./components/Nav";
 import SignUp from "./components/signUp";
 import "@/app/components/books/book_style.css"
 import Book_container from "./components/book_container/book_container";
+import Head from "next/head";
 
 
 export default function Home() {
 
   return (
    <>
+   <Head>
+    <title>E books Haven</title>
+   </Head>
    <Nav/>
    {/* <div className="container"> */}
    
