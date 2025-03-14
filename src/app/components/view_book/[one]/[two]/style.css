@@ -26,8 +26,8 @@ body{
 }
 
 .page1{
-    padding: 5px;
-    font-size: 2.5vh;
+    padding: 10px;
+    font-size: 2.7vh;
     height: 100%;
     width: 50%;
     background-color: rgba(249, 250, 248, 0.929);
@@ -114,7 +114,7 @@ body{
  
     transform-origin: center;
     width: 78vh; 
-    height: 88vw;
+    height: 90vw;
     /* background-color: aqua; */
     /* border: 2px solid; */
 }
