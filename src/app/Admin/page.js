@@ -146,6 +146,7 @@ const Admin = () => {
           {/* id is {id} */}
   <pre dangerouslySetInnerHTML={{__html: text}}/> 
   </div>
+  
   <button className='copy_btn' onClick={copyToClipboard}> COPY</button>
   <button className='copy_btn' onClick={updateData}>Update</button>
   </div>

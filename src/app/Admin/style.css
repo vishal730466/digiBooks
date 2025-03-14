@@ -47,10 +47,11 @@ pre {
     height: 100vh;
     width: 100vw;
     /* rotate: 90deg; */
-    border: 2px solid;
+    border: 2px solid blue;
 }
 
 .mob_output_div{
+    margin: 5px;
     width: 90vw;
     height: 35.1vh;
 }
