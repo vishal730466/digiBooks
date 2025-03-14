@@ -151,12 +151,12 @@ const Admin = () => {
   <button className='copy_btn' onClick={copyToClipboard}> COPY</button>
   <button className='copy_btn' onClick={updateData}>Update</button>
   <button className='copy_btn' onClick={create_page}>create_page</button>
-  </div>
 
-  <br/>Enter book name <input value={book} onChange={(e)=>setbook(e.target.value)}></input>
-            <br/>Enter page no <input value={page_No} onChange={(e)=>setpage_No(e.target.value)}></input>
-          
+  <br/>Enter book name <input className='admin_mob_inp' value={book} onChange={(e)=>setbook(e.target.value)}></input>
+            <br/>Enter page no <input className='admin_mob_inp' value={page_No} onChange={(e)=>setpage_No(e.target.value)}></input>
            <br/><br/> <button className='fetch_btn' onClick={fetch_book}>fetch_book</button>
+  </div>
+          
            
       </div>)
     }

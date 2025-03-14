@@ -56,3 +56,9 @@ pre {
     height: 35.1vh;
     border: 2px solid;
 }
+
+.admin_mob_inp{
+    margin: 5px;
+    height: 5vh;
+    width: 50vw;
+}
