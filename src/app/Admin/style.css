@@ -3,7 +3,7 @@
     width: 42.5vw;
     border: 2px solid;
     margin-top: 2vh;
-    font-size: 1.7vw;
+    font-size: 2.5vh;
 }
 
 .box{
@@ -30,7 +30,7 @@ pre {
 
 .copy_btn{
     height: 5vh;
-    margin: 10vh;
+    margin: 2vh;
 }
 .fetch_btn{
     width: 6vw;

@@ -5,7 +5,7 @@ import "./style.css"
 const Admin = () => {
   const widthref=useRef(null)
     const [text , settext]=useState("")
-    const[book,setbook]=useState("nextJs")
+    const[book,setbook]=useState("")
     const[page_No,setpage_No]=useState("")
     const[id, setid]=useState("")
     const [device_width, setdevicewidth] = useState("1000")
@@ -26,10 +26,26 @@ const Admin = () => {
       console.log(final_response)
   }
 
+  const create_page= async()=>{
+    if(!page_No){
+      alert("enter page no")
+      return;
+    }
+    let res = await fetch("/api/create_page",{
+      method:"POST",
+      body:JSON.stringify({book:book,pageno:page_No,data:text})
+    })
+    res=await res.json()
+    if(res.message=="book create"){
+      alert("book created")
+    }
+    console.log(res);
+  }
+
     const updateData=async()=>{
       let update_data ={
         book_data:text,
-        book_name:"nextJs",
+        book_name:book,
         pageNo:page_No
     }
       
@@ -72,7 +88,7 @@ const Admin = () => {
     }
     else if(device_width>450){
       return (
-        <div >Admin
+        <div >
     
             {/* <input className='output_div' type='text' value={text} onChange={(e)=>settext(e.target.value)}></input> */}
             <div className='box'> 
@@ -83,9 +99,10 @@ const Admin = () => {
                     {/* id is {id} */}
             <pre dangerouslySetInnerHTML={{__html: text}}/> 
             </div>
+            </div>
             <button className='copy_btn' onClick={copyToClipboard}> COPY</button>
             <button className='copy_btn' onClick={updateData}>Update</button>
-            </div>
+            <button className='copy_btn' onClick={create_page}>create_page</button>
     
     
           <div className='getbook'>
