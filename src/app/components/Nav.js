@@ -77,13 +77,13 @@ export const Nav = () => {
           <Logcontext.Provider value={{setloggedin,setTurn,setlogin,setsignup}}> 
             
         <div className="navbar_logo">
-            <img src="logo.jpg"  alt="Logo"/> 
+            <img src="logo2.png"  alt="Logo" /> 
         </div>
 
           <Link href="/"><li > Home</li></Link>
           <Link href="/about"> <li >About</li></Link>
           <Link href="/setting"> <li >Setting</li></Link>
-          <div onClick={display_form}> <li><b>Login</b></li></div>
+          <div onClick={display_form}> <li style={{cursor:"pointer"}}><b>Login</b></li></div>
        
         {/* <div ref={divRef} style={{ width: "100%", color: "red" ,display:"none"}}></div> */}
         
