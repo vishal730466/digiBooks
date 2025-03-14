@@ -9,6 +9,7 @@ const Admin = () => {
     const[page_No,setpage_No]=useState("")
     const[id, setid]=useState("")
     const [device_width, setdevicewidth] = useState("1000")
+    const [photo , set_photo]= useState("")
     // const [width ,setwidth]=useState("")
     
     const fetch_book=async()=>{
@@ -83,6 +84,24 @@ const Admin = () => {
     }
     },[])
 
+    const send_photo=async(e)=>{
+        // e.priventDefault()
+        console.log("img fun is running");
+        console.log(photo);
+
+        const myphoto=new FormData();
+        myphoto.set("file",photo)
+
+        let res=await fetch("api/photo",{
+          method:"POST",
+          body:myphoto
+        })
+
+        res=await res.json()
+        
+        console.log(res);
+    }
+
     if(device_width=="1000"){
       return<h1>Loding</h1>
     }
@@ -110,6 +129,8 @@ const Admin = () => {
             <br/>Enter page no <input value={page_No} onChange={(e)=>setpage_No(e.target.value)}></input>
           
            <br/><br/> <button className='fetch_btn' onClick={fetch_book}>fetch_book</button>
+           <input type='file' onChange={(e)=> set_photo(e.target.files?.[0])}/>
+           <button onClick={send_photo}> submit image</button>
           </div>
        
         </div>
