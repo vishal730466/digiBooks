@@ -8,7 +8,7 @@ const Admin = () => {
     const[book,setbook]=useState("nextJs")
     const[page_No,setpage_No]=useState("")
     const[id, setid]=useState("")
-
+    const [device_width, setdevicewidth] = useState("1000")
     // const [width ,setwidth]=useState("")
     
     const fetch_book=async()=>{
@@ -61,32 +61,59 @@ const Admin = () => {
       }
     }
 
-  return (
-    <div >Admin
+    useEffect(()=>{
+      if (window) {
+        setdevicewidth(window.innerWidth)
+    }
+    },[])
 
-        {/* <input className='output_div' type='text' value={text} onChange={(e)=>settext(e.target.value)}></input> */}
-        <div className='box'> 
-
-          <textarea className='output_div' value={text} onChange={(e)=>settext(e.target.value)} rows="4" cols="50" placeholder="Enter text here..." ></textarea>
-        <div className='output_div' ref={widthref}>
-
-                {/* id is {id} */}
-        <pre dangerouslySetInnerHTML={{__html: text}}/> 
+    if(device_width=="1000"){
+      return<h1>Loding</h1>
+    }
+    else if(device_width>450){
+      return (
+        <div >Admin
+    
+            {/* <input className='output_div' type='text' value={text} onChange={(e)=>settext(e.target.value)}></input> */}
+            <div className='box'> 
+    
+              <textarea className='output_div' value={text} onChange={(e)=>settext(e.target.value)} rows="4" cols="50" placeholder="Enter text here..." ></textarea>
+            <div className='output_div' ref={widthref}>
+    
+                    {/* id is {id} */}
+            <pre dangerouslySetInnerHTML={{__html: text}}/> 
+            </div>
+            <button className='copy_btn' onClick={copyToClipboard}> COPY</button>
+            <button className='copy_btn' onClick={updateData}>Update</button>
+            </div>
+    
+    
+          <div className='getbook'>
+            <br/>Enter book name <input value={book} onChange={(e)=>setbook(e.target.value)}></input>
+            <br/>Enter page no <input value={page_No} onChange={(e)=>setpage_No(e.target.value)}></input>
+          
+           <br/><br/> <button className='fetch_btn' onClick={fetch_book}>fetch_book</button>
+          </div>
+       
         </div>
-        <button className='copy_btn' onClick={copyToClipboard}> COPY</button>
-        <button className='copy_btn' onClick={updateData}>Update</button>
-        </div>
+      )
+    }
+    else{
+      return(<div>
+            <div className='mob_box'> 
+    
+    <textarea className='mob_output_div' value={text} onChange={(e)=>settext(e.target.value)} rows="4" cols="50" placeholder="Enter text here..." ></textarea>
+  <div className='mob_output_div' ref={widthref}>
 
-
-      <div className='getbook'>
-        <br/>Enter book name <input value={book} onChange={(e)=>setbook(e.target.value)}></input>
-        <br/>Enter page no <input value={page_No} onChange={(e)=>setpage_No(e.target.value)}></input>
-      
-       <br/><br/> <button className='fetch_btn' onClick={fetch_book}>fetch_book</button>
-      </div>
-   
-    </div>
-  )
+          {/* id is {id} */}
+  <pre dangerouslySetInnerHTML={{__html: text}}/> 
+  </div>
+  <button className='copy_btn' onClick={copyToClipboard}> COPY</button>
+  <button className='copy_btn' onClick={updateData}>Update</button>
+  </div>
+      </div>)
+    }
+  
 }
 
 export default Admin
