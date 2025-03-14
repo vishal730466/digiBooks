@@ -154,7 +154,7 @@ const Admin = () => {
 
   <br/>Enter book name <input className='admin_mob_inp' value={book} onChange={(e)=>setbook(e.target.value)}></input>
             <br/>Enter page no <input className='admin_mob_inp' value={page_No} onChange={(e)=>setpage_No(e.target.value)}></input>
-           <br/><br/> <button className='fetch_btn' onClick={fetch_book}>fetch_book</button>
+           <br/><br/> <button className='mob_fetch_btn' onClick={fetch_book}>fetch_book</button>
   </div>
           
            

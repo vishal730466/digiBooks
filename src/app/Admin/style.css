@@ -62,3 +62,8 @@ pre {
     height: 5vh;
     width: 50vw;
 }
+.mob_fetch_btn{
+    height: 4vh;
+    width: 30vw;
+    margin: 5px;
+}
