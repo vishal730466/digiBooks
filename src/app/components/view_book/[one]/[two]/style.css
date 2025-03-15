@@ -27,17 +27,24 @@ body{
 
 .page1{
     padding: 10px;
-    font-size: 2.7vh;
+    font-size: 2.5vh;
     height: 100%;
     width: 50%;
     background-color: rgba(249, 250, 248, 0.929);
-    /* border: 2px solid black; */
+    /* border-right: 2px solid black; */
     font-weight: 700;
     color: rgb(34, 32, 165);
+    display: flex;
+    flex-wrap: wrap;
+    overflow: auto;
+    /* word-wrap: break-word; */
+    /* white-space: normal; */
+    /* flex-wrap: wrap; */
    /* animation: a1 2s 1; */
 }
 
 .page2{
+    padding: 10px;
     height: 100%;
     width: 50%;
     background-color: rgba(249, 250, 248, 0.929);
