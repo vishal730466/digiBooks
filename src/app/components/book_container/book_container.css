@@ -124,17 +124,29 @@
 .search_con{
   height: 7vh;
   width: 80vw;
-  margin-left: 10vw;
+  /* margin-left: 10vw; */
   top: 14vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: fixed;
   /* border: 2px solid; */
+}
+.search_active{
+  
+  height: 100%;
+  background-color:#00EBFF;
+  color: #1e272e;
+  padding: 15px;
+  /* transition: width 1s ease; */
+  border-radius: 15px;
+  width: 50vw;
+  transition: all 1s;
 }
 
 .con_inp{
   height: 100%;
-  width: 15vw;
-
-  
+  width: 10vw;
   background-color:#00EBFF;
   /* border: 0; */
   /* font-size:16px; */
@@ -142,7 +154,7 @@
   padding: 15px;
   /* height: 40px; */
   /* width: 40px; */
-  transition: width 0.8s ease;
+  transition: width 1s ease;
   border-radius: 15px;
 }
 .mob_con_inp{
@@ -161,9 +173,12 @@
 }
 .search_icon{
   position: absolute;
-  margin-left: -3vw;
+  margin-left: -6vw;
   font-size: 5vh;
-  margin-top: 1vh;
+}
+.cut_icon{
+  font-size: 5vh;
+  margin-left: -4vw;
 }
 .mob_search_icon{
   position: absolute;

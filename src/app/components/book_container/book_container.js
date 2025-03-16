@@ -4,6 +4,7 @@ import "./book_container.css"
 import { useRouter } from "next/navigation";
 import Skeleton from '../skeleton/page';
 import { IoSearchSharp } from "react-icons/io5";
+import { HiOutlineX } from "react-icons/hi";
 
 const BookContainer = () => {
     const router = useRouter();
@@ -12,6 +13,7 @@ const BookContainer = () => {
     const [font_size, setfont_size] = useState("1")
     const [mydata, setmydata] = useState([])
     const [search , set_search] = useState("")
+    const [search_active , set_search_active] = useState(false)
     const [filteredItems ,set_filteredItems] = useState(false)
     // var filteredItems="n";
     const search_fun=async(e)=>{
@@ -83,10 +85,10 @@ useEffect(() => {
     else if(device_width > 400) {
         return (<div className='books_container'>
                 <div className='search_con'>
-                    <input className='con_inp' type='text' value={search} onChange={(e)=>search_fun(e.target.value)}/>
-                    <IoSearchSharp className='search_icon'/>
+                    <input className={search_active?'search_active':"con_inp"} type='text' value={search} onClick={()=>set_search_active(true)}  onChange={(e)=>{search_fun(e.target.value)}}/>
+                {search_active?<HiOutlineX className='cut_icon' onClick={()=>{set_search(""),set_search_active(false)}}/>:<IoSearchSharp className='search_icon' onClick={()=>set_search_active(true)}/>}
                 </div>
-
+                
                
                 
             {(() => {
@@ -98,7 +100,7 @@ useEffect(() => {
                     ));
                 }
                 else if(search){
-
+                    return <h1>No result found</h1>
                 }
                  else {
                     return mydata.map((item, index) => (
