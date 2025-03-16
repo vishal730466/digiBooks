@@ -27,7 +27,7 @@ body{
 
 .page1{
     padding: 10px;
-    font-size: 2.5vh;
+    font-size: 3.2vh;
     height: 100%;
     width: 50%;
     background-color: rgba(249, 250, 248, 0.929);
@@ -120,7 +120,7 @@ body{
     transform: rotateY(15deg) rotate(90deg);
  
     transform-origin: center;
-    width: 78vh; 
+    width: 80vh; 
     height: 90vw;
     /* background-color: aqua; */
     /* border: 2px solid; */
@@ -143,6 +143,8 @@ body{
     /* transform-style: preserve-3d; */
 }
 .mob_page1{
+    line-height: 1.4;
+    padding: 10px 5px;
     font-size: 2.5vw;
     position: absolute;
     top: 0;
