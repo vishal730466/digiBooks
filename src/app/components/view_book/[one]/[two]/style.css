@@ -74,12 +74,13 @@ body{
 }
 
 .buttons{
-    height: 8%;
+    height: 7%;
     width: 100%;
     border: 2px solid white;
     background-color: white;
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 @keyframes a1{
@@ -113,6 +114,14 @@ body{
     /* border: 2px solid black; */
     /* z-index: 100; */
 }
+.mob_back_btn{
+    position: absolute;
+    top: -10vh;
+    left: -25vw;
+    margin-top: 3vh;
+    height: 7vh;
+    width: 10vw;
+}
 .view_mob_con {
     margin-top: 55%;
     /* transform: rotateY(40deg); */
@@ -143,9 +152,11 @@ body{
     /* transform-style: preserve-3d; */
 }
 .mob_page1{
+    background-color: black;
     line-height: 1.4;
     padding: 10px 5px;
     font-size: 2.5vw;
+    font-weight: 600;
     position: absolute;
     top: 0;
     left: 0;
@@ -154,7 +165,10 @@ body{
     background-color: azure;
 }
 .mob_page2{
+    line-height: 1.4;
+    padding: 10px 5px;
     position: absolute;
+    font-size: 2.5vw;
     top: 0;
     right: 0;
     height: 100%;

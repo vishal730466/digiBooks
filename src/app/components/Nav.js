@@ -40,7 +40,7 @@ export const Nav = () => {
     // if(navelement){
     navelement.style.position = 'absolute';
     const X = Math.max(0,Math.min(touch.clientX -50,150) );
-    const Y = Math.max(70,Math.min(touch.clientY - 50,500))
+    const Y = Math.max(0,Math.min(touch.clientY - 50,500))
 
     navelement.style.left= `${X}px`;
     navelement.style.top=  `${Y}px`

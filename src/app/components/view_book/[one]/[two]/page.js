@@ -130,6 +130,7 @@ const Next_js = () => {
         return (
             <div className='view_mob_con'>
                 {/* {width} */}
+                <Link href="/" className='mob_back_btn' ><MdKeyboardBackspace style={{fontSize:"60" }} /></Link>
 
                 <div className='mob_mybook'>
                     <div className='mob_page1'>
@@ -150,7 +151,7 @@ const Next_js = () => {
                 <div className='mob_buttons'>
                     <MdArrowBackIos onClick={previous_page} style={{ fontSize: "20px" }} />
                     <div>{pageNo}</div> <div>mark</div> <div>{pageNo + 1}</div>
-                    <MdNavigateNext onClick={next_page} style={{ fontSize: "40px" }} />
+                    <MdNavigateNext onClick={next_page} style={{ fontSize: "35px" }} />
                 </div>
             </div>
         )
