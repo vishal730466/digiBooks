@@ -108,7 +108,7 @@ export const Nav = () => {
           {mob_nav_back?<ImCross style={{fontSize:"25px"}}/>: <IoMdHome  style={{fontSize:"40px"}}/>  }
           </div>
         
-        <div ref={mob_navRef}>
+        <div ref={mob_navRef} style={{display:"none"}}>
         <div className='ml1'><Link href="/">H</Link></div>
         <div className='ml2'><Link href="/about">A</Link></div>
         <div className='ml3'><Link href="setting">S</Link></div>

@@ -96,6 +96,7 @@ useEffect(() => {
                 if (filteredItems.length > 0) {
                     return filteredItems.map((item, index) => (
                         <div key={index} className='box' onClick={() => redirect(item.book_name, item.Total_pages)}>
+                            <img alt='img' src="/contact.jpg" object-fit='cover'  height="85%" width="100%"/>
                             {item.book_name} {item.pageNo}
                         </div>
                     ));
@@ -126,6 +127,7 @@ useEffect(() => {
                 if (filteredItems.length > 0) {
                     return filteredItems.map((item, index) => (
                         <div key={index} className='mob_box' onClick={() => redirect(item.book_name, item.Total_pages)}>
+                            <img alt='img' src="/contact.jpg" object-fit='cover'  height="85%" width="100%"/>
                             {item.book_name} {item.pageNo}
                         </div>
                     ));
@@ -135,6 +137,7 @@ useEffect(() => {
                  else {
                     return mydata.map((item, index) => (
                         <div key={index} className='mob_box' onClick={() => redirect(item.book_name, item.Total_pages)}>
+                            <img alt='img' src="/contact.jpg" object-fit='cover'  height="85%" width="100%"/>
                             {item.book_name} {item.pageNo}
                         </div>
                     ));
