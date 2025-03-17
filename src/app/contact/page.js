@@ -1,10 +1,12 @@
 "use client"
 import React from 'react'
 import "./contact_style.css"
+import Nav from '../components/Nav'
 
 const Contact = () => {
   return (
     <div className='contactPage'>
+      <Nav/>
       <div className='container'>
         <div className="image-section"> <img src="login.png" style={{height:"500px"}} alt="" /></div>
 

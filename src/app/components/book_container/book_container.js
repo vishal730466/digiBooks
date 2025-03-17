@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import Skeleton from '../skeleton/page';
 import { IoSearchSharp } from "react-icons/io5";
 import { HiOutlineX } from "react-icons/hi";
+import Image from 'next/image';
 
 const BookContainer = () => {
     const router = useRouter();
@@ -105,7 +106,8 @@ useEffect(() => {
                  else {
                     return mydata.map((item, index) => (
                         <div key={index} className='box' onClick={() => redirect(item.book_name, item.Total_pages)}>
-                            {item.book_name} {item.pageNo}
+                             <img alt='img' src="/contact.jpg" object-fit='cover'  height="85%" width="100%"/>
+                             {item.book_name}
                         </div>
                     ));
                 }
