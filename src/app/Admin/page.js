@@ -153,11 +153,14 @@ const Admin = () => {
   <button className='copy_btn' onClick={create_page}>create_page</button>
 
   <br/>Enter book name <input className='admin_mob_inp' value={book} onChange={(e)=>setbook(e.target.value)}></input>
-            <br/>Enter page no <input className='admin_mob_inp' value={page_No} onChange={(e)=>setpage_No(e.target.value)}></input>
+            <br/>Enter page no <input className='admin_mob_inp_page' value={page_No} onChange={(e)=>setpage_No(e.target.value)}></input>
            <br/><br/> <button className='mob_fetch_btn' onClick={fetch_book}>fetch_book</button>
-  </div>
           
-           
+           <div className='file_con'>
+  <input className='mob_file_btn' type='file' onChange={(e)=> set_photo(e.target.files?.[0])}/>
+           <button className='mob_file_btn' onClick={send_photo}> submit image</button>
+           </div>
+  </div>
       </div>)
     }
   

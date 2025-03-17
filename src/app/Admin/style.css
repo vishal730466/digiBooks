@@ -61,11 +61,25 @@ pre {
 
 .admin_mob_inp{
     margin: 5px;
-    height: 5vh;
+    height: 3vh;
     width: 50vw;
 }
 .mob_fetch_btn{
-    height: 4vh;
+    height: 3vh;
     width: 30vw;
-    margin: 5px;
+    /* margin: 5px; */
+}
+.file_con{
+    height: 7vh;
+    /* width: 5vw; */
+    border: 2px solid;
+    background-color: aqua;
+}
+.mob_file_btn{
+    height: 5vh;
+
+}
+.admin_mob_inp_page{
+    height: 5vh;
+    width: 15vw;
 }
