@@ -4,13 +4,13 @@
     display: flex;
     /* flex-direction: column; */
     justify-content: center;
-    /* align-items: center; */
+    /* align-items: self-start; */
     font-size: 20px;
 }
 
-.container {
+.contact_container {
     display: flex;
-    margin-top: 8vh;
+    margin-top: 15vh;
     width: 80%;
     height: 80%;
     background: white;

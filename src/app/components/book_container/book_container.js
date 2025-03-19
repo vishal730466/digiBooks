@@ -7,7 +7,17 @@ import { IoSearchSharp } from "react-icons/io5";
 import { HiOutlineX } from "react-icons/hi";
 import Image from 'next/image';
 
+
+// import { useDispatch, useSelector } from 'react-redux';
+// import { increment, decrement, incrementByAmount } from '@/app/redux/counterSlice';
+// import  {setlogin} from '@/app/redux/loginSlice'
+
 const BookContainer = () => {
+
+//     const dispatch = useDispatch();
+//   const count = useSelector((state) => state.counter.value);
+//   const loginval=useSelector((state) => state.login.value);
+ 
     const router = useRouter();
     const [device_width, setdevicewidth] = useState("1000")
     const [loading, setLoding] = useState(true)
@@ -16,21 +26,14 @@ const BookContainer = () => {
     const [search , set_search] = useState("")
     const [search_active , set_search_active] = useState(false)
     const [filteredItems ,set_filteredItems] = useState(false)
-    // var filteredItems="n";
     const search_fun=async(e)=>{
         set_search(e)
-        // if(search){
-        //      filteredItems = mydata.filter((i)=>i.book_name.toLowerCase().includes(search.toLowerCase()))
-        //      setmydata(filteredItems)
-        // }
-        // console.log("filterd ",filteredItems);
     }
     
     const deviceRef = useRef("")
     // const main_bookRef = useRef("")
 
     const get = async () => {
-        // console.log("get data");
         setLoding(true)
         let data = await fetch("/api/hello")
         console.log(data)
@@ -57,7 +60,7 @@ useEffect(() => {
     else{
         set_filteredItems(mydata)
     }
-    console.log("fil ",filteredItems);
+    // console.log("fil ",filteredItems);
     console.log("search",search);
 }, [search]); // Runs after `search` updates
 
@@ -85,12 +88,16 @@ useEffect(() => {
     }
     else if(device_width > 400) {
         return (<div className='books_container'>
-                <div className='search_con'>
+                <div className='search_con'> 
                     <input className={search_active?'search_active':"con_inp"} type='text' value={search} onClick={()=>set_search_active(true)}  onChange={(e)=>{search_fun(e.target.value)}}/>
                 {search_active?<HiOutlineX className='cut_icon' onClick={()=>{set_search(""),set_search_active(false)}}/>:<IoSearchSharp className='search_icon' onClick={()=>set_search_active(true)}/>}
                 </div>
                 
-               
+                {/* <p>Count: {count} {loginval}</p> */}
+                {/* <button onClick={() => dispatch(increment())}>Increment</button>
+      <button onClick={() => dispatch(setlogin())}>Login</button>
+      <button onClick={() => dispatch(incrementByAmount(5))}>Increment by 5</button> */}
+     
                 
             {(() => {
                 if (filteredItems.length > 0) {

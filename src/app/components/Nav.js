@@ -2,7 +2,7 @@
 import React from 'react'
 import Link from 'next/link'
 import './nav_style.css'
-import Login from './login'
+// import Login from './mylogin/login'
 // import { createContext, useContext } from 'react'
  import Logcontext from './mycontext'
 import { useRef, useEffect, useState } from 'react';
@@ -11,6 +11,7 @@ import LogOut from './logOut'
 
 import { IoMdHome } from "react-icons/io";
 import { ImCross } from "react-icons/im";
+import { VscAccount } from "react-icons/vsc";
 import Skeleton from './skeleton/page'
 
 export const Nav = () => {
@@ -26,13 +27,13 @@ export const Nav = () => {
   const [navelement , set_navelement] = useState(navRef.current)
 
 
-  const display_form = ()=>{
-    if (turn) {
-      setlogin(true)
-    } else{
-      setloggedin(true)  
-    }
-  }
+  // const display_form = ()=>{
+  //   if (turn) {
+  //     setlogin(true)
+  //   } else{
+  //     setloggedin(true)  
+  //   }
+  // }
   // const navelement = navRef.current;
 
   const touchMoveHandler = (event) => {
@@ -84,11 +85,12 @@ export const Nav = () => {
           <Link href="/about"> <li >About</li></Link>
           <Link href="/contact"> <li >Contact</li></Link>
           <Link href="/setting"> <li >Setting</li></Link>
-          <div onClick={display_form}> <li style={{cursor:"pointer"}}><b>Login</b></li></div>
+          <Link href="/components/mylogin"> <li ><VscAccount style={{fontSize:"30"}}/> </li></Link>
+          {/* <div onClick={display_form}> <li style={{cursor:"pointer"}}><b>Login</b></li></div> */}
        
         {/* <div ref={divRef} style={{ width: "100%", color: "red" ,display:"none"}}></div> */}
         
-        {login ? <Login/> : null}
+        {/* {login ? <Login/> : null} */}
         {signup ? <SignUp/>: null}
           {loggedin? <LogOut/>:null}
 

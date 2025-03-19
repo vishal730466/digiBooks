@@ -7,7 +7,7 @@ const Contact = () => {
   return (
     <div className='contactPage'>
       <Nav/>
-      <div className='container'>
+      <div className='contact_container'>
         <div className="image-section"> <img src="login.png" style={{height:"500px"}} alt="" /></div>
 
         <div className="form-section">
