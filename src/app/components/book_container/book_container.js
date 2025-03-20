@@ -8,15 +8,15 @@ import { HiOutlineX } from "react-icons/hi";
 import Image from 'next/image';
 
 
-// import { useDispatch, useSelector } from 'react-redux';
-// import { increment, decrement, incrementByAmount } from '@/app/redux/counterSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { increment, decrement, set_device_width } from '@/app/redux/counterSlice';
 // import  {setlogin} from '@/app/redux/loginSlice'
 
 const BookContainer = () => {
 
-//     const dispatch = useDispatch();
-//   const count = useSelector((state) => state.counter.value);
-//   const loginval=useSelector((state) => state.login.value);
+    const dispatch = useDispatch();
+  const count = useSelector((state) => state.counter.value);
+  const loginval=useSelector((state) => state.login.value);
  
     const router = useRouter();
     const [device_width, setdevicewidth] = useState("1000")
@@ -77,6 +77,7 @@ useEffect(() => {
 
         if (window) {
             setdevicewidth(window.innerWidth)
+            dispatch(set_device_width(window.innerWidth))
         }
     }, [])
 
@@ -93,7 +94,7 @@ useEffect(() => {
                 {search_active?<HiOutlineX className='cut_icon' onClick={()=>{set_search(""),set_search_active(false)}}/>:<IoSearchSharp className='search_icon' onClick={()=>set_search_active(true)}/>}
                 </div>
                 
-                {/* <p>Count: {count} {loginval}</p> */}
+                <p>device width: {count} {loginval}</p>
                 {/* <button onClick={() => dispatch(increment())}>Increment</button>
       <button onClick={() => dispatch(setlogin())}>Login</button>
       <button onClick={() => dispatch(incrementByAmount(5))}>Increment by 5</button> */}
@@ -124,7 +125,7 @@ useEffect(() => {
         </div>)
     } else {
         return <div className='mob_books_con' ref={deviceRef} >
-            {/* {device_width} */}
+            {/* {device_width} {count} */}
             <div className='mob_search_con'>
                     <input className='mob_con_inp' type='text' value={search} onChange={(e)=>search_fun(e.target.value)}/>
                     <IoSearchSharp className='mob_search_icon'/>

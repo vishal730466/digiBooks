@@ -114,7 +114,7 @@ export const Nav = () => {
         <div className='ml1'><Link href="/">H</Link></div>
         <div className='ml2'><Link href="/about">A</Link></div>
         <div className='ml3'><Link href="setting">S</Link></div>
-        <div className='ml4'>L</div >
+        <div className='ml4'><Link href="/components/mylogin"><VscAccount style={{fontSize:"30"}}/></Link></div >
         </div>
       
         </div>

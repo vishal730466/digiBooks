@@ -3,6 +3,11 @@
     top: 7vh;
     left: 7vw;
 }
+.mob_login_back_btn{
+    position: absolute;
+    top: 1vh;
+    left: 7vw;
+}
 .mylogin_page{
     background-color: #c9d6ff;
     background: linear-gradient(to right, #e2e2e2, #c9d6ff);
@@ -23,6 +28,17 @@
     overflow: hidden;
     width: 50vw;
     height: 70vh;
+}
+.mob_container{
+    margin-top: 3vh;
+    background-color: #fff;
+    border-radius: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
+    position: absolute;
+    top: 10vh;
+    overflow: hidden;
+    width: 90vw;
+    height: 60vh;
 }
 
 .container p{
@@ -74,8 +90,25 @@
     background-color: transparent;
     border-color: #fff;
 }
+.hidden_btn{
+    height: 4vh;
+    margin-top: 2vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border: 2px solid; */
+}
 
 .container form{
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 40px;
+    height: 100%;
+}
+.mob_container form{
     background-color: #fff;
     display: flex;
     align-items: center;
@@ -91,8 +124,20 @@
     margin: 8px 0;
     padding: 10px 15px;
     font-size: 13px;
+    border: .5px solid black;
     border-radius: 8px;
     width: 100%;
+    outline: none;
+}
+.mob_container_input{
+    background-color: #eee;
+    border: none;
+    margin: 8px 0;
+    padding: 10px 15px;
+    font-size: 13px;
+    border: 1px solid black;
+    border-radius: 10px;
+    width: 40vw;
     outline: none;
 }
 
@@ -108,8 +153,17 @@
     width: 50%;
     z-index: 2;
 }
+.mob_sign-in{
+    left: 0;
+    width: 45vw;
+    z-index: 2;
+    /* border: 2px solid; */
+}
 
 .container.active .sign-in{
+    transform: translateX(100%);
+}
+.mob_container.active .mob_sign-in{
     transform: translateX(100%);
 }
 
@@ -118,9 +172,17 @@
     width: 50%;
     opacity: 0;
     z-index: 1;
+    /* border: 2px solid blue; */
+    
 }
 
 .container.active .sign-up{
+    transform: translateX(100%);
+    opacity: 1;
+    z-index: 5;
+    animation: move 0.6s;
+}
+.mob_container.active .sign-up{
     transform: translateX(100%);
     opacity: 1;
     z-index: 5;
@@ -169,6 +231,10 @@
     transform: translateX(-100%);
     border-radius: 0 150px 100px 0;
 }
+.mob_container.active .toggle-container{
+    transform: translateX(-100%);
+    border-radius: 0 150px 100px 0;
+}
 
 .toggle{
     background-color: #512da8;
@@ -186,7 +252,9 @@
 .container.active .toggle{
     transform: translateX(50%);
 }
-
+.mob_container.active .toggle{
+    transform: translateX(50%);
+}
 .toggle-panel{
     position: absolute;
     width: 50%;
@@ -209,6 +277,9 @@
 .container.active .toggle-left{
     transform: translateX(0);
 }
+.mob_container.active .toggle-left{
+    transform: translateX(0);
+}
 
 .toggle-right{
     right: 0;
@@ -217,4 +288,46 @@
 
 .container.active .toggle-right{
     transform: translateX(200%);
+}
+.mob_container.active .toggle-right{
+    transform: translateX(200%);
+}
+.signup_btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #512da8;
+    color: #fff;
+    border: none;
+    border-radius: 10px; 
+    font-size: larger;
+    font-weight: bold ;
+    height: 5vh;
+    width: 35vw;
+    margin-top: 2vh;
+}
+.signin_heading{
+    display: flex;
+    justify-content: center;
+    width: 40vw;
+    /* border: 2px solid; */
+}
+
+.login_btn{
+    height: 5vh;
+    width: 32vw;
+    margin-top: 2vh;
+    color: white;
+    font-size: larger;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    background-color: #512da8;
+}
+.forget_pass{
+    margin-top: 5vh;
+    margin-left: 5vw;
+    width: 40vw;
+    font-weight: bold;
+    /* border: 2px solid; */
 }
