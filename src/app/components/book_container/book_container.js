@@ -14,18 +14,23 @@ import { increment, decrement, set_device_width } from '@/app/redux/counterSlice
 
 const BookContainer = () => {
 
-    const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const count = useSelector((state) => state.counter.value);
   const loginval=useSelector((state) => state.login.value);
  
     const router = useRouter();
     const [device_width, setdevicewidth] = useState("1000")
     const [loading, setLoding] = useState(true)
-    const [font_size, setfont_size] = useState("1")
     const [mydata, setmydata] = useState([])
     const [search , set_search] = useState("")
     const [search_active , set_search_active] = useState(false)
     const [filteredItems ,set_filteredItems] = useState(false)
+    
+    const [Theme, set_theme] = useState("light")
+    const [color, set_color] = useState("black")
+    const [back_color, set_backcolor] = useState("light")
+    
+
     const search_fun=async(e)=>{
         set_search(e)
     }
@@ -64,16 +69,24 @@ useEffect(() => {
     console.log("search",search);
 }, [search]); // Runs after `search` updates
 
-
+    useEffect(()=>{
+        if(Theme=="light"){
+            set_backcolor("rgba(233, 230, 230, 0.692)")
+            set_color("black")
+        }
+        else{
+            set_color("white")
+            set_backcolor("black")
+        }
+        console.log("bakcolor", back_color);
+    
+    },[Theme])
     useEffect(() => {
         get()
         if (typeof window !== "undefined") {
-            if (window.innerWidth < 1050) {
-                setfont_size("1.7vw")
-            } else {
-                setfont_size("1.7vw")
+            console.log("theme ",localStorage.getItem("Theme"));
+            set_theme(localStorage.getItem("Theme"))
             }
-        }
 
         if (window) {
             setdevicewidth(window.innerWidth)
@@ -88,13 +101,13 @@ useEffect(() => {
         return(<Skeleton/>)
     }
     else if(device_width > 400) {
-        return (<div className='books_container'>
-                <div className='search_con'> 
+        return (<div className='books_container' style={{backgroundColor:back_color, color:color} }>
+                <div className='search_con' style={{backgroundColor:back_color}}> 
                     <input className={search_active?'search_active':"con_inp"} type='text' value={search} onClick={()=>set_search_active(true)}  onChange={(e)=>{search_fun(e.target.value)}}/>
-                {search_active?<HiOutlineX className='cut_icon' onClick={()=>{set_search(""),set_search_active(false)}}/>:<IoSearchSharp className='search_icon' onClick={()=>set_search_active(true)}/>}
+                {search_active?<HiOutlineX className='cut_icon' style={{color:"black"}} onClick={()=>{set_search(""),set_search_active(false)}}/>:<IoSearchSharp className='search_icon' style={{color:"black"}} onClick={()=>set_search_active(true)}/>}
                 </div>
                 
-                <p>device width: {count} {loginval}</p>
+                {/* <p>device width: {count} {loginval}</p> */}
                 {/* <button onClick={() => dispatch(increment())}>Increment</button>
       <button onClick={() => dispatch(setlogin())}>Login</button>
       <button onClick={() => dispatch(incrementByAmount(5))}>Increment by 5</button> */}

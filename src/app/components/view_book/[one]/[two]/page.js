@@ -19,6 +19,11 @@ const Next_js = () => {
     const [width, setwidth] = useState(1000)
     const [Total_pages, set_Totalpages] = useState(10)
 
+    
+    const [Theme, set_theme] = useState("light")
+    const [color, set_color] = useState("black")
+    const [back_color, set_backcolor] = useState("light")
+
     // const router = useRouter()
 
     // const searchParams = useSearchParams();
@@ -32,10 +37,10 @@ const Next_js = () => {
     // }
 
     const getdata = async () => {
-        console.log("data for fun ",one , pageNo)
+        // console.log("data for fun ",one , pageNo)
         const response = await fetch(`/api/data?book_name=${encodeURIComponent(one)}&pageNo=${encodeURIComponent(pageNo)}`);
         const res = await response.json();
-        console.log(res);
+        // console.log(res);
         if (res.book_data) {
             setleft_page(res.book_data)
         } else {
@@ -70,21 +75,36 @@ const Next_js = () => {
 
     const ani_end = () => { setanimate(false), setback_animate(false) }
 
-    // useEffect(() => {
-    //     setloading(false)
-    // }, [])
+    useEffect(()=>{
+        if(Theme=="light"){
+            set_backcolor("rgba(233, 230, 230, 0.692)")
+            set_color("black")
+            console.log("this is light");
+        }
+        else{
+            set_color("white")
+            set_backcolor("black")
+            console.log("this is dark");
+        }
+        console.log("bakcolor", back_color);
+    
+    },[Theme])
 
     useEffect(() => {
         if (window) {
             setwidth(window.innerWidth)
+            console.log("theme ",localStorage.getItem("Theme"));
+            set_theme(localStorage.getItem("Theme"))
+                
         }
-        console.log("width", width);
+        // console.log("width", width);
         set_Totalpages(two)
     }, [])
+
     useEffect(() => {
 
         // console.log("Query Params:", param1, param2);
-        console.log("Route Params12:", one, two);
+        // console.log("Route Params12:", one, two);
         getdata()
         getdata2()
     }, [pageNo, animate])
@@ -98,8 +118,8 @@ const Next_js = () => {
     }
     if (width > 490) {
 
-        return (
-            <div className='con1'>
+        return (<div className='view_book' style={{backgroundColor:back_color,color:color}}>
+            <div className='con1' >
                 <Link href="/" className='back_btn' ><MdKeyboardBackspace style={{fontSize:"60" }} /></Link>
                 
                 {/* {width} */}
@@ -119,11 +139,12 @@ const Next_js = () => {
                     </div>
                 </div>
                 <div className='buttons'>
-                    <MdArrowBackIos onClick={previous_page} style={{ fontSize: "30px", color:pageNo>1?"black":"white" }} />
-                    <div>{pageNo}</div> <div>mark</div> <div>{pageNo + 1}</div>
+                    <MdArrowBackIos onClick={previous_page} style={{ fontSize: "30px", color:pageNo>1?"black":"transparent",marginLeft:"1vw" }} />
+                    <div style={{color:"black"}}>{pageNo}</div> <div style={{color:"black"}}>mark</div> <div style={{color:"black"}}>{pageNo + 1}</div>
         
                     <MdNavigateNext onClick={next_page} style={{ fontSize: "50px", color:pageNo<(Total_pages-1)?"black":"white" }} />
                 </div>
+            </div>
             </div>
         )
     } else {

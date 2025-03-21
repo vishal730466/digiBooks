@@ -11,7 +11,7 @@ import Login from "./components/mylogin/page";
 export default function Home() {
 
   return (
-   <>
+   <div style={{backgroundColor:"rgba(233, 230, 230, 0.692)",width:"100vw",height:"100vh"}}>
    <Head>
     <title>E books Haven</title>
    </Head>
@@ -22,6 +22,6 @@ export default function Home() {
     
 
    {/* </div> */}
-   </>
+   </div>
   );
 }

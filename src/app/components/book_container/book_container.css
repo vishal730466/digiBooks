@@ -18,7 +18,11 @@
   height: 13vw;
   width: 14vw;
   margin: 3vh;
-  border: 2px solid;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* border: 2px solid; */
+  font-size: 2.7vh;
   /* overflow: hidden; */
 }
 
@@ -114,7 +118,7 @@
 
 
 .mob_books_con {
-  height: 90vh;
+  height: 92.1vh;
   width: 100vw;
   position: absolute;
   top: 0;
@@ -122,43 +126,39 @@
   z-index: 20;
   display: flex;
   justify-content: space-around;
-  /* align-items: center; */
+  /* align-items: flex-start; */
   flex-wrap: wrap;
 }
 
 .search_con{
-  height: 7vh;
-  width: 80vw;
+  height: 15vh;
+  width: 100vw;
   /* margin-left: 10vw; */
-  top: 14vh;
+  top: 10vh;
   display: flex;
   justify-content: center;
   align-items: center;
   position: fixed;
-  /* border: 2px solid; */
+  /* border: 2px solid red;  */
 }
 .search_active{
-  
-  height: 100%;
+  height: 8vh;
   background-color:#00EBFF;
   color: #1e272e;
   padding: 15px;
   /* transition: width 1s ease; */
-  border-radius: 15px;
   width: 50vw;
-  transition: all 1s;
+  transition: width 1s;
+  border-radius: 15px;
+  /* border: 2px solid black ; */
 }
 
 .con_inp{
-  height: 100%;
+  height: 7vh;
   width: 10vw;
   background-color:#00EBFF;
-  /* border: 0; */
-  /* font-size:16px; */
   color: #1e272e;
   padding: 15px;
-  /* height: 40px; */
-  /* width: 40px; */
   transition: width 1s ease;
   border-radius: 15px;
 }

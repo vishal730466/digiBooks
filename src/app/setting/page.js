@@ -31,6 +31,13 @@ const Setting = () => {
       
 
     }
+    const theme=()=>{
+      localStorage.setItem("Theme","light")
+    }
+    const dark=()=>{
+      localStorage.setItem("Theme","dark")
+    }
+
   return (
     <>
       <div className='setting_top'>
@@ -54,7 +61,8 @@ const Setting = () => {
       <input type='color' value={inp_text_color} onChange={(e)=>{setInpTextColor(e.target.value)}}/>
       <br/><br/>
       <button onClick={update}>  update </button>
-        
+        <button onClick={theme}>Theme</button>
+        <button onClick={dark}>dark</button>
     </div></>
   )
 }

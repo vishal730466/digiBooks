@@ -7,8 +7,7 @@ export async function GET() {
     await mongoose.connect(connectionStr)
     // const data = await mySchema.find()
     const data = await book_Schema.find()
-    // const a = await showdbs()
-    // console.log(data)
+    
     return NextResponse.json({ result: data })
 }
 
