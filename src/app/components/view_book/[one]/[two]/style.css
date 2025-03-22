@@ -119,19 +119,25 @@
 .mob_back_btn{
     position: absolute;
     top: -10vh;
-    left: -25vw;
-    margin-top: 3vh;
-    height: 7vh;
-    width: 10vw;
+    left: -8vw;
+    margin-top: 4vh;
+    height: 5vh;
+    width: 13vw;
+    border: 2px solid black;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .view_mob_con {
     margin-top: 55%;
+    margin-left: -48%;
     /* transform: rotateY(40deg); */
-    position: absolute;
+    position: fixed;
     transform: rotateY(15deg) rotate(90deg);
  
     transform-origin: center;
-    width: 80vh; 
+    width: 85vh; 
     height: 90vw;
     /* background-color: aqua; */
     /* border: 2px solid; */

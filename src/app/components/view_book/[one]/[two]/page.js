@@ -151,7 +151,7 @@ const Next_js = () => {
         return (
             <div className='view_mob_con'>
                 {/* {width} */}
-                <Link href="/" className='mob_back_btn' ><MdKeyboardBackspace style={{fontSize:"60" }} /></Link>
+                <Link href="/" className='mob_back_btn' ><MdKeyboardBackspace style={{fontSize:"50" }} /></Link>
 
                 <div className='mob_mybook'>
                     <div className='mob_page1'>

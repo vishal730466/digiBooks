@@ -1,6 +1,7 @@
 "use client"
 import React, { useEffect, useState } from 'react'
 import Nav from '../components/Nav'
+import "./setting_style.css"
 // import { StyleContext } from '../components/mycontext'
 // import Login from '../components/login'
 
@@ -43,7 +44,42 @@ const Setting = () => {
       <div className='setting_top'>
       <Nav />
       </div>
-    <div className='setting_con'>
+      <div className="menu">
+        <div className="menu-header">
+            <h2 className="menu-header-title">Themes</h2>
+            <div className="theme-switcher">
+                <input type="radio" name="themes" id="light-theme"/>
+                <label htmlFor="light-theme">
+                    <span>
+                        <ion-icon name="sunny"></ion-icon>
+                        Light
+                    </span>
+                </label>
+                <input type="radio" name="themes" id="dark-theme"/>
+                <label htmlFor="dark-theme">
+                    <span>
+                        <ion-icon name="moon"></ion-icon>
+                        Dark
+                    </span>
+                </label>
+                <input type="radio" name="themes" id="black-theme"/>
+                <label htmlFor="black-theme">
+                    <span>
+                        <ion-icon name="contrast"></ion-icon>
+                        Black
+                    </span>
+                </label>
+                <span className="slider"></span>
+            </div>
+        </div>
+        <div className="menu-body">
+            <a href="index.html"><ion-icon name="settings-outline"></ion-icon>Account Setting</a>
+            <a href="feedback.html"><ion-icon name="chatbox-ellipses-outline"></ion-icon>Give FeedBack</a>
+            <a href="font.html"><ion-icon name="information-circle-outline"></ion-icon>Font Size</a>
+            {/* <!-- <a href="books.html"><ion-icon name="book-outline"></ion-icon>Books Section</a> --> */}
+        </div>
+    </div>
+    {/* <div className='setting_con'>
 
         <p> login page text color : {log_color}</p> 
       <input type='color' value={log_color} onChange={(e)=>{setLogColor(e.target.value)}}/>
@@ -63,7 +99,10 @@ const Setting = () => {
       <button onClick={update}>  update </button>
         <button onClick={theme}>Theme</button>
         <button onClick={dark}>dark</button>
-    </div></>
+    </div> */}
+
+
+    </>
   )
 }
 
