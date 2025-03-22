@@ -38,6 +38,22 @@ const Admin = () => {
     })
     res=await res.json()
     if(res.message=="book create"){
+      alert("page created")
+    }
+    console.log(res);
+  }
+  const create_book= async()=>{
+    if(!page_No){
+      alert("enter page no")
+      return;
+    }
+    let res = await fetch("/api/create_book",{
+      method:"POST",
+      body:JSON.stringify({book:book,totalPages: page_No})
+    })
+    console.log("create book ",book, page_No);
+    res=await res.json()
+    if(res.message=="book create"){
       alert("book created")
     }
     console.log(res);
@@ -122,6 +138,7 @@ const Admin = () => {
             <button className='copy_btn' onClick={copyToClipboard}> COPY</button>
             <button className='copy_btn' onClick={updateData}>Update</button>
             <button className='copy_btn' onClick={create_page}>create_page</button>
+            <button className='copy_btn' onClick={create_book}>create_book</button>
     
     
           <div className='getbook'>
@@ -151,6 +168,7 @@ const Admin = () => {
   <button className='copy_btn' onClick={copyToClipboard}> COPY</button>
   <button className='copy_btn' onClick={updateData}>Update</button>
   <button className='copy_btn' onClick={create_page}>create_page</button>
+  <button className='copy_btn' onClick={create_book}>create_book</button>
 
   <br/>Enter book name <input className='admin_mob_inp' value={book} onChange={(e)=>setbook(e.target.value)}></input>
             <br/>Enter page no <input className='admin_mob_inp_page' value={page_No} onChange={(e)=>setpage_No(e.target.value)}></input>

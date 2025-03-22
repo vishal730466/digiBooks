@@ -3,6 +3,7 @@
   top: 25vh;
   height: 75vh;
   width: 100vw;
+  overflow-x: hidden;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -139,6 +140,7 @@
   justify-content: center;
   align-items: center;
   position: fixed;
+  left: 0;
   /* border: 2px solid red;  */
 }
 .search_active{
