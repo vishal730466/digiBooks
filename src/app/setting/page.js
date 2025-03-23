@@ -13,7 +13,7 @@ const Setting = () => {
   const [inp_text_color, setInpTextColor] = useState("");
   const [Theme, set_theme] = useState("");
   const [width, set_width] = useState(1000);
-  const [color, set_color] = useState("white");
+  const [color, set_color] = useState("black");
   const [back_color, set_backcolor] = useState("white");
   
   
