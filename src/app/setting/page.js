@@ -36,21 +36,26 @@ const Setting = () => {
       
 
     }
+
     const light=()=>{
-      console.log("set theme light");
-      localStorage.setItem("Theme","light")
-      set_theme("light")
+      if(window){
+        console.log("set theme light");
+        localStorage.setItem("Theme","light")
+        set_theme("light")
+      }
     }
     const black=()=>{
-      console.log("set theme black"); 
-      localStorage.setItem("Theme","black")
-      set_theme("black")
+      if(window){
+        console.log("set theme black"); 
+        localStorage.setItem("Theme","black")
+        set_theme("black")
+      }
     }
 
     useEffect(()=>{
+      if(window){
       const theme = localStorage.getItem("Theme")
       set_theme(theme)
-      if(window){
         set_width(window.innerWidth)
       }
     },[])
