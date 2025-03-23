@@ -11,7 +11,11 @@ const Setting = () => {
   const [log_background_color, setLogBackgroundColor] = useState("");
   const [inp_background_color, setInpBackgroundColor] = useState("");
   const [inp_text_color, setInpTextColor] = useState("");
- 
+  const [Theme, set_theme] = useState("");
+  const [width, set_width] = useState(1000);
+  const [color, set_color] = useState("white");
+  const [back_color, set_backcolor] = useState("white");
+  
   
   useEffect(() => {
     if (window ) {
@@ -32,78 +36,92 @@ const Setting = () => {
       
 
     }
-    const theme=()=>{
+    const light=()=>{
+      console.log("set theme light");
       localStorage.setItem("Theme","light")
+      set_theme("light")
     }
-    const dark=()=>{
-      localStorage.setItem("Theme","dark")
+    const black=()=>{
+      console.log("set theme black"); 
+      localStorage.setItem("Theme","black")
+      set_theme("black")
     }
 
+    useEffect(()=>{
+      const theme = localStorage.getItem("Theme")
+      set_theme(theme)
+      if(window){
+        set_width(window.innerWidth)
+      }
+    },[])
+
+    useEffect(()=>{
+      if(Theme=="light"){
+        set_color("black")
+        set_backcolor("white")
+      }
+      else if(Theme=="black"){
+        set_color("white")
+        set_backcolor("black")
+      }
+    },[Theme])
+
+    if(width==1000){
+      return<h1>loading</h1>
+    }
+    if(width>450){
+      
   return (
     <>
       <div className='setting_top'>
       <Nav />
       </div>
-      <div className="menu">
-        <div className="menu-header">
-            <h2 className="menu-header-title">Themes</h2>
-            <div className="theme-switcher">
-                <input type="radio" name="themes" id="light-theme"/>
-                <label htmlFor="light-theme">
-                    <span>
-                        <ion-icon name="sunny"></ion-icon>
-                        Light
-                    </span>
-                </label>
-                <input type="radio" name="themes" id="dark-theme"/>
-                <label htmlFor="dark-theme">
-                    <span>
-                        <ion-icon name="moon"></ion-icon>
-                        Dark
-                    </span>
-                </label>
-                <input type="radio" name="themes" id="black-theme"/>
-                <label htmlFor="black-theme">
-                    <span>
-                        <ion-icon name="contrast"></ion-icon>
-                        Black
-                    </span>
-                </label>
-                <span className="slider"></span>
-            </div>
+      <div className="setting" style={{color:color, backgroundColor:back_color}}>
+        <div className='setting_con'>
+          <h2> Themes </h2>
+        <div className='theme_con'>
+          <div className={Theme=="light"?"active_theme theme":"theme"} onClick={light}>Light</div>
+          <div className={Theme=="dark"?"active_theme theme":"theme"} >Dark</div>
+          <div className={Theme=="black"?"active_theme theme":"theme"} onClick={black}>Black</div>
         </div>
-        <div className="menu-body">
-            <a href="index.html"><ion-icon name="settings-outline"></ion-icon>Account Setting</a>
-            <a href="feedback.html"><ion-icon name="chatbox-ellipses-outline"></ion-icon>Give FeedBack</a>
-            <a href="font.html"><ion-icon name="information-circle-outline"></ion-icon>Font Size</a>
-            {/* <!-- <a href="books.html"><ion-icon name="book-outline"></ion-icon>Books Section</a> --> */}
+        <div className='other_setting'>
+          <hr/>
+          <p>Account setting</p>
+          <p>Give Feedback</p>
+          <p>Font size</p>
         </div>
+
+       </div>
     </div>
-    {/* <div className='setting_con'>
-
-        <p> login page text color : {log_color}</p> 
-      <input type='color' value={log_color} onChange={(e)=>{setLogColor(e.target.value)}}/>
-      <br/><br/>
-      <p> login page background_color color : {log_background_color}</p>
-      <input type='color' value={log_background_color} onChange={(e)=>{setLogBackgroundColor(e.target.value)}}/>
-      <br/><br/>
-      <p> color input</p>
-      <input type="reset"  onChange={update}/>
-      <br/><br/>
-      <p> input background_color :  {inp_background_color}</p>
-      <input type='color' value={inp_background_color} onChange={(e)=>{setInpBackgroundColor(e.target.value)}}/>
-      <br/><br/>
-      <p> input text color : {inp_text_color}</p>
-      <input type='color' value={inp_text_color} onChange={(e)=>{setInpTextColor(e.target.value)}}/>
-      <br/><br/>
-      <button onClick={update}>  update </button>
-        <button onClick={theme}>Theme</button>
-        <button onClick={dark}>dark</button>
-    </div> */}
-
-
     </>
   )
+    } else{
+      return (
+        <div className='setting_mob' style={{color:color, backgroundColor:back_color}}>
+          {/* <div className='setting_top'> */}
+          <Nav />
+          {/* </div> */}
+          <div className="mob_setting">
+            <div className='setting_con_mob'>
+              <h2> Themes </h2>
+            <div className='mob_theme_con'>
+              <div className={Theme=="light"?"active_theme theme":"theme"} onClick={light}>Light</div>
+              <div className={Theme=="dark"?"active_theme theme":"theme"} >Dark</div>
+              <div className={Theme=="black"?"active_theme theme":"theme"} onClick={black}>Black</div>
+            </div> 
+            <div className='other_setting'>
+            <hr/>
+              <p>Account setting</p>
+              <p>Give Feedback</p>
+              <p>Font size</p>
+            </div>
+    
+           </div>
+        </div>
+        </div>
+      )
+    }
+    
 }
 
 export default Setting

@@ -17,7 +17,7 @@
 }
 .mybook{
     font-size: 2.5vh;
-    height: 90%;
+    height: 85.5vh;
     width: 85vw;
     display: flex;
     
@@ -30,7 +30,7 @@
 .page1{
     padding: 10px;
     font-size: 3vh;
-    height: 100%;
+    height: 85.5vh;
     width: 50%;
     background-color: #adc7be;
     border-right: 0.5px solid black;
@@ -47,7 +47,7 @@
 
 .page2{
     padding: 10px;
-    height: 100%;
+    height: 85.5vh;
     width: 50%;
     background-color: #adc7be;
     /* border: 2px solid black; */
