@@ -41,6 +41,9 @@ const Setting = () => {
       if(window){
         console.log("set theme light");
         localStorage.setItem("Theme","light")
+
+        localStorage.setItem("text_color","black")
+        localStorage.setItem("back_color","white")
         set_theme("light")
       }
     }
@@ -48,10 +51,21 @@ const Setting = () => {
       if(window){
         console.log("set theme black"); 
         localStorage.setItem("Theme","black")
+        localStorage.setItem("text_color","white")
+        localStorage.setItem("back_color","black")
         set_theme("black")
       }
     }
-
+    const dark=()=>{
+      if(window){
+        console.log(" theme is dark"); 
+        localStorage.setItem("Theme","dark")
+        
+        localStorage.setItem("text_color","white")
+        localStorage.setItem("back_color","#615b5b")
+        set_theme("dark")
+      }
+    }
     useEffect(()=>{
       if(window){
       const theme = localStorage.getItem("Theme")
@@ -68,6 +82,10 @@ const Setting = () => {
       else if(Theme=="black"){
         set_color("white")
         set_backcolor("black")
+      }
+      else if(Theme=="dark"){
+        set_color("white")
+        set_backcolor("#615b5b")
       }
     },[Theme])
 
@@ -86,7 +104,7 @@ const Setting = () => {
           <h2> Themes </h2>
         <div className='theme_con'>
           <div className={Theme=="light"?"active_theme theme":"theme"} onClick={light}>Light</div>
-          <div className={Theme=="dark"?"active_theme theme":"theme"} >Dark</div>
+          <div className={Theme=="dark"?"active_theme theme":"theme"} onClick={dark}>Dark</div>
           <div className={Theme=="black"?"active_theme theme":"theme"} onClick={black}>Black</div>
         </div>
         <div className='other_setting'>

@@ -32,17 +32,15 @@
     font-size: 3vh;
     height: 85.5vh;
     width: 50%;
-    background-color: #adc7be;
+    background-color: #fefefe;
     border-right: 0.5px solid black;
     font-weight: 700;
-    color: rgb(34, 32, 165);
-    display: flex;
+    color: black;
+    /* display: flex;
     flex-wrap: wrap;
-    overflow: auto;
+    overflow: auto; */
     /* word-wrap: break-word; */
     /* white-space: normal; */
-    /* flex-wrap: wrap; */
-   /* animation: a1 2s 1; */
 }
 
 .page2{
@@ -52,7 +50,7 @@
     background-color: #adc7be;
     /* border: 2px solid black; */
     font-weight: 700;
-    color: rgb(34, 32, 165);
+    color: black;
     transform-origin: left;
     
     transform-style: preserve-3d;

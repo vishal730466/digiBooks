@@ -70,14 +70,8 @@ useEffect(() => {
 }, [search]); // Runs after `search` updates
 
     useEffect(()=>{
-        if(Theme=="light"){
-            set_backcolor("rgba(233, 230, 230, 0.692)")
-            set_color("black")
-        }
-        else{
-            set_color("white")
-            set_backcolor("black")
-        }
+        set_color(localStorage.getItem("text_color"))
+        set_backcolor(localStorage.getItem("back_color"))
         console.log("bakcolor", back_color);
     
     },[Theme])

@@ -22,7 +22,8 @@ const Next_js = () => {
     
     const [Theme, set_theme] = useState("light")
     const [color, set_color] = useState("black")
-    const [back_color, set_backcolor] = useState("light")
+    const [back_color, set_backcolor] = useState("white")
+    const [page_color, set_pagecolor]=useState("#869a9f")
 
     // const router = useRouter()
 
@@ -78,12 +79,14 @@ const Next_js = () => {
     useEffect(()=>{
         if(Theme=="light"){
             set_backcolor("rgba(233, 230, 230, 0.692)")
+            set_pagecolor("#adc7be")
             set_color("black")
             console.log("this is light");
         }
         else{
             set_color("white")
             set_backcolor("black")
+            set_pagecolor("#869a9f")
             console.log("this is dark");
         }
         console.log("bakcolor", back_color);
@@ -120,25 +123,25 @@ const Next_js = () => {
 
         return (<div className='view_book' style={{backgroundColor:back_color,color:color}}>
             <div className='con1' >
-                <Link href="/" className='back_btn' ><MdKeyboardBackspace style={{fontSize:"60" }} /></Link>
+                <Link href="/" className='back_btn' ><MdKeyboardBackspace style={{fontSize:"60",color:color}} /></Link>
                 
                 {/* {width} */}
                 <div className='mybook'>
-                    <div className='page1'>
+                    <div className='page1' style={{backgroundColor:page_color}}>
                         {/* {one}  */}
                         {/* <iframe src='https://3d-web-gilt.vercel.app/'></iframe> */}
                         <pre dangerouslySetInnerHTML={{ __html: left_page }} />
                     </div>
 
-                    <div onAnimationEnd={ani_end} className={`page2 ${animate ? "animate" : ""} ${back_animate ? "priveous_page" : ""}`}>
+                    <div onAnimationEnd={ani_end} className={`page2 ${animate ? "animate" : ""} ${back_animate ? "priveous_page" : ""}`} style={{backgroundColor:page_color}}>
                         {/* {two}  */}
                         <pre dangerouslySetInnerHTML={{ __html: right_page }} />
                     </div>
-                    <div className='page3'>
+                    <div className='page3' style={{backgroundColor:page_color}}>
 
                     </div>
                 </div>
-                <div className='buttons'>
+                <div className='buttons' style={{backgroundColor:page_color}}>
                     <MdArrowBackIos onClick={previous_page} style={{ fontSize: "30px", color:pageNo>1?"black":"transparent",marginLeft:"1vw" }} />
                     <div style={{color:"black"}}>{pageNo}</div> <div style={{color:"black"}}>mark</div> <div style={{color:"black"}}>{pageNo + 1}</div>
         
