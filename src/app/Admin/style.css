@@ -19,7 +19,7 @@
 
 pre {
     white-space: pre-wrap; /* Ensures text wraps */
-    word-wrap: break-word; /* Allows long words to wrap */
+    word-wrap: break-word; 
   }
 
 .getbook input{

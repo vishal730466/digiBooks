@@ -29,6 +29,8 @@ const BookContainer = () => {
     const [Theme, set_theme] = useState("light")
     const [color, set_color] = useState("black")
     const [back_color, set_backcolor] = useState("light")
+
+    const project = ["tic tac toe"]
     
 
     const search_fun=async(e)=>{
@@ -52,7 +54,10 @@ const BookContainer = () => {
         // router.push(`/components/view_book?val1=${a}&val2=${b}`)
         router.push(`/components/view_book/${a}/${b}`)
     }
-
+    const redirect_To_project = (a) => {
+        // router.push(`/components/view_book?val1=${a}&val2=${b}`)
+        router.push(`presentetion/${a}`)
+    }
 
 useEffect(() => {
     if (search) {
@@ -120,12 +125,21 @@ useEffect(() => {
                     return <h1>No result found</h1>
                 }
                  else {
-                    return mydata.map((item, index) => (
+                    return <div style={{width:"100vw",display:"flex",flexWrap:"wrap"}}>
+                        { mydata.map((item, index) => (
                         <div key={index} className='box' onClick={() => redirect(item.book_name, item.Total_pages)}>
                              <img alt='img' src="/contact.jpg" object-fit='cover'  height="85%" width="100%"/>
                              {item.book_name}
                         </div>
-                    ));
+                    ))}
+                      { project.map((item, index) => (
+                        <div key={index} className='box' onClick={() => redirect_To_project("tic")}>
+                             <img alt='img' src="/contact.jpg" object-fit='cover'  height="85%" width="100%"/>
+                             {item}
+                        </div>
+                    ))}
+
+                    </div>
                 }
             })()}
 
@@ -150,12 +164,20 @@ useEffect(() => {
                 else if(search){
                 }
                  else {
-                    return mydata.map((item, index) => (
+                    return<div style={{width:"100vw",display:"flex",flexWrap:"wrap",justifyContent:"space-between"}}>
+                       {  mydata.map((item, index) => (
                         <div key={index} className='mob_box' onClick={() => redirect(item.book_name, item.Total_pages)}>
                             <img alt='img' src="/contact.jpg" object-fit='cover'  height="85%" width="100%"/>
                             {item.book_name} {item.pageNo}
                         </div>
-                    ));
+                    ))}
+                     { project.map((item, index) => (
+                        <div key={index} className='mob_box' onClick={() => redirect_To_project("tic")}>
+                             <img alt='img' src="/contact.jpg" object-fit='cover'  height="85%" width="100%"/>
+                             {item}
+                        </div>
+                    ))}
+                    </div>
                 }
             })()}
         </div>
