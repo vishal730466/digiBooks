@@ -207,20 +207,21 @@
     
 }
 .tic_tac_tou_con{
-    height: 100%;
+    padding: 2vh;
+    height: 90%;
     width: 100%;
     display: flex;
-    flex-wrap: wrap;
-    margin-left: 5px;
+    flex-wrap: wrap;    
+    /* margin-left: 5px; */
 }
 .tic_box{
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 19vh;
-    height: 33%;
-    width: 32%;
-    border: 2px solid blue;
+    font-size: 17vh;
+    height: 33.3%;
+    width: 33.3%;
+    border: 2px solid black;
 }
 .mob_tic_box{
     display: flex;
@@ -233,12 +234,20 @@
 }
 
 .winner_message{
+    color: white;
     height: 50vh;
     width: 30vw;
-    background-color: aqua;
+    left: 15vh;
+    top: 15vh;
     font-size: 15vh;
     z-index: 2;
     position: absolute;
+    backdrop-filter: blur(5px);
+    border: 0.5px solid white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
 }
 .mob_winner_message{
     height: 50vw;
@@ -247,4 +256,24 @@
     font-size: 15vw;
     z-index: 2;
     position: absolute;
+}
+.tic_undo{
+    height: 15%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border: 2px solid blue; */
+}
+.undo_btn{
+    height: 60%;
+    width: 50%;
+    font-size: 3vh;
+    font-weight: bolder;
+}
+
+.restart_btn{
+    
+    height: 10%;
+    width: 40%;
 }

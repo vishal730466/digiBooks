@@ -25,9 +25,11 @@ const Next_js = () => {
     const [page_color, set_pagecolor]=useState("#869a9f")
 
     const [board, setbored]=useState(Array(9).fill(null))
+    const [track, set_track]=useState(Array(9).fill(null))
     const [turn, set_turn]=useState(true)
     const winnerArray =[[0,1,2] , [3,4,5] , [6,7,8] , [0,3,6] , [1,4,7] , [2,5,8] , [0,4,8] , [2,4,6]]
     const [winner, set_winner]=useState(false)
+    const [Draw, set_draw]=useState(false)
 
     // const router = useRouter()
 
@@ -37,30 +39,56 @@ const Next_js = () => {
 
     const { one, two } = useParams();
 
-    // if(param2){
-    //     set_Totalpages(param2)
-    // }
+    const restart=()=>{
+        setbored(Array(9).fill(null))
+        set_turn(true)
+        set_winner(false)
+        set_draw(false)
+    }
 
     const handleClick=(i)=>{
         if(board[i] || winner) return;
 console.log("index is ",i);
         const newboard= [...board]
         newboard[i]= turn ? "O" : "X"
+
+        let newtrack = [...track, i];
+        // track.push(i)
+        set_track(newtrack)
+
         setbored(newboard)
         set_turn(!turn)
     }
 
+    const back=()=>{
+        let last = track.at(-1)
+        set_track(prevArr => prevArr.slice(0, -1)); 
+
+        let newboard=[...board]
+        newboard[last]= null;
+        setbored(newboard)
+
+        set_turn(!turn)
+
+    }
+
     const check_winner=()=>{
         for (let i of winnerArray){
-            console.log("round ",i);
+            // console.log("round ",i);
             const [a,b,c]=i;
             if(board[i[0]] && board[i[0]] == board[i[1]] && board[i[1]] == board[i[2]] ){
                 console.log("winner");
                 return true;
             }
-            console.log("0",board[i[0]])
-            console.log("1",board[i[1]])
-            console.log("2",board[c])
+
+            // console.log("0",board[i[0]])
+            // console.log("1",board[i[1]])
+            // console.log("2",board[c])
+        }
+
+        if(!board.includes(null)){
+            console.log("Draw");
+            set_draw(true)
         }
         return false;
     }
@@ -100,6 +128,8 @@ console.log("index is ",i);
 
     useEffect(()=>{
         set_winner(check_winner())
+        // for(let i of track)
+        // console.log("track ", i);
     },[board])
 
     useEffect(() => {
@@ -109,8 +139,7 @@ console.log("index is ",i);
             set_theme(localStorage.getItem("Theme"))
                 
         }
-        // console.log("width", width);
-        set_Totalpages(two)
+        // set_Totalpages(two)
     }, [])
 
     useEffect(() => {
@@ -138,14 +167,18 @@ console.log("index is ",i);
                 {/* {width} */}
                 <div className='mybook'>
                     <div className='page1' style={{backgroundColor:page_color}}>
-                        <div className='tic_tac_tou_con'>
-                           {winner?<div className='winner_message'>winner</div>:""}
+                       {pageNo==1&& <div className='tic_tac_tou_con'>
+                           
+                           {winner?<div className='winner_message'>winner is {turn?"Player 2":"Player 1"}<button className='restart_btn' onClick={()=>restart()}>Restart</button></div>:""}
+                           {Draw && <div className='winner_message'> Draw <button className='restart_btn' onClick={()=>restart()}>Restart</button></div>}
+
                              {board.map((value, i)=>(
                             <div key={i} className='tic_box' onClick={() => handleClick(i)}>
                                 {value}
                             </div>
                         ))}
-                        </div> 
+                            <div className='tic_undo'> <button className='undo_btn ' onClick={()=>back()}>Undo</button> </div>
+                        </div> }
                        
                     </div>
 
