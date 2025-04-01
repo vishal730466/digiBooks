@@ -30,7 +30,7 @@ const BookContainer = () => {
     const [color, set_color] = useState("black")
     const [back_color, set_backcolor] = useState("light")
 
-    const project = ["tic tac toe"]
+    const project = ["Tic-tac-toe"]
     
 
     const search_fun=async(e)=>{
@@ -134,7 +134,7 @@ useEffect(() => {
                     ))}
                       { project.map((item, index) => (
                         <div key={index} className='box' onClick={() => redirect_To_project("tic")}>
-                             <img alt='img' src="/contact.jpg" object-fit='cover'  height="85%" width="100%"/>
+                             <img alt='img' src={`${item}.jpg`} object-fit='cover'  height="85%" width="100%"/>
                              {item}
                         </div>
                     ))}
@@ -173,7 +173,7 @@ useEffect(() => {
                     ))}
                      { project.map((item, index) => (
                         <div key={index} className='mob_box' onClick={() => redirect_To_project("tic")}>
-                             <img alt='img' src="/contact.jpg" object-fit='cover'  height="85%" width="100%"/>
+                             <img alt='img' src={`${item}.jpg`} object-fit='cover'  height="85%" width="100%"/>
                              {item}
                         </div>
                     ))}

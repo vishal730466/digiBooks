@@ -63,3 +63,21 @@
 .about_heading2{
     color: #007bff;
 }
+
+/* -------------------------------- */
+.mob_about{
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    top: -10vh;
+}
+
+.about_nav{
+    position: absolute;
+    top: 10vh;
+}
+.mob_about_heading{
+    margin-left:30vw;
+    color: #007bff;
+    font-size: 10vw;
+}
