@@ -37,7 +37,7 @@ const myapi = () => {
           ))}
           </div>
 ))} */}
-                data is {one}
+       
               <iframe style={{height:"95vh" , width:"100vw"}} src={`/${one}.pdf`} height="100vh" width="100vw"> </iframe>
          </div>
   )
