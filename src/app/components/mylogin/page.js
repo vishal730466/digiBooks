@@ -56,8 +56,11 @@ const signup =async()=>{
       method:"POST",
       body:JSON.stringify({name,password,signup:true})
     })
+
     let fresult = await result.json();
+    // let fresult = result
     console.log(fresult)
+    
     if(fresult.success==true){
       alert("signup")
       // myval.setsignup(false)

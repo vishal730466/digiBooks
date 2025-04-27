@@ -17,6 +17,13 @@ const books_model= new mongoose.Schema({
     Total_pages:String
 })
 
+const userData_model= new mongoose.Schema({
+    userName:String,
+    data:[]
+})
+
+export const userData = mongoose.models.userData || mongoose.model("userData",userData_model)
+
 export const book_Schema = mongoose.models.Books_name || mongoose.model("Books_name",books_model)
 export const mySchema= mongoose.models.pages || mongoose.model("pages",mymodel)
 

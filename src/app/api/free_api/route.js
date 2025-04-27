@@ -1,9 +1,11 @@
 import { NextResponse } from "next/server";
 
-export async function GET(req){
+import { book_Schema, mySchema, userData, user_schema } from "@/app/database/mymodel";
+
+export async function GET() {
+    // await mongoose.connect(connectionStr)
+    // const data = await mySchema.find()
+    const data = await userData.find()
     
-    const url = new URL(req.url);
-    const key = url.searchParams.get("book_name");
-    // const gpageNo = url.searchParams.get("pageNo");
-    return NextResponse.json({data:key})
+    return NextResponse.json({ result: data })
 }

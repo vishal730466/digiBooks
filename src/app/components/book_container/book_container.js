@@ -30,7 +30,8 @@ const BookContainer = () => {
     const [color, set_color] = useState("black")
     const [back_color, set_backcolor] = useState("light")
 
-    const project = ["Tic-tac-toe"]
+    const project = ["tic"]
+    const books = ["rich-dad-poor-dad"]
     
 
     const search_fun=async(e)=>{
@@ -58,7 +59,10 @@ const BookContainer = () => {
         // router.push(`/components/view_book?val1=${a}&val2=${b}`)
         router.push(`presentetion/${a}`)
     }
-
+    const redirect_To_book = (a) => {
+        // router.push(`/components/view_book?val1=${a}&val2=${b}`)
+        router.push(`presentetion/book/${a}`)
+    }
 useEffect(() => {
     if (search) {
         const filtered = mydata.filter((i) =>
@@ -138,6 +142,12 @@ useEffect(() => {
                              {item}
                         </div>
                     ))}
+                    { books.map((item, index) => (
+                        <div key={index} className='box' onClick={() => redirect_To_book(item)}>
+                             <img alt='img' src={item} object-fit='cover'  height="85%" width="100%"/>
+                             {item}
+                        </div>
+                    ))}
 
                     </div>
                 }
@@ -172,7 +182,7 @@ useEffect(() => {
                         </div>
                     ))}
                      { project.map((item, index) => (
-                        <div key={index} className='mob_box' onClick={() => redirect_To_project("tic")}>
+                        <div key={index} className='mob_box' onClick={() => redirect_To_project(item)}>
                              <img alt='img' src={`${item}.jpg`} object-fit='cover'  height="85%" width="100%"/>
                              {item}
                         </div>

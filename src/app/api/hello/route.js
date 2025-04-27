@@ -1,5 +1,5 @@
 import { connectionStr } from "@/app/database/db";
-import { book_Schema, mySchema, user_schema } from "@/app/database/mymodel";
+import { book_Schema, mySchema, userData, user_schema } from "@/app/database/mymodel";
 import mongoose from "mongoose";
 import { NextResponse } from "next/server";
 
@@ -31,21 +31,31 @@ export async function POST(req) {
 
     }
     else if (payload.signup) {
-        const { name, password } = payload;
+        try {
+            const { name, password } = payload;
         if (payload.name && payload.password) {
             const find = await user_schema.findOne({ name: payload.name })
         if (find) {
             console.log("user found ", find);
             return NextResponse.json({ success: "exist" })
         } else {
+
+            let user_data = new userData({userName : name, data:{name:"vishal",course:"bca"}})
+            user_data = await user_data.save()
+
             result = new user_schema({ name, password })
-            const result1 = result.save()
+            const result1 =await result.save()
             return NextResponse.json({ result1, success: true ,message:"signup successful"})
         }
 
         } else {
             return NextResponse.json({message:"name and password both requird"})
-        }
+        }    
+        } catch (error) {
+            console.error("POST error:", error);
+            return NextResponse.json({ success: false, error: error.message });
+          }
+        
         
     }
     else {
