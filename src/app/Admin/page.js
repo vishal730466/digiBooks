@@ -12,6 +12,8 @@ const Admin = () => {
     const [photo , set_photo]= useState("")
     // const [width ,setwidth]=useState("")
     
+    const[admin, setadmin]=useState("")
+    
     const fetch_book=async()=>{
       let response= await fetch(`/api/admin?Book_name=${encodeURIComponent(book)}&PageNo=${encodeURIComponent(page_No)}`)
       let final_response= await response.json()
@@ -126,6 +128,7 @@ const Admin = () => {
         <div >
     
             {/* <input className='output_div' type='text' value={text} onChange={(e)=>settext(e.target.value)}></input> */}
+            <div className={admin =="Iam"?'none':'Admin_pass'}> <input type='text' value={admin} onChange={(e)=>setadmin(e.target.value)}></input></div>
             <div className='box'> 
     
               <textarea className='output_div' value={text} onChange={(e)=>settext(e.target.value)} rows="4" cols="50" placeholder="Enter text here..." ></textarea>
