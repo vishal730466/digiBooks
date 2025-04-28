@@ -204,7 +204,7 @@ useEffect(() => {
                         </div>
                     ))}
                          { books.map((item, index) => (
-                        <div key={index} className='box' onClick={() => redirect_To_book(item)}>
+                        <div key={index} className='mob_box' onClick={() => redirect_To_book(item)}>
                              <img alt='img' src={`${item}.jpg`} object-fit='cover'  height="85%" width="100%"/>
                              {item}
                         </div>
