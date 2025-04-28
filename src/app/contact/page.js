@@ -15,6 +15,7 @@ const Contact = () => {
     if (message) {
       
     alert("message sent")
+    set_message("")
     } else {
       alert("please enter message")
     }
