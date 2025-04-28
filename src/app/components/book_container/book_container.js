@@ -22,6 +22,7 @@ const BookContainer = () => {
     const [device_width, setdevicewidth] = useState("1000")
     const [loading, setLoding] = useState(true)
     const [mydata, setmydata] = useState([])
+    const [mybooks, setmybooks] = useState([])
     const [search , set_search] = useState("")
     const [search_active , set_search_active] = useState(false)
     const [filteredItems ,set_filteredItems] = useState(false)
@@ -31,7 +32,7 @@ const BookContainer = () => {
     const [back_color, set_backcolor] = useState("light")
 
     const project = ["tic"]
-    const books = ["rich-dad-poor-dad"]
+    const books = ["rich-dad-poor-dad","Cyber-security","PowerBI"]
     
 
     const search_fun=async(e)=>{
@@ -70,6 +71,12 @@ useEffect(() => {
         );
         set_filteredItems(filtered)
         console.log("Filtered:", filtered);
+
+        const filtered_books = books.filter((i) =>
+            i.toLowerCase().includes(search.toLowerCase())
+        );
+        setmybooks(filtered_books)
+        console.log("mybooks",mybooks);
     }
     else{
         set_filteredItems(mydata)
@@ -83,7 +90,7 @@ useEffect(() => {
         set_backcolor(localStorage.getItem("back_color"))
         console.log("bakcolor", back_color);
     
-    },[Theme])
+    },[Theme , mybooks])
     useEffect(() => {
         get()
         if (typeof window !== "undefined") {
@@ -118,12 +125,21 @@ useEffect(() => {
                 
             {(() => {
                 if (filteredItems.length > 0) {
+                    if(mybooks > 0){
+                       return mybooks.map((item, index) => (
+                            <div key={index} className='box' onClick={() => redirect(item.book_name, item.Total_pages)}>
+                                <img alt='img' src="/contact.jpg" object-fit='cover'  height="85%" width="100%"/>
+                                {item} {index}
+                            </div>
+                        ));
+                    }
                     return filteredItems.map((item, index) => (
                         <div key={index} className='box' onClick={() => redirect(item.book_name, item.Total_pages)}>
                             <img alt='img' src="/contact.jpg" object-fit='cover'  height="85%" width="100%"/>
                             {item.book_name} {item.pageNo}
                         </div>
                     ));
+                    
                 }
                 else if(search){
                     return <h1>No result found</h1>
@@ -144,7 +160,7 @@ useEffect(() => {
                     ))}
                     { books.map((item, index) => (
                         <div key={index} className='box' onClick={() => redirect_To_book(item)}>
-                             <img alt='img' src={item} object-fit='cover'  height="85%" width="100%"/>
+                             <img alt='img' src={`${item}.jpg`} object-fit='cover'  height="85%" width="100%"/>
                              {item}
                         </div>
                     ))}
@@ -183,6 +199,12 @@ useEffect(() => {
                     ))}
                      { project.map((item, index) => (
                         <div key={index} className='mob_box' onClick={() => redirect_To_project(item)}>
+                             <img alt='img' src={`${item}.jpg`} object-fit='cover'  height="85%" width="100%"/>
+                             {item}
+                        </div>
+                    ))}
+                         { books.map((item, index) => (
+                        <div key={index} className='box' onClick={() => redirect_To_book(item)}>
                              <img alt='img' src={`${item}.jpg`} object-fit='cover'  height="85%" width="100%"/>
                              {item}
                         </div>
