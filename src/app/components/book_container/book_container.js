@@ -31,7 +31,7 @@ const BookContainer = () => {
     const [color, set_color] = useState("black")
     const [back_color, set_backcolor] = useState("light")
 
-    const project = ["tic"]
+    const project = ["tic-tac-toe"]
     const books = ["rich-dad-poor-dad","Cyber-security","PowerBI"]
     
 
@@ -148,12 +148,12 @@ useEffect(() => {
                     return <div style={{width:"100vw",display:"flex",flexWrap:"wrap"}}>
                         { mydata.map((item, index) => (
                         <div key={index} className='box' onClick={() => redirect(item.book_name, item.Total_pages)}>
-                             <img alt='img' src="/contact.jpg" object-fit='cover'  height="85%" width="100%"/>
+                             <img alt='img' src={`${item.book_name}.jpeg`} object-fit='cover'  height="85%" width="100%"/>
                              {item.book_name}
                         </div>
                     ))}
                       { project.map((item, index) => (
-                        <div key={index} className='box' onClick={() => redirect_To_project("tic")}>
+                        <div key={index} className='box' onClick={() => redirect_To_project(item)}>
                              <img alt='img' src={`${item}.jpg`} object-fit='cover'  height="85%" width="100%"/>
                              {item}
                         </div>
