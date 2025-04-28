@@ -8,6 +8,10 @@ const Contact = () => {
   const [color, set_color] = useState("black")
   const [back_color, set_backcolor] = useState("light")
 
+  const send = ()=>{
+    alert("message sent")
+  }
+
 
   useEffect(()=>{
     set_color(localStorage.getItem("text_color"))
@@ -29,7 +33,7 @@ const Contact = () => {
             <input className='contact_inp' type="text" id="name" name="name" placeholder="Your Name" required />
             <input className='contact_inp' type="email" id="email" name="email" placeholder="Your Email" required />
             <textarea className='contact_inp' id="message" name="message" rows="4" placeholder="Your Message" required></textarea>
-            <button className='contact_btn'>Send Message</button>
+            <button className='contact_btn' onClick={send}>Send Message</button>
           </div>
         </div>
       </div>
