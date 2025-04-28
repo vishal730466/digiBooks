@@ -128,7 +128,7 @@ useEffect(() => {
                     if(mybooks > 0){
                        return mybooks.map((item, index) => (
                             <div key={index} className='box' onClick={() => redirect(item.book_name, item.Total_pages)}>
-                                <img alt='img' src="/contact.jpg" object-fit='cover'  height="85%" width="100%"/>
+                                <img alt='img' src={`${item.book_name}.jpg`} object-fit='cover'  height="85%" width="100%"/>
                                 {item} {index}
                             </div>
                         ));
@@ -182,7 +182,7 @@ useEffect(() => {
                 if (filteredItems.length > 0) {
                     return filteredItems.map((item, index) => (
                         <div key={index} className='mob_box' onClick={() => redirect(item.book_name, item.Total_pages)}>
-                            <img alt='img' src="/contact.jpg" object-fit='cover'  height="85%" width="100%"/>
+                            <img alt='img' src={`${item.book_name}.jpg`} object-fit='cover'  height="85%" width="100%"/>
                             {item.book_name} {item.pageNo}
                         </div>
                     ));
@@ -193,7 +193,7 @@ useEffect(() => {
                     return<div style={{width:"100vw",display:"flex",flexWrap:"wrap",justifyContent:"space-between"}}>
                        {  mydata.map((item, index) => (
                         <div key={index} className='mob_box' onClick={() => redirect(item.book_name, item.Total_pages)}>
-                            <img alt='img' src="/contact.jpg" object-fit='cover'  height="85%" width="100%"/>
+                            <img alt='img' src={`${item.book_name}.jpg`} object-fit='cover'  height="85%" width="100%"/>
                             {item.book_name} {item.pageNo}
                         </div>
                     ))}
