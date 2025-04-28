@@ -81,7 +81,7 @@ useEffect(() => {
     else{
         set_filteredItems(mydata)
     }
-    // console.log("fil ",filteredItems);
+    // console.log("fil ",filteredItems);       
     console.log("search",search);
 }, [search]); // Runs after `search` updates
 
@@ -148,7 +148,7 @@ useEffect(() => {
                     return <div style={{width:"100vw",display:"flex",flexWrap:"wrap"}}>
                         { mydata.map((item, index) => (
                         <div key={index} className='box' onClick={() => redirect(item.book_name, item.Total_pages)}>
-                             <img alt='img' src={`${item.book_name}.jpeg`} object-fit='cover'  height="85%" width="100%"/>
+                             <img alt='img' src={`${item.book_name}.jpg`} object-fit='cover'  height="85%" width="100%"/>
                              {item.book_name}
                         </div>
                     ))}

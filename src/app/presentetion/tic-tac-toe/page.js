@@ -184,7 +184,7 @@ console.log("index is ",i);
 
         {/* -------------- page 2 ---------------------- */}
                     <div onAnimationEnd={ani_end} className={`page2 ${animate ? "animate" : ""} ${back_animate ? "priveous_page" : ""}`} style={{backgroundColor:page_color}}>
-                        
+                        Tic tac toe
                         
                     </div>
                     <div className='page3' style={{backgroundColor:page_color}}>

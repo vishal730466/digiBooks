@@ -42,6 +42,7 @@ const Login = () => {
 
     if(res.success){
       alert("login")
+      localStorage.setItem("user_name",res.result.name)
       dispatch(setlogin(res.result.name))
     }
     else{
