@@ -32,7 +32,7 @@ const BookContainer = () => {
     const [back_color, set_backcolor] = useState("light")
 
     const project = ["tic-tac-toe"]
-    const books = ["rich-dad-poor-dad","Cyber-security","PowerBI","HTML_notes"]
+    const books = ["rich-dad-poor-dad","Cyber-security","PowerBI","HTML_notes","NWS","Java"]
     
 
     const search_fun=async(e)=>{
